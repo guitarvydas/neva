@@ -1,0 +1,66 @@
+[
+  {
+    "name": "main",
+    "children": [
+      {
+        "name": "fmt.Println",
+        "id": 5
+      },
+      {
+        "name": "fmt.Scanln",
+        "id": 9
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": ":start",
+        "target_port": "",
+        "target": {
+          "name": "fmt.Scanln",
+          "id": 9
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "fmt.Scanln",
+          "id": 9
+        },
+        "target": {
+          "name": "fmt.Println",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": ":stop",
+        "source": {
+          "name": "fmt.Println",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "fmt.Println",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "fmt.Scanln",
+          "id": 9
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,8 @@
+import { fmt }
+
+def Main(start any) (stop any) {
+	fmt.Scanln, fmt.Println
+	---
+	:start -> scanln -> println -> :stop
+}
+
