@@ -1,11 +1,15 @@
-# usage
-`make`
-
 # Goal
 Draw diagrams of apps and convert them to Neva
 
+# usage
+`make`
+
 # WIP
-`das2json.mjs` converts `neva-echo.drawio` into `neva-echo.drawio.json`
+Progress thus far: `das2json.mjs` converts `neva-echo.drawio` into `neva-echo.drawio.json`.
+
+I would be glad to explain details if anyone would like to do this. Anyone would probably be able to do this faster than I can. 
+
+Modulo learning curve for learning Neva, I think that this is an afternoon project. You don't need to build a diagram editor, since draw.io is good enough. You don't need to build a compiler since existing compilers can do the heavy lifting. The remaining task(s) is to write a grammar for JSON, then write a .rewrite file that outputs Neva text. There is a learning curve for learning how to write OhmJS grammars and .rewrite specs, but, I don't think that it's a huge learning curve.
 
 # future approach?
 Use t2t to transpile `neva-echo.drawio.json`
