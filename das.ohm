@@ -1,26 +1,26 @@
 das {
-  Main = "[" (Drawing ","?)+ "]"
-  Drawing = "{" Name "," Children "," Connections "}"
+  Main = "[" Drawing+ "]"
+  Drawing = "{" Name  Children  Connections "}"
   Name = Str<"name"> ":" String
   Children = Str<"children"> ":" "[" Child_rec? "]"
   Connections = Str<"connections"> ":" "[" Wire_rec? "]"
 
     Child_rec = 
-      | PartRef "," Child_rec -- many
+      | PartRef  Child_rec -- many
       | PartRef           -- last
     Wire_rec =
-      | WireDef "," Wire_rec -- many
+      | WireDef  Wire_rec -- many
       | WireDef              -- last
-    WireDef = "{" Direction "," SourcePort "," TargetPort "," Source? "," Target? "}"
-    PartRef = "{" Name "," ID "}"
+    WireDef = "{" Direction  SourcePort  TargetPort  Source?  Target? "}"
+    PartRef = "{" Name  ID "}"
     SourcePort =
       | Str<"source_port"> ":" String
       | Str<"source_port"> ":" EmptyString
     TargetPort =
       | Str<"target_port"> ":" String
       | Str<"target_port"> ":" EmptyString
-    Source = PartRef
-    Target = PartRef
+    Source = Str<"source"> ":" PartRef
+    Target = Str<"target"> ":" PartRef
     ID = Str<"id"> ":" digit+
     Direction = Str<"dir"> ":" (dirDown | dirAcross | dirUp | dirThrough)
     dirDown = "0"
@@ -31,5 +31,6 @@ das {
       EmptyString = dq dq
       Str <s> = dq s dq
       dq = "\""
-      char = alnum | "." | "_" | ":"
+      char = alnum | "." | "_" | ":" | "✗"
+        space += ","
 }
