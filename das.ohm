@@ -1,36 +1,37 @@
 das {
-  Main = "[" Drawing+ "]"
-  Drawing = "{" Name  Children  Connections "}"
-  Name = Str<"name"> ":" String
-  Children = Str<"children"> ":" "[" Child_rec? "]"
-  Connections = Str<"connections"> ":" "[" Wire_rec? "]"
+  main = "[" ws drawing+ "]" ws
+  drawing = "{" ws name  children  connections "}" ws
+  name = str<"name"> ":" ws string ws
+  children = str<"children"> ":" ws "[" ws child_rec? "]" ws
+  connections = str<"connections"> ":" ws "[" ws wire_rec? "]" ws
 
-    Child_rec = 
-      | PartRef  Child_rec -- many
-      | PartRef           -- last
-    Wire_rec =
-      | WireDef  Wire_rec -- many
-      | WireDef              -- last
-    WireDef = "{" Direction  SourcePort  TargetPort  Source?  Target? "}"
-    PartRef = "{" Name  ID "}"
-    SourcePort =
-      | Str<"source_port"> ":" String
-      | Str<"source_port"> ":" EmptyString
-    TargetPort =
-      | Str<"target_port"> ":" String
-      | Str<"target_port"> ":" EmptyString
-    Source = Str<"source"> ":" PartRef
-    Target = Str<"target"> ":" PartRef
-    ID = Str<"id"> ":" digit+
-    Direction = Str<"dir"> ":" (dirDown | dirAcross | dirUp | dirThrough)
+    child_rec = 
+      | partRef  child_rec -- many
+      | partRef           -- last
+    wire_rec =
+      | wireDef  wire_rec -- many
+      | wireDef              -- last
+    wireDef = "{" ws direction  sourcePort  targetPort  source?  target? "}" ws
+    partRef = "{" ws name  id "}" ws
+    sourcePort =
+      | str<"source_port"> ":" ws string
+      | str<"source_port"> ":" ws emptystring
+    targetPort =
+      | str<"target_port"> ":" ws string
+      | str<"target_port"> ":" ws  emptystring
+    source = str<"source"> ":" ws partRef
+    target = str<"target"> ":" ws partRef
+    id = str<"id"> ":" ws digit+ ws
+    direction = str<"dir"> ":" ws (dirDown | dirAcross | dirUp | dirThrough) ws
     dirDown = "0"
     dirAcross = "1"
     dirUp = "2"
     dirThrough = "3"
-      String = dq char+ dq
-      EmptyString = dq dq
-      Str <s> = dq s dq
+      string = dq char+ dq ws
+      emptystring = dq dq ws
+      str <s> = dq s dq ws
       dq = "\""
-      char = alnum | "." | "_" | ":" | "✗"
+      char = ~dq any
         space += ","
+	ws = spaces
 }
