@@ -1,16 +1,16 @@
 % rewrite das {
-  main [_g ws drawing+ _h ws2] = ‛«drawing»’
-  drawing [_b ws name children connections _e ws2] = ‛def «name» () () {\n«children»\n«connections»\n}\n’
-  name [name _c ws s ws2] = ‛«s»’
-  children [_children _c ws _g ws2 childR? _h ws3] = ‛«childR»’
+  main [_g ws drawing+ _h ws2] = ‛«_g»«ws»«drawing»«_h»«ws2»’
+  drawing [_b ws name children connections _e ws2] = ‛«_b»«ws»«name»«children»«connections»«_e»«ws2»’
+  name [name _c ws s ws2] = ‛«name»«_c»«ws»«s»«ws2»’
+  children [_children _c ws _g ws2 childR? _h ws3] = ‛«_children»«_c»«ws»«_g»«ws2»«childR»«_h»«ws3»’
   connections [_connections _c ws _g ws2 wireR? _h ws3] = ‛«_connections»«_c»«ws»«_g»«ws2»«wireR»«_h»«ws3»’
 
-    childR_many [partRef childR] = ‛«partRef», «childR»’
+    childR_many [partRef childR] = ‛«partRef»«childR»’
     childR_last [partRef] = ‛«partDef»’
     wireR_many [wireDef wireR] = ‛«wireDef»«wireR»’
     wireR_last [wireDef] = ‛«wireDef»’
     wireDef [_b ws direction  sourcePort  targetPort  source?  target? _e ws2] = ‛«_b»«ws»«direction»«sourcePort»«targetPort»«source»«target»«_e»«ws2»’
-    partRef [_b ws name  id _e ws2] = ‛«name»’
+    partRef [_b ws name  id _e ws2] = ‛«_b»«ws»«name»«id»«_e»«ws2»’
     sourcePort_strng [p _c ws s] = ‛«p»«_c»«ws»«s»’
     sourcePort_emptystrng [p _c ws es] = ‛«p»«_c»«ws»«es»’
     targetPort_strng [p _c ws s] = ‛«p»«_c»«ws»«s»’
@@ -18,13 +18,13 @@
     source [s _c ws partRef] = ‛«s»«_c»«ws»«partRef»’
     target [t _c ws partRef] = ‛«t»«_c»«ws»«partRef»’
     id [id _c ws digit+ ws2] = ‛«id»«_c»«ws»«digit»«ws2»’
-    direction [dir _c ws dirEnum ws2] = ‛’
+    direction [dir _c ws dirEnum ws2] = ‛«dir»«_c»«ws»«dirEnum»«ws2»’
     dirEnum [d ws] = ‛«d»«ws»’
     dirDown [c] = ‛«c»’
     dirAcross [c] = ‛«c»’
     dirUp [c] = ‛«c»’
     dirThrough [c] = ‛«c»’
-      strng [dq char+ dq2 ws] = ‛«char»’
+      strng [dq char+ dq2 ws] = ‛«dq»«char»«dq2»«ws»’
       emptystrng [dq dq2 ws] = ‛«dq»«dq2»«ws»’
       str [dq s dq2 ws] = ‛«dq»«s»«dq2»«ws»’
       dq [c] = ‛«c»’

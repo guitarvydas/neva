@@ -1,28 +1,28 @@
 das {
   main = "[" ws drawing+ "]" ws
-  drawing = "{" ws name  children  connections "}" ws
-  name = str<"name"> ":" ws strng ws
+  drawing = "{" ws name "," ws children  "," ws connections "}" ws
+  name = str<"name"> ":" ws strng
   children = str<"children"> ":" ws "[" ws childR? "]" ws
   connections = str<"connections"> ":" ws "[" ws wireR? "]" ws
 
     childR = 
-      | partRef  childR -- many
-      | partRef         -- last
+      | partRef "," ws childR -- many
+      | partRef               -- last
     wireR =
-      | wireDef  wireR -- many
-      | wireDef        -- last
-    wireDef = "{" ws direction  sourcePort  targetPort  source?  target? "}" ws
-    partRef = "{" ws name  id "}" ws
+      | wireDef "," ws wireR -- many
+      | wireDef              -- last
+    wireDef = "{" ws direction sourcePort targetPort  source?  target? "}" ws
+    partRef = "{" ws name "," ws id "}" ws
     sourcePort =
-      | str<"source_port"> ":" ws strng      -- strng
-      | str<"source_port"> ":" ws emptystrng -- emptystrng
+      | str<"source_port"> ":" ws strng "," ws      -- strng
+      | str<"source_port"> ":" ws emptystrng "," ws -- emptystrng
     targetPort =
-      | str<"target_port"> ":" ws strng      -- strng
-      | str<"target_port"> ":" ws emptystrng -- emptystrng
-    source = str<"source"> ":" ws partRef
-    target = str<"target"> ":" ws partRef
+      | str<"target_port"> ":" ws strng "," ws      -- strng
+      | str<"target_port"> ":" ws emptystrng "," ws -- emptystrng
+    source = str<"source"> ":" ws partRef ","? ws
+    target = str<"target"> ":" ws partRef ","? ws
     id = str<"id"> ":" ws digit+ ws
-    direction = str<"dir"> ":" ws dirEnum ws
+    direction = str<"dir"> ":" ws dirEnum "," ws
     dirEnum = (dirDown | dirAcross | dirUp | dirThrough) ws
     dirDown = "0"
     dirAcross = "1"
@@ -33,6 +33,5 @@ das {
       str <s> = dq s dq ws
       dq = "\""
       char = ~dq any
-        space += ","
 	ws = space*
 }

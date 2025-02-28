@@ -106,22 +106,22 @@ let _rewrite = {
 
 main : function (_g,ws,drawing,_h,ws2,) {
 enter_rule ("main");
-    set_return (`${_g.rwr ()}${ws.rwr ()}${drawing.rwr ().join ('')}${_h.rwr ()}${ws2.rwr ()}`);
+    set_return (`${drawing.rwr ().join ('')}`);
 return exit_rule ("main");
 },
 drawing : function (_b,ws,name,children,connections,_e,ws2,) {
 enter_rule ("drawing");
-    set_return (`${_b.rwr ()}${ws.rwr ()}${name.rwr ()}${children.rwr ()}${connections.rwr ()}${_e.rwr ()}${ws2.rwr ()}`);
+    set_return (`def ${name.rwr ()} () () {\n${children.rwr ()}\n${connections.rwr ()}\n}\n`);
 return exit_rule ("drawing");
 },
 name : function (name,_c,ws,s,ws2,) {
 enter_rule ("name");
-    set_return (`${name.rwr ()}${_c.rwr ()}${ws.rwr ()}${s.rwr ()}${ws2.rwr ()}`);
+    set_return (`${s.rwr ()}`);
 return exit_rule ("name");
 },
 children : function (_children,_c,ws,_g,ws2,childR,_h,ws3,) {
 enter_rule ("children");
-    set_return (`${_children.rwr ()}${_c.rwr ()}${ws.rwr ()}${_g.rwr ()}${ws2.rwr ()}${childR.rwr ().join ('')}${_h.rwr ()}${ws3.rwr ()}`);
+    set_return (`${childR.rwr ().join ('')}`);
 return exit_rule ("children");
 },
 connections : function (_connections,_c,ws,_g,ws2,wireR,_h,ws3,) {
@@ -131,7 +131,7 @@ return exit_rule ("connections");
 },
 childR_many : function (partRef,childR,) {
 enter_rule ("childR_many");
-    set_return (`${partRef.rwr ()}${childR.rwr ()}`);
+    set_return (`${partRef.rwr ()}, ${childR.rwr ()}`);
 return exit_rule ("childR_many");
 },
 childR_last : function (partRef,) {
@@ -156,7 +156,7 @@ return exit_rule ("wireDef");
 },
 partRef : function (_b,ws,name,id,_e,ws2,) {
 enter_rule ("partRef");
-    set_return (`${_b.rwr ()}${ws.rwr ()}${name.rwr ()}${id.rwr ()}${_e.rwr ()}${ws2.rwr ()}`);
+    set_return (`${name.rwr ()}`);
 return exit_rule ("partRef");
 },
 sourcePort_strng : function (p,_c,ws,s,) {
@@ -196,7 +196,7 @@ return exit_rule ("id");
 },
 direction : function (dir,_c,ws,dirEnum,ws2,) {
 enter_rule ("direction");
-    set_return (`${dir.rwr ()}${_c.rwr ()}${ws.rwr ()}${dirEnum.rwr ()}${ws2.rwr ()}`);
+    set_return (``);
 return exit_rule ("direction");
 },
 dirEnum : function (d,ws,) {
@@ -226,7 +226,7 @@ return exit_rule ("dirThrough");
 },
 strng : function (dq,char,dq2,ws,) {
 enter_rule ("strng");
-    set_return (`${dq.rwr ()}${char.rwr ().join ('')}${dq2.rwr ()}${ws.rwr ()}`);
+    set_return (`${char.rwr ().join ('')}`);
 return exit_rule ("strng");
 },
 emptystrng : function (dq,dq2,ws,) {
