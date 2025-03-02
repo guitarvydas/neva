@@ -1,16 +1,50 @@
 % rewrite drawio {
-  Mxfile [_lt _mxfile attr* _gt DiagramTab+ _emxfile] = ‛«_lt»«_mxfile»«attr»«_gt»«DiagramTab»«_emxfile»’
-  DiagramTab_withContent [_lt _dia Name ID _gt MxGraphModel _edia] = ‛«_lt»«_dia»«Name»«ID»«_gt»«MxGraphModel»«_edia»’
-  DiagramTab_noContent [_lt _dia attr* _end] = ‛«_lt»«_dia»«attr»«_end»’
-  MxGraphModel [_lt _gm Attribute* _gt Root _egm] = ‛«_lt»«_gm»«Attribute»«_gt»«Root»«_egm»’
-  Root [_lt _root _gt Cell+ _eroot] = ‛«_lt»«_root»«_gt»«Cell»«_eroot»’
+  Mxfile [_lt _mxfile attr* _gt DiagramTab+ _emxfile] =
+‛\n"mxfile" : {
+  «attr»
+  «DiagramTab»
+}’
+  DiagramTab_withContent [_lt _dia Name ID _gt MxGraphModel _edia] =
+‛\n"diagram" : {
+  «Name»
+  «ID»
+  «MxGraphModel»
+},’
+  DiagramTab_noContent [_lt _dia attr* _end] = 
+‛\n"diagram": {
+  «attr»
+},’
 
-  Cell_cell1 [_lt _mxcell ID Parent _end] = ‛«_lt»«_mxcell»«ID»«Parent»«_end»’
-  Cell_cell0 [_lt _mxcell ID _end] = ‛«_lt»«_mxcell»«ID»«_end»’
-  Cell_other [_lt _mxcell Attribute* _gt CellContents _emxcell] = ‛«_lt»«_mxcell»«Attribute»«_gt»«CellContents»«_emxcell»’
+  MxGraphModel [_lt _gm Attribute* _gt Root _egm] = 
+‛\n"graphmodel": {
+  «Attribute»
+  «Root»
+},
+’
+  Root [_lt _root _gt Cell+ _eroot] = 
+‛\n"root": {
+  «Cell»
+},’
+
+  Cell_cell1 [_lt _mxcell ID Parent _end] = 
+‛\n"cell": {«ID»,«Parent»}’
+  Cell_cell0 [_lt _mxcell ID _end] = 
+‛\n"cell": {«ID»}’
+  Cell_other [_lt _mxcell Attribute* _gt CellContents _emxcell] = 
+‛\n"cell": {
+  «Attribute»
+  «CellContents»
+},’
     
-  CellContents_noContent [_lt _geo Attribute* _end] = ‛«_lt»«_geo»«Attribute»«_end»’
-  CellContents_withContent [_lt _geo Attribute* _gt GeometryContents _egeo] = ‛«_lt»«_geo»«Attribute»«_gt»«GeometryContents»«_egeo»’
+  CellContents_noContent [_lt _geo Attribute* _end] = 
+‛"geometry": {
+  «Attribute»
+},’
+  CellContents_withContent [_lt _geo Attribute* _gt GeometryContents _egeo] = 
+‛\n"geometry" {
+  «Attribute»
+  «GeometryContents»
+},’
 
     GeometryContents [item+] = ‛«item»’
     GeometryItem_sourcePoint [p] = ‛«p»’    
@@ -19,27 +53,31 @@
     GeometryItem_rect [r] = ‛«r»’    
     GeometryItem_array [a] = ‛«a»’    
 
-    SourcePoint [_lt _mxpoint Xcoord Ycoord _as _eq dq _sourcePoint dq2 _end] = ‛«_lt»«_mxpoint»«Xcoord»«Ycoord»«_as»«_eq»«dq»«_sourcePoint»«dq2»«_end»’
-    TargetPoint [_lt _mxpoint Xcoord Ycoord _as _eq dq _targetPoint dq2 _end] = ‛«_lt»«_mxpoint»«Xcoord»«Ycoord»«_as»«_eq»«dq»«_targetPoint»«dq2»«_end»’
-    Point [_lt _ x y _e] = ‛«_lt»«_»«x»«y»«_e»’
-    RectangleGeometry [_lt _ attr* _e] = ‛«_lt»«_»«attr»«_e»’
-    ArrayGeometry [_lt _ attr* _gt GeometryContents _e] = ‛«_lt»«_»«attr»«_gt»«GeometryContents»«_e»’
+    SourcePoint [_lt _mxpoint Xcoord Ycoord _as _eq dq _sourcePoint dq2 _end] = 
+‛\n"point" : {"xy": [«Xcoord»,«Ycoord»], "kind":"sourcepoint"},’
+    TargetPoint [_lt _mxpoint Xcoord Ycoord _as _eq dq _targetPoint dq2 _end] =
+‛\n"point" : {"xy": [«Xcoord»,«Ycoord»], "kind":"targetpoint"},’
+    Point [_lt _ x y _e] = ‛"point":[«x»,«y»],’
+    RectangleGeometry [_lt _ attr* _e] = ‛\n"rectangle":{«attr»}’
+    ArrayGeometry [_lt _ attr* _gt GeometryContents _e] = 
+‛\n"array" : {
+  «attr»
+  «GeometryContents»
+},’
 
-    Xcoord [_x _eq numericString] = ‛«_x»«_eq»«numericString»’
-    Ycoord [_y _eq numericString] = ‛«_y»«_eq»«numericString»’
+    Xcoord [_x _eq numericString] = ‛«numericString»’
+    Ycoord [_y _eq numericString] = ‛«numericString»’
     
-    Name [_name _eq str] = ‛«_name»«_eq»«str»’
-    ID [_id _eq str] = ‛«_id»«_eq»«str»’
-    Parent [_parent _eq str] = ‛«_parent»«_eq»«str»’
-    Attribute_id [id] = ‛«id»’
-    Attribute_parent [p] = ‛«p»’
-    Attribute_num [sym _eq nstr] = ‛«sym»«_eq»«nstr»’
-    Attribute_other [sym _eq str] = ‛«sym»«_eq»«str»’
+    Name [_ _eq s] = ‛"name" : s, ’
+    ID [_ _eq s] = ‛"id" : s, ’
+    Parent [_ _eq s] = ‛"parent" : s, ’
+    Attribute_num [sym _eq nstr] = ‛\n"«sym»" : «nstr», ’
+    Attribute_other [sym _eq str] = ‛\n"«sym»" : «str», ’
 
       sym [letter symFollow*] = ‛«letter»«symFollow»’
       symFollow [c] = ‛«c»’
       notGT [c] = ‛«c»’
-      numericString [dq ndigit+ dq2] = ‛«dq»«ndigit»«dq2»’
+      numericString [dq ndigit+ dq2] = ‛«ndigit»’
       ndigit [c] = ‛«c»’
       str [dq char* dq2] = ‛«dq»«char»«dq2»’
       dq [c] = ‛«c»’

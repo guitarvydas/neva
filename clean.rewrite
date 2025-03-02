@@ -1,0 +1,13 @@
+% rewrite clean {
+  main [item+] = ‛«item»’
+  item_cnc [x] = ‛\n}’
+  item_cc [x] = ‛}’
+  item_blank [x] = ‛\n’
+  item_default [x] = ‛«x»’
+  commaNLClose [spaces _comma spaces2 nl snl* _close] = ‛’
+  commaClose [spaces _comma spaces2 _close] = ‛’
+  blankline [nl1 space+ nl2] = ‛’
+  nl [c] = ‛«c»’
+  snl [c] = ‛«c»’
+  space [c] = ‛«c»’
+}

@@ -1,0 +1,14 @@
+clean {
+  main = item+
+  item =
+    | commaNLClose -- cnc
+    | commaClose -- cc
+    | blankline    -- blank
+    | any          -- default
+  commaNLClose = spaces "," spaces nl snl* "}"
+  commaClose = spaces "," spaces "}"
+  blankline = nl space+ nl
+  nl = "\n" | "\t"
+  snl = space | nl
+  space := " "
+}

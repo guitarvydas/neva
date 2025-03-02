@@ -35,16 +35,16 @@ drawio {
     ID = "id" "=" str
     Parent = "parent" "=" str
     Attribute =
-      | ID          -- id
-      | Parent      -- parent
       | sym "=" numericString -- num
+      | sym "=" fractionalString -- frac
       | sym "=" str -- other
 
       sym = letter symFollow*
       symFollow = alnum | "_"
       notGT = ~">" any
-      numericString = dq ndigit+ dq
-      ndigit = digit | "."
+      numericString = dq digit+ dq
+      fractionalString = dq fdigit+ dq
+      fdigit = digit | "."
       str = dq char* dq
       dq = "\""
       char =
