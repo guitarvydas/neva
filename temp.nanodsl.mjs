@@ -122,52 +122,52 @@ let _rewrite = {
 
 Mxfile : function (_lt,_mxfile,stuff,_gt,DiagramTab,_emxfile,) {
 enter_rule ("Mxfile");
-    set_return (`${_lt.rwr ()}${_mxfile.rwr ()}${stuff.rwr ()}${_gt.rwr ()}${DiagramTab.rwr ().join ('')}\n${_emxfile.rwr ()}`);
+    set_return (`${_lt.rwr ()}${_mxfile.rwr ()}${stuff.rwr ()}${_gt.rwr ()}${DiagramTab.rwr ().join ('')}${_emxfile.rwr ()}`);
 return exit_rule ("Mxfile");
 },
 DiagramTab_withContent : function (_lt,_dia,Name,ID,_gt,MxGraphModel,_edia,) {
 enter_rule ("DiagramTab_withContent");
-    set_return (`\n${_lt.rwr ()}${_dia.rwr ()}${Name.rwr ()}${ID.rwr ()}${_gt.rwr ()}${MxGraphModel.rwr ()}\n${_edia.rwr ()}`);
+    set_return (`${_lt.rwr ()}${_dia.rwr ()}${Name.rwr ()}${ID.rwr ()}${_gt.rwr ()}${MxGraphModel.rwr ()}${_edia.rwr ()}`);
 return exit_rule ("DiagramTab_withContent");
 },
 DiagramTab_noContent : function (_lt,_dia,stuff,_end,) {
 enter_rule ("DiagramTab_noContent");
-    set_return (`\n${_lt.rwr ()}${_dia.rwr ()}${stuff.rwr ()}${_end.rwr ()}\n`);
+    set_return (`${_lt.rwr ()}${_dia.rwr ()}${stuff.rwr ()}${_end.rwr ()}`);
 return exit_rule ("DiagramTab_noContent");
 },
 MxGraphModel : function (_lt,_gm,Attribute,_gt,Root,_egm,) {
 enter_rule ("MxGraphModel");
-    set_return (`\n${_lt.rwr ()}${_gm.rwr ()}${Attribute.rwr ().join ('')}${_gt.rwr ()}${Root.rwr ()}\n${_egm.rwr ()}`);
+    set_return (`${_lt.rwr ()}${_gm.rwr ()}${Attribute.rwr ().join ('')}${_gt.rwr ()}${Root.rwr ()}${_egm.rwr ()}`);
 return exit_rule ("MxGraphModel");
 },
 Root : function (_lt,_root,_gt,Cell,_eroot,) {
 enter_rule ("Root");
-    set_return (`\n${_lt.rwr ()}${_root.rwr ()}${_gt.rwr ()}${Cell.rwr ().join ('')}\n${_eroot.rwr ()}`);
+    set_return (`${_lt.rwr ()}${_root.rwr ()}${_gt.rwr ()}${Cell.rwr ().join ('')}${_eroot.rwr ()}`);
 return exit_rule ("Root");
 },
 Cell_cell1 : function (_lt,_mxcell,ID,Parent,_end,) {
 enter_rule ("Cell_cell1");
-    set_return (`\n[${ID.rwr ()}${Parent.rwr ()}\n]`);
+    set_return (`${_lt.rwr ()}${_mxcell.rwr ()}${ID.rwr ()}${Parent.rwr ()}${_end.rwr ()}`);
 return exit_rule ("Cell_cell1");
 },
 Cell_cell0 : function (_lt,_mxcell,ID,_end,) {
 enter_rule ("Cell_cell0");
-    set_return (`\n[${ID.rwr ()}\n]`);
+    set_return (`${_lt.rwr ()}${_mxcell.rwr ()}${ID.rwr ()}${_end.rwr ()}`);
 return exit_rule ("Cell_cell0");
 },
 Cell_other : function (_lt,_mxcell,Attribute,_gt,CellContents,_emxcell,) {
 enter_rule ("Cell_other");
-    set_return (`\n[${Attribute.rwr ().join ('')}${_gt.rwr ()}${CellContents.rwr ()}\n]`);
+    set_return (`${_lt.rwr ()}${_mxcell.rwr ()}${Attribute.rwr ().join ('')}${_gt.rwr ()}${CellContents.rwr ()}${_emxcell.rwr ()}`);
 return exit_rule ("Cell_other");
 },
 CellContents_noContent : function (_lt,_geo,Attribute,_end,) {
 enter_rule ("CellContents_noContent");
-    set_return (`\n${_lt.rwr ()}${_geo.rwr ()}${Attribute.rwr ().join ('')}${_end.rwr ()}`);
+    set_return (`${_lt.rwr ()}${_geo.rwr ()}${Attribute.rwr ().join ('')}${_end.rwr ()}`);
 return exit_rule ("CellContents_noContent");
 },
 CellContents_withContent : function (_lt,_geo,Attribute,_gt,GeometryContents,_egeo,) {
 enter_rule ("CellContents_withContent");
-    set_return (`\n[${Attribute.rwr ().join ('')}${_gt.rwr ()}${GeometryContents.rwr ()}]\n`);
+    set_return (`${_lt.rwr ()}${_geo.rwr ()}${Attribute.rwr ().join ('')}${_gt.rwr ()}${GeometryContents.rwr ()}${_egeo.rwr ()}`);
 return exit_rule ("CellContents_withContent");
 },
 GeometryContents : function (item,) {
@@ -202,52 +202,52 @@ return exit_rule ("GeometryItem_array");
 },
 SourcePoint : function (_lt,_mxpoint,Xcoord,Ycoord,_as,_eq,dq,_sourcePoint,dq2,_end,) {
 enter_rule ("SourcePoint");
-    set_return (`\n"source":[${Xcoord.rwr ()},${Ycoord.rwr ()}]`);
+    set_return (`${_lt.rwr ()}${_mxpoint.rwr ()}${Xcoord.rwr ()}${Ycoord.rwr ()}${_as.rwr ()}${_eq.rwr ()}${dq.rwr ()}${_sourcePoint.rwr ()}${dq2.rwr ()}${_end.rwr ()}`);
 return exit_rule ("SourcePoint");
 },
 TargetPoint : function (_lt,_mxpoint,Xcoord,Ycoord,_as,_eq,dq,_targetPoint,dq2,_end,) {
 enter_rule ("TargetPoint");
-    set_return (`\n"target":${Xcoord.rwr ()},${Ycoord.rwr ()}]`);
+    set_return (`${_lt.rwr ()}${_mxpoint.rwr ()}${Xcoord.rwr ()}${Ycoord.rwr ()}${_as.rwr ()}${_eq.rwr ()}${dq.rwr ()}${_targetPoint.rwr ()}${dq2.rwr ()}${_end.rwr ()}`);
 return exit_rule ("TargetPoint");
 },
-Point : function (_lt,_mxpoint,Xcoord,Ycoord,_end,) {
+Point : function (_lt,_,x,y,_e,) {
 enter_rule ("Point");
-    set_return (`\n"point":[${Xcoord.rwr ()},${Ycoord.rwr ()}]`);
+    set_return (`${_lt.rwr ()}${_.rwr ()}${x.rwr ()}${y.rwr ()}${_e.rwr ()}`);
 return exit_rule ("Point");
 },
-RectangleGeometry : function (_lt,_rect,attr,_end,) {
+RectangleGeometry : function (_lt,_,attr,_e,) {
 enter_rule ("RectangleGeometry");
-    set_return (`${_lt.rwr ()}${_rect.rwr ()}${attr.rwr ().join ('')}${_end.rwr ()}`);
+    set_return (`${_lt.rwr ()}${_.rwr ()}${attr.rwr ().join ('')}${_e.rwr ()}`);
 return exit_rule ("RectangleGeometry");
 },
-ArrayGeometry : function (_lt,_array,attr,_gt,GeometryContents,_endarray,) {
+ArrayGeometry : function (_lt,_,attr,_gt,GeometryContents,_e,) {
 enter_rule ("ArrayGeometry");
-    set_return (`${_lt.rwr ()}${_array.rwr ()}${attr.rwr ().join ('')}${_gt.rwr ()}${GeometryContents.rwr ()}${_endarray.rwr ()}`);
+    set_return (`${_lt.rwr ()}${_.rwr ()}${attr.rwr ().join ('')}${_gt.rwr ()}${GeometryContents.rwr ()}${_e.rwr ()}`);
 return exit_rule ("ArrayGeometry");
 },
 Xcoord : function (_x,_eq,numericString,) {
 enter_rule ("Xcoord");
-    set_return (`${numericString.rwr ()}`);
+    set_return (`${_x.rwr ()}${_eq.rwr ()}${numericString.rwr ()}`);
 return exit_rule ("Xcoord");
 },
 Ycoord : function (_y,_eq,numericString,) {
 enter_rule ("Ycoord");
-    set_return (`${numericString.rwr ()}`);
+    set_return (`${_y.rwr ()}${_eq.rwr ()}${numericString.rwr ()}`);
 return exit_rule ("Ycoord");
 },
 Name : function (_name,_eq,str,) {
 enter_rule ("Name");
-    set_return (`\n"name":${str.rwr ()},`);
+    set_return (`${_name.rwr ()}${_eq.rwr ()}${str.rwr ()}`);
 return exit_rule ("Name");
 },
 ID : function (_id,_eq,str,) {
 enter_rule ("ID");
-    set_return (`\n"id":${str.rwr ()},`);
+    set_return (`${_id.rwr ()}${_eq.rwr ()}${str.rwr ()}`);
 return exit_rule ("ID");
 },
 Parent : function (_parent,_eq,str,) {
 enter_rule ("Parent");
-    set_return (`\n"parent":${str.rwr ()},`);
+    set_return (`${_parent.rwr ()}${_eq.rwr ()}${str.rwr ()}`);
 return exit_rule ("Parent");
 },
 Attribute_id : function (id,) {
@@ -260,14 +260,14 @@ enter_rule ("Attribute_parent");
     set_return (`${p.rwr ()}`);
 return exit_rule ("Attribute_parent");
 },
-Attribute_num : function (sym,_eq,n,) {
+Attribute_num : function (sym,_eq,nstr,) {
 enter_rule ("Attribute_num");
-    set_return (`\n"${sym.rwr ()}":${n.rwr ()},`);
+    set_return (`${sym.rwr ()}${_eq.rwr ()}${nstr.rwr ()}`);
 return exit_rule ("Attribute_num");
 },
 Attribute_other : function (sym,_eq,str,) {
 enter_rule ("Attribute_other");
-    set_return (`\n"${sym.rwr ()}":${str.rwr ()},`);
+    set_return (`${sym.rwr ()}${_eq.rwr ()}${str.rwr ()}`);
 return exit_rule ("Attribute_other");
 },
 sym : function (letter,symFollow,) {
@@ -282,7 +282,7 @@ return exit_rule ("symFollow");
 },
 stuff : function (notGT,) {
 enter_rule ("stuff");
-    set_return (` ${notGT.rwr ().join ('')}`);
+    set_return (`${notGT.rwr ().join ('')}`);
 return exit_rule ("stuff");
 },
 notGT : function (c,) {
@@ -292,7 +292,7 @@ return exit_rule ("notGT");
 },
 numericString : function (dq,ndigit,dq2,) {
 enter_rule ("numericString");
-    set_return (`${ndigit.rwr ().join ('')}`);
+    set_return (`${dq.rwr ()}${ndigit.rwr ().join ('')}${dq2.rwr ()}`);
 return exit_rule ("numericString");
 },
 ndigit : function (c,) {

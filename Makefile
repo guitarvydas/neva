@@ -11,4 +11,4 @@ drawio:
 	./ndsl drawio.ohm drawio.rewrite support.js <sample.drawio
 
 drawio2:
-	./ndsl drawio.ohm drawio.rewrite support.js <sample2.drawio
+	./ndsl drawio.ohm drawio.rewrite support.js <sample2.drawio | sed -e 's/,>/>/g'
