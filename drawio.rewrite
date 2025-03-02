@@ -1,4 +1,4 @@
-% rewrite drawio1 {
+% rewrite drawio {
   Mxfile [_lt _mxfile stuff _gt DiagramTab+ _emxfile] = ‛«_lt»«_mxfile»«stuff»«_gt»«DiagramTab»\n«_emxfile»’
   DiagramTab_withContent [_lt _dia Name ID _gt MxGraphModel _edia] = ‛\n«_lt»«_dia»«Name»«ID»«_gt»«MxGraphModel»\n«_edia»’
   DiagramTab_noContent [_lt _dia stuff _end] = ‛\n«_lt»«_dia»«stuff»«_end»\n’
@@ -12,12 +12,19 @@
   CellContents_noContent [_lt _geo Attribute* _end] = ‛\n«_lt»«_geo»«Attribute»«_end»’
   CellContents_withContent [_lt _geo Attribute* _gt GeometryContents _egeo] = ‛\n[«Attribute»«_gt»«GeometryContents»]\n’
 
-    GeometryContents_mxpoints [MxPoint+] = ‛«MxPoint»’
-    MxPoint_sourcePoint [p] = ‛«p»’
-    MxPoint_targetPoint [p] = ‛«p»’
+    GeometryContents [item+] = ‛«item»’
+
+    GeometryItem_sourcePoint [p] = ‛«p»’
+    GeometryItem_targetPoint [p] = ‛«p»’
+    GeometryItem_point [p] = ‛«p»’
+    GeometryItem_rect [r] = ‛«r»’
+    GeometryItem_array [a] = ‛«a»’
 
     SourcePoint [_lt _mxpoint Xcoord Ycoord _as _eq dq _sourcePoint dq2 _end] = ‛\n"source":[«Xcoord»,«Ycoord»]’
     TargetPoint [_lt _mxpoint Xcoord Ycoord _as _eq dq _targetPoint dq2 _end] = ‛\n"target":«Xcoord»,«Ycoord»]’
+    Point [_lt _mxpoint Xcoord Ycoord _end] = ‛\n"point":[«Xcoord»,«Ycoord»]’
+    RectangleGeometry [_lt _rect attr* _end] = ‛«_lt»«_rect»«attr»«_end»’
+    ArrayGeometry [_lt _array attr* _gt GeometryContents _endarray] = ‛«_lt»«_array»«attr»«_gt»«GeometryContents»«_endarray»’
 
     Xcoord [_x _eq numericString] = ‛«numericString»’
     Ycoord [_y _eq numericString] = ‛«numericString»’
@@ -34,7 +41,8 @@
       symFollow [c] = ‛«c»’
       stuff [notGT+] = ‛ «notGT»’
       notGT [c] = ‛«c»’
-      numericString [dq digit+ dq2] = ‛«digit»’
+      numericString [dq ndigit+ dq2] = ‛«ndigit»’
+      ndigit [c] = ‛«c»’
       str [dq char* dq2] = ‛«dq»«char»«dq2»’
       dq [c] = ‛«c»’
       char_escapedDQ [c] = ‛«c»’

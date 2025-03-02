@@ -1,4 +1,4 @@
-all: drawio1
+all: drawio
 
 basic:
 	node das2json.mjs <neva-echo.drawio >neva-echo.drawio.json
@@ -7,5 +7,8 @@ basic:
 test:
 	./ndsl test.ohm test.rewrite support.js <test.txt
 
-drawio1:
-	./ndsl drawio1.ohm drawio1.rewrite support.js <sample.drawio
+drawio:
+	./ndsl drawio.ohm drawio.rewrite support.js <sample.drawio
+
+drawio2:
+	./ndsl drawio.ohm drawio.rewrite support.js <sample2.drawio

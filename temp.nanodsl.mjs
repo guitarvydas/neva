@@ -35,7 +35,7 @@ function exit_rule (name) {
 }
 
 const grammar = String.raw`
-drawio1 {
+drawio {
   Mxfile = "<" "mxfile" stuff ">" DiagramTab+ "</mxfile>"
   DiagramTab = 
     | "<" "diagram" Name ID ">" MxGraphModel "</diagram>" -- withContent
@@ -51,14 +51,19 @@ drawio1 {
       | "<" "mxGeometry" Attribute* "/>" -- noContent
       | "<" "mxGeometry" Attribute* ">" GeometryContents "</mxGeometry>" -- withContent
 
-    GeometryContents =
-      | MxPoint+ -- mxpoints
-    MxPoint =
+    GeometryContents = GeometryItem+
+    GeometryItem =
       | SourcePoint -- sourcePoint
       | TargetPoint -- targetPoint
+      | Point -- point
+      | RectangleGeometry -- rect
+      | ArrayGeometry -- array
 
     SourcePoint = "<" "mxPoint" Xcoord Ycoord "as" "=" dq "sourcePoint" dq "/>"
     TargetPoint = "<" "mxPoint" Xcoord Ycoord "as" "=" dq "targetPoint" dq "/>"
+    Point = "<" "mxPoint" Xcoord Ycoord "/>"
+    RectangleGeometry = "<" "mxRectangle" Attribute* "/>"
+    ArrayGeometry = "<" "Array" Attribute* ">" GeometryContents "</Array>"
 
     Xcoord = "x" "=" numericString
     Ycoord = "y" "=" numericString
@@ -76,7 +81,8 @@ drawio1 {
       symFollow = alnum | "_"
       stuff = notGT+
       notGT = ~">" any
-      numericString = dq digit+ dq
+      numericString = dq ndigit+ dq
+      ndigit = digit | "."
       str = dq char* dq
       dq = "\""
       char =
@@ -164,20 +170,35 @@ enter_rule ("CellContents_withContent");
     set_return (`\n[${Attribute.rwr ().join ('')}${_gt.rwr ()}${GeometryContents.rwr ()}]\n`);
 return exit_rule ("CellContents_withContent");
 },
-GeometryContents_mxpoints : function (MxPoint,) {
-enter_rule ("GeometryContents_mxpoints");
-    set_return (`${MxPoint.rwr ().join ('')}`);
-return exit_rule ("GeometryContents_mxpoints");
+GeometryContents : function (item,) {
+enter_rule ("GeometryContents");
+    set_return (`${item.rwr ().join ('')}`);
+return exit_rule ("GeometryContents");
 },
-MxPoint_sourcePoint : function (p,) {
-enter_rule ("MxPoint_sourcePoint");
+GeometryItem_sourcePoint : function (p,) {
+enter_rule ("GeometryItem_sourcePoint");
     set_return (`${p.rwr ()}`);
-return exit_rule ("MxPoint_sourcePoint");
+return exit_rule ("GeometryItem_sourcePoint");
 },
-MxPoint_targetPoint : function (p,) {
-enter_rule ("MxPoint_targetPoint");
+GeometryItem_targetPoint : function (p,) {
+enter_rule ("GeometryItem_targetPoint");
     set_return (`${p.rwr ()}`);
-return exit_rule ("MxPoint_targetPoint");
+return exit_rule ("GeometryItem_targetPoint");
+},
+GeometryItem_point : function (p,) {
+enter_rule ("GeometryItem_point");
+    set_return (`${p.rwr ()}`);
+return exit_rule ("GeometryItem_point");
+},
+GeometryItem_rect : function (r,) {
+enter_rule ("GeometryItem_rect");
+    set_return (`${r.rwr ()}`);
+return exit_rule ("GeometryItem_rect");
+},
+GeometryItem_array : function (a,) {
+enter_rule ("GeometryItem_array");
+    set_return (`${a.rwr ()}`);
+return exit_rule ("GeometryItem_array");
 },
 SourcePoint : function (_lt,_mxpoint,Xcoord,Ycoord,_as,_eq,dq,_sourcePoint,dq2,_end,) {
 enter_rule ("SourcePoint");
@@ -188,6 +209,21 @@ TargetPoint : function (_lt,_mxpoint,Xcoord,Ycoord,_as,_eq,dq,_targetPoint,dq2,_
 enter_rule ("TargetPoint");
     set_return (`\n"target":${Xcoord.rwr ()},${Ycoord.rwr ()}]`);
 return exit_rule ("TargetPoint");
+},
+Point : function (_lt,_mxpoint,Xcoord,Ycoord,_end,) {
+enter_rule ("Point");
+    set_return (`\n"point":[${Xcoord.rwr ()},${Ycoord.rwr ()}]`);
+return exit_rule ("Point");
+},
+RectangleGeometry : function (_lt,_rect,attr,_end,) {
+enter_rule ("RectangleGeometry");
+    set_return (`${_lt.rwr ()}${_rect.rwr ()}${attr.rwr ().join ('')}${_end.rwr ()}`);
+return exit_rule ("RectangleGeometry");
+},
+ArrayGeometry : function (_lt,_array,attr,_gt,GeometryContents,_endarray,) {
+enter_rule ("ArrayGeometry");
+    set_return (`${_lt.rwr ()}${_array.rwr ()}${attr.rwr ().join ('')}${_gt.rwr ()}${GeometryContents.rwr ()}${_endarray.rwr ()}`);
+return exit_rule ("ArrayGeometry");
 },
 Xcoord : function (_x,_eq,numericString,) {
 enter_rule ("Xcoord");
@@ -254,10 +290,15 @@ enter_rule ("notGT");
     set_return (`${c.rwr ()}`);
 return exit_rule ("notGT");
 },
-numericString : function (dq,digit,dq2,) {
+numericString : function (dq,ndigit,dq2,) {
 enter_rule ("numericString");
-    set_return (`${digit.rwr ().join ('')}`);
+    set_return (`${ndigit.rwr ().join ('')}`);
 return exit_rule ("numericString");
+},
+ndigit : function (c,) {
+enter_rule ("ndigit");
+    set_return (`${c.rwr ()}`);
+return exit_rule ("ndigit");
 },
 str : function (dq,char,dq2,) {
 enter_rule ("str");

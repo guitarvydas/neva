@@ -1,4 +1,4 @@
-drawio1 {
+drawio {
   Mxfile = "<" "mxfile" stuff ">" DiagramTab+ "</mxfile>"
   DiagramTab = 
     | "<" "diagram" Name ID ">" MxGraphModel "</diagram>" -- withContent
