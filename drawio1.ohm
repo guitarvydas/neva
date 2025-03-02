@@ -17,8 +17,8 @@ drawio1 {
     GeometryContents =
       | MxPoint+ -- mxpoints
     MxPoint =
-      | SourcePoint
-      | TargetPoint
+      | SourcePoint -- sourcePoint
+      | TargetPoint -- targetPoint
 
     SourcePoint = "<" "mxPoint" Xcoord Ycoord "as" "=" dq "sourcePoint" dq "/>"
     TargetPoint = "<" "mxPoint" Xcoord Ycoord "as" "=" dq "targetPoint" dq "/>"
