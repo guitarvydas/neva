@@ -1,0 +1,17 @@
+wstest {
+  Top = Macro*
+  Macro =
+    | Style -- style
+    | str -- string
+    | any -- other
+  Style = "style" "=" str
+  str = dq char* dq
+  dq = "\""
+  char =
+    | "\\\""  -- escapedDQ
+    | ~dq any -- other
+}
+
+// style="abc"
+// style="Hello World"
+

@@ -1,0 +1,11 @@
+% rewrite wstest {
+  Top [macro*] = ‛«macro»’
+  Macro_style [s] = ‛«s»’
+  Macro_string [s] = ‛«s»’
+  Macro_other [c] = ‛«c»’
+  Style [_ _eq s] = ‛«_»«_eq»«s»’
+  str [dq1 char* dq2] = ‛«dq1»«char»«dq2»’
+  dq [c] = ‛«c»’
+  char_escapedDQ [c] = ‛«c»’
+  char_other [c] = ‛«c»’
+}
