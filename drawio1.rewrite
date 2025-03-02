@@ -5,33 +5,34 @@
   MxGraphModel [_lt _gm Attribute* _gt Root _egm] = ‛\n«_lt»«_gm»«Attribute»«_gt»«Root»\n«_egm»’
   Root [_lt _root _gt Cell+ _eroot] = ‛\n«_lt»«_root»«_gt»«Cell»\n«_eroot»’
 
-  Cell_cell1 [_lt _mxcell ID Parent _end] = ‛\n{«ID»«Parent»}’
-  Cell_cell0 [_lt _mxcell ID _end] = ‛\n{«ID»}’
-  Cell_other [_lt _mxcell Attribute* _gt CellContents _emxcell] = ‛\n{«Attribute»«_gt»«CellContents»\n}’
+  Cell_cell1 [_lt _mxcell ID Parent _end] = ‛\n[«ID»«Parent»\n]’
+  Cell_cell0 [_lt _mxcell ID _end] = ‛\n[«ID»\n]’
+  Cell_other [_lt _mxcell Attribute* _gt CellContents _emxcell] = ‛\n[«Attribute»«_gt»«CellContents»\n]’
     
   CellContents_noContent [_lt _geo Attribute* _end] = ‛\n«_lt»«_geo»«Attribute»«_end»’
-  CellContents_withContent [_lt _geo Attribute* _gt GeometryContents _egeo] = ‛\n«_lt»«_geo»«Attribute»«_gt»«GeometryContents»«_egeo»’
+  CellContents_withContent [_lt _geo Attribute* _gt GeometryContents _egeo] = ‛\n[«Attribute»«_gt»«GeometryContents»]\n’
 
     GeometryContents_mxpoints [MxPoint+] = ‛«MxPoint»’
     MxPoint_sourcePoint [p] = ‛«p»’
     MxPoint_targetPoint [p] = ‛«p»’
 
-    SourcePoint [_lt _mxpoint Xcoord Ycoord _as _eq dq _sourcePoint dq2 _end] = ‛\n«_lt»«_mxpoint»«Xcoord»«Ycoord»«_as»«_eq»«dq»«_sourcePoint»«dq2»«_end»\n’
-    TargetPoint [_lt _mxpoint Xcoord Ycoord _as _eq dq _targetPoint dq2 _end] = ‛\n«_lt»«_mxpoint»«Xcoord»«Ycoord»«_as»«_eq»«dq»«_targetPoint»«dq2»«_end»\n’
+    SourcePoint [_lt _mxpoint Xcoord Ycoord _as _eq dq _sourcePoint dq2 _end] = ‛\n"source":[«Xcoord»,«Ycoord»]’
+    TargetPoint [_lt _mxpoint Xcoord Ycoord _as _eq dq _targetPoint dq2 _end] = ‛\n"target":«Xcoord»,«Ycoord»]’
 
-    Xcoord [_x _eq numericString] = ‛ «_x»«_eq»«numericString» ’
-    Ycoord [_y _eq numericString] = ‛ «_y»«_eq»«numericString» ’
+    Xcoord [_x _eq numericString] = ‛«numericString»’
+    Ycoord [_y _eq numericString] = ‛«numericString»’
     
-    Name [_name _eq str] = ‛ «_name»«_eq»«str» ’
-    ID [_id _eq str] = ‛ «_id»«_eq»«str» ’
-    Parent [_parent _eq str] = ‛ «_parent»«_eq»«str» ’
+    Name [_name _eq str] = ‛\n"name":«str»,’
+    ID [_id _eq str] = ‛\n"id":«str»,’
+    Parent [_parent _eq str] = ‛\n"parent":«str»,’
     Attribute_id [id] = ‛«id»’
     Attribute_parent [p] = ‛«p»’
-    Attribute_other [sym _eq str] = ‛ «sym»«_eq»«str» ’
+    Attribute_num [sym _eq n] = ‛\n"«sym»":«n»,’
+    Attribute_other [sym _eq str] = ‛\n"«sym»":«str»,’
 
       sym [letter symFollow*] = ‛«letter»«symFollow»’
       symFollow [c] = ‛«c»’
-      stuff [notGT+] = ‛ «notGT» ’
+      stuff [notGT+] = ‛ «notGT»’
       notGT [c] = ‛«c»’
       numericString [dq digit+ dq2] = ‛«digit»’
       str [dq char* dq2] = ‛«dq»«char»«dq2»’

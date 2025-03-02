@@ -14,14 +14,19 @@ drawio1 {
       | "<" "mxGeometry" Attribute* "/>" -- noContent
       | "<" "mxGeometry" Attribute* ">" GeometryContents "</mxGeometry>" -- withContent
 
-    GeometryContents =
-      | MxPoint+ -- mxpoints
-    MxPoint =
+    GeometryContents = GeometryItem+
+    GeometryItem =
       | SourcePoint -- sourcePoint
       | TargetPoint -- targetPoint
+      | Point -- point
+      | RectangleGeometry -- rect
+      | ArrayGeometry -- array
 
     SourcePoint = "<" "mxPoint" Xcoord Ycoord "as" "=" dq "sourcePoint" dq "/>"
     TargetPoint = "<" "mxPoint" Xcoord Ycoord "as" "=" dq "targetPoint" dq "/>"
+    Point = "<" "mxPoint" Xcoord Ycoord "/>"
+    RectangleGeometry = "<" "mxRectangle" Attribute* "/>"
+    ArrayGeometry = "<" "Array" Attribute* ">" GeometryContents "</Array>"
 
     Xcoord = "x" "=" numericString
     Ycoord = "y" "=" numericString
@@ -32,13 +37,15 @@ drawio1 {
     Attribute =
       | ID          -- id
       | Parent      -- parent
+      | sym "=" numericString -- num
       | sym "=" str -- other
 
       sym = letter symFollow*
       symFollow = alnum | "_"
       stuff = notGT+
       notGT = ~">" any
-      numericString = dq digit+ dq
+      numericString = dq ndigit+ dq
+      ndigit = digit | "."
       str = dq char* dq
       dq = "\""
       char =
