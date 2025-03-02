@@ -1,0 +1,47 @@
+% rewrite drawio1 {
+  Mxfile = _lt _mxfile stuff _gt DiagramTab+ _emxfile
+  DiagramTab = 
+    | _lt _dia Name ID _gt MxGraphModel _edia -- withContent
+    | _lt _dia stuff _end                            -- noContent
+  MxGraphModel = _lt _gm Attribute* _gt Root _egm
+  Root = _lt _root _gt Cell+ _eroot
+  Cell =
+    | _lt _mxcell ID Parent _end -- cell1
+    | _lt _mxcell ID _end        -- cell0
+    | _lt _mxcell Attribute* _gt CellContents _emxcell -- other
+    
+    CellContents =
+      | _lt _geo" Attribute* _end -- noContent
+      | _lt _geo Attribute* _gt GeometryContents _egeo -- withContent
+
+    GeometryContents =
+      | MxPoint+ -- mxpoints
+    MxPoint =
+      | SourcePoint
+      | TargetPoint
+
+    SourcePoint = _lt _mxpoint Xcoord Ycoord _as _eq dq _sourcePoint dq _end
+    TargetPoint = _lt _mxpoint Xcoord Ycoord _as _eq dq _targetPoint dq _end	
+
+    Xcoord = _x _eq numericString
+    Ycoord = _y _eq numericString
+    
+    Name = _name _eq str
+    ID = _id _eq str
+    Parent = _parent _eq str
+    Attribute =
+      | ID          -- id
+      | Parent      -- parent
+      | sym _eq str -- other
+
+      sym = letter symFollow*
+      symFollow = alnum | "_"
+      stuff = notGT+
+      notGT = ~">" any
+      numericString = dq digit+ dq
+      str = dq char* dq
+      dq = "\""
+      char =
+	| "\\\""  -- escapedDQ
+	| ~dq any -- other
+}
