@@ -1,16 +1,16 @@
 % rewrite drawio1 {
   Mxfile [_lt _mxfile stuff _gt DiagramTab+ _emxfile] = ‛«_lt»«_mxfile»«stuff»«_gt»«DiagramTab»«_emxfile»’
-  DiagramTab_withContent [_lt _dia Name ID _gt MxGraphModel _edia] = ‛\n«_lt»«_dia»«Name»«ID»«_gt»«MxGraphModel»«_edia»’
-  DiagramTab_noContent [_lt _dia stuff _end] = ‛\n«_lt»«_dia»«stuff»«_end»’
-  MxGraphModel [_lt _gm Attribute* _gt Root _egm] = ‛\n«_lt»«_gm»«Attribute»«_gt»«Root»«_egm»’
-  Root [_lt _root _gt Cell+ _eroot] = ‛\n«_lt»«_root»«_gt»«Cell»«_eroot»’
+  DiagramTab_withContent [_lt _dia Name ID _gt MxGraphModel _edia] = ‛«_lt»«_dia»«Name»«ID»«_gt»«MxGraphModel»«_edia»’
+  DiagramTab_noContent [_lt _dia stuff _end] = ‛«_lt»«_dia»«stuff»«_end»’
+  MxGraphModel [_lt _gm Attribute* _gt Root _egm] = ‛«_lt»«_gm»«Attribute»«_gt»«Root»«_egm»’
+  Root [_lt _root _gt Cell+ _eroot] = ‛«_lt»«_root»«_gt»«Cell»«_eroot»’
 
-  Cell_cell1 [_lt _mxcell ID Parent _end] = ‛\n«_lt»«_mxcell»«ID»«Parent»«_end»’
-  Cell_cell0 [_lt _mxcell ID _end] = ‛\n«_lt»«_mxcell»«ID»«_end»’
-  Cell_other [_lt _mxcell Attribute* _gt CellContents _emxcell] = ‛\n«_lt»«_mxcell»«Attribute»«_gt»«CellContents»«_emxcell»’
+  Cell_cell1 [_lt _mxcell ID Parent _end] = ‛«_lt»«_mxcell»«ID»«Parent»«_end»’
+  Cell_cell0 [_lt _mxcell ID _end] = ‛«_lt»«_mxcell»«ID»«_end»’
+  Cell_other [_lt _mxcell Attribute* _gt CellContents _emxcell] = ‛«_lt»«_mxcell»«Attribute»«_gt»«CellContents»«_emxcell»’
     
-  CellContents_noContent [_lt _geo Attribute* _end] = ‛\n«_lt»«_geo»«Attribute»«_end»’
-  CellContents_withContent [_lt _geo Attribute* _gt GeometryContents _egeo] = ‛\n«_lt»«_geo»«Attribute»«_gt»«GeometryContents»«_egeo»’
+  CellContents_noContent [_lt _geo Attribute* _end] = ‛«_lt»«_geo»«Attribute»«_end»’
+  CellContents_withContent [_lt _geo Attribute* _gt GeometryContents _egeo] = ‛«_lt»«_geo»«Attribute»«_gt»«GeometryContents»«_egeo»’
 
     GeometryContents_mxpoints [MxPoint+] = ‛«MxPoint»’
     MxPoint_sourcePoint [p] = ‛«p»’
@@ -19,8 +19,8 @@
     SourcePoint [_lt _mxpoint Xcoord Ycoord _as _eq dq _sourcePoint dq2 _end] = ‛«_lt»«_mxpoint»«Xcoord»«Ycoord»«_as»«_eq»«dq»«_sourcePoint»«dq2»«_end»’
     TargetPoint [_lt _mxpoint Xcoord Ycoord _as _eq dq _targetPoint dq2 _end] = ‛«_lt»«_mxpoint»«Xcoord»«Ycoord»«_as»«_eq»«dq»«_targetPoint»«dq2»«_end»’
 
-    Xcoord [_x _eq numericString] = ‛ «_x»«_eq»«numericString» ’
-    Ycoord [_y _eq numericString] = ‛ «_y»«_eq»«numericString» ’
+    Xcoord [_x _eq numericString] = ‛«_x»«_eq»«numericString»’
+    Ycoord [_y _eq numericString] = ‛«_y»«_eq»«numericString»’
     
     Name [_name _eq str] = ‛«_name»«_eq»«str»’
     ID [_id _eq str] = ‛«_id»«_eq»«str»’
@@ -33,7 +33,7 @@
       symFollow [c] = ‛«c»’
       stuff [notGT+] = ‛«notGT»’
       notGT [c] = ‛«c»’
-      numericString [dq digit+ dq2] = ‛«digit»’
+      numericString [dq digit+ dq2] = ‛«dq»«digit»«dq2»’
       str [dq char* dq2] = ‛«dq»«char»«dq2»’
       dq [c] = ‛«c»’
       char_escapedDQ [c] = ‛«c»’

@@ -120,47 +120,47 @@ return exit_rule ("Mxfile");
 },
 DiagramTab_withContent : function (_lt,_dia,Name,ID,_gt,MxGraphModel,_edia,) {
 enter_rule ("DiagramTab_withContent");
-    set_return (`${_lt.rwr ()}${_dia.rwr ()}${Name.rwr ()}${ID.rwr ()}${_gt.rwr ()}${MxGraphModel.rwr ()}${_edia.rwr ()}`);
+    set_return (`\n${_lt.rwr ()}${_dia.rwr ()}${Name.rwr ()}${ID.rwr ()}${_gt.rwr ()}${MxGraphModel.rwr ()}${_edia.rwr ()}`);
 return exit_rule ("DiagramTab_withContent");
 },
 DiagramTab_noContent : function (_lt,_dia,stuff,_end,) {
 enter_rule ("DiagramTab_noContent");
-    set_return (`${_lt.rwr ()}${_dia.rwr ()}${stuff.rwr ()}${_end.rwr ()}`);
+    set_return (`\n${_lt.rwr ()}${_dia.rwr ()}${stuff.rwr ()}${_end.rwr ()}`);
 return exit_rule ("DiagramTab_noContent");
 },
 MxGraphModel : function (_lt,_gm,Attribute,_gt,Root,_egm,) {
 enter_rule ("MxGraphModel");
-    set_return (`${_lt.rwr ()}${_gm.rwr ()}${Attribute.rwr ().join ('')}${_gt.rwr ()}${Root.rwr ()}${_egm.rwr ()}`);
+    set_return (`\n${_lt.rwr ()}${_gm.rwr ()}${Attribute.rwr ().join ('')}${_gt.rwr ()}${Root.rwr ()}${_egm.rwr ()}`);
 return exit_rule ("MxGraphModel");
 },
 Root : function (_lt,_root,_gt,Cell,_eroot,) {
 enter_rule ("Root");
-    set_return (`${_lt.rwr ()}${_root.rwr ()}${_gt.rwr ()}${Cell.rwr ().join ('')}${_eroot.rwr ()}`);
+    set_return (`\n${_lt.rwr ()}${_root.rwr ()}${_gt.rwr ()}${Cell.rwr ().join ('')}${_eroot.rwr ()}`);
 return exit_rule ("Root");
 },
 Cell_cell1 : function (_lt,_mxcell,ID,Parent,_end,) {
 enter_rule ("Cell_cell1");
-    set_return (`${_lt.rwr ()}${_mxcell.rwr ()}${ID.rwr ()}${Parent.rwr ()}${_end.rwr ()}`);
+    set_return (`\n${_lt.rwr ()}${_mxcell.rwr ()}${ID.rwr ()}${Parent.rwr ()}${_end.rwr ()}`);
 return exit_rule ("Cell_cell1");
 },
 Cell_cell0 : function (_lt,_mxcell,ID,_end,) {
 enter_rule ("Cell_cell0");
-    set_return (`${_lt.rwr ()}${_mxcell.rwr ()}${ID.rwr ()}${_end.rwr ()}`);
+    set_return (`\n${_lt.rwr ()}${_mxcell.rwr ()}${ID.rwr ()}${_end.rwr ()}`);
 return exit_rule ("Cell_cell0");
 },
 Cell_other : function (_lt,_mxcell,Attribute,_gt,CellContents,_emxcell,) {
 enter_rule ("Cell_other");
-    set_return (`${_lt.rwr ()}${_mxcell.rwr ()}${Attribute.rwr ().join ('')}${_gt.rwr ()}${CellContents.rwr ()}${_emxcell.rwr ()}`);
+    set_return (`\n${_lt.rwr ()}${_mxcell.rwr ()}${Attribute.rwr ().join ('')}${_gt.rwr ()}${CellContents.rwr ()}${_emxcell.rwr ()}`);
 return exit_rule ("Cell_other");
 },
 CellContents_noContent : function (_lt,_geo,Attribute,_end,) {
 enter_rule ("CellContents_noContent");
-    set_return (`${_lt.rwr ()}${_geo.rwr ()}${Attribute.rwr ().join ('')}${_end.rwr ()}`);
+    set_return (`\n${_lt.rwr ()}${_geo.rwr ()}${Attribute.rwr ().join ('')}${_end.rwr ()}`);
 return exit_rule ("CellContents_noContent");
 },
 CellContents_withContent : function (_lt,_geo,Attribute,_gt,GeometryContents,_egeo,) {
 enter_rule ("CellContents_withContent");
-    set_return (`${_lt.rwr ()}${_geo.rwr ()}${Attribute.rwr ().join ('')}${_gt.rwr ()}${GeometryContents.rwr ()}${_egeo.rwr ()}`);
+    set_return (`\n${_lt.rwr ()}${_geo.rwr ()}${Attribute.rwr ().join ('')}${_gt.rwr ()}${GeometryContents.rwr ()}${_egeo.rwr ()}`);
 return exit_rule ("CellContents_withContent");
 },
 GeometryContents_mxpoints : function (MxPoint,) {
@@ -190,12 +190,12 @@ return exit_rule ("TargetPoint");
 },
 Xcoord : function (_x,_eq,numericString,) {
 enter_rule ("Xcoord");
-    set_return (`${_x.rwr ()}${_eq.rwr ()}${numericString.rwr ()}`);
+    set_return (` ${_x.rwr ()}${_eq.rwr ()}${numericString.rwr ()} `);
 return exit_rule ("Xcoord");
 },
 Ycoord : function (_y,_eq,numericString,) {
 enter_rule ("Ycoord");
-    set_return (`${_y.rwr ()}${_eq.rwr ()}${numericString.rwr ()}`);
+    set_return (` ${_y.rwr ()}${_eq.rwr ()}${numericString.rwr ()} `);
 return exit_rule ("Ycoord");
 },
 Name : function (_name,_eq,str,) {
@@ -250,7 +250,7 @@ return exit_rule ("notGT");
 },
 numericString : function (dq,digit,dq2,) {
 enter_rule ("numericString");
-    set_return (`${dq.rwr ()}${digit.rwr ().join ('')}${dq2.rwr ()}`);
+    set_return (`${digit.rwr ().join ('')}`);
 return exit_rule ("numericString");
 },
 str : function (dq,char,dq2,) {
