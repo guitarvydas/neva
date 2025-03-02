@@ -1,7 +1,7 @@
 % rewrite drawio {
-  Mxfile [_lt _mxfile stuff _gt DiagramTab+ _emxfile] = ‛«_lt»«_mxfile»«stuff»«_gt»«DiagramTab»«_emxfile»’
+  Mxfile [_lt _mxfile attr* _gt DiagramTab+ _emxfile] = ‛«_lt»«_mxfile»«attr»«_gt»«DiagramTab»«_emxfile»’
   DiagramTab_withContent [_lt _dia Name ID _gt MxGraphModel _edia] = ‛«_lt»«_dia»«Name»«ID»«_gt»«MxGraphModel»«_edia»’
-  DiagramTab_noContent [_lt _dia stuff _end] = ‛«_lt»«_dia»«stuff»«_end»’
+  DiagramTab_noContent [_lt _dia attr* _end] = ‛«_lt»«_dia»«attr»«_end»’
   MxGraphModel [_lt _gm Attribute* _gt Root _egm] = ‛«_lt»«_gm»«Attribute»«_gt»«Root»«_egm»’
   Root [_lt _root _gt Cell+ _eroot] = ‛«_lt»«_root»«_gt»«Cell»«_eroot»’
 
@@ -38,7 +38,6 @@
 
       sym [letter symFollow*] = ‛«letter»«symFollow»’
       symFollow [c] = ‛«c»’
-      stuff [notGT+] = ‛«notGT»’
       notGT [c] = ‛«c»’
       numericString [dq ndigit+ dq2] = ‛«dq»«ndigit»«dq2»’
       ndigit [c] = ‛«c»’

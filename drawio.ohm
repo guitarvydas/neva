@@ -1,8 +1,8 @@
 drawio {
-  Mxfile = "<" "mxfile" stuff ">" DiagramTab+ "</mxfile>"
+  Mxfile = "<" "mxfile" Attribute* ">" DiagramTab+ "</mxfile>"
   DiagramTab = 
     | "<" "diagram" Name ID ">" MxGraphModel "</diagram>" -- withContent
-    | "<" "diagram" stuff "/>"                            -- noContent
+    | "<" "diagram" Attribute* "/>"                       -- noContent
   MxGraphModel = "<" "mxGraphModel" Attribute* ">" Root "</mxGraphModel>"
   Root = "<" "root" ">" Cell+ "</root>"
   Cell =
@@ -42,7 +42,6 @@ drawio {
 
       sym = letter symFollow*
       symFollow = alnum | "_"
-      stuff = notGT+
       notGT = ~">" any
       numericString = dq ndigit+ dq
       ndigit = digit | "."

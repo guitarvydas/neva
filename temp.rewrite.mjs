@@ -15,9 +15,9 @@ function getParameter (name) {
 
 let _rewrite = {
 
-Mxfile : function (_lt,_mxfile,stuff,_gt,DiagramTab,_emxfile,) {
+Mxfile : function (_lt,_mxfile,attr,_gt,DiagramTab,_emxfile,) {
 enter_rule ("Mxfile");
-    set_return (`${_lt.rwr ()}${_mxfile.rwr ()}${stuff.rwr ()}${_gt.rwr ()}${DiagramTab.rwr ().join ('')}${_emxfile.rwr ()}`);
+    set_return (`${_lt.rwr ()}${_mxfile.rwr ()}${attr.rwr ().join ('')}${_gt.rwr ()}${DiagramTab.rwr ().join ('')}${_emxfile.rwr ()}`);
 return exit_rule ("Mxfile");
 },
 DiagramTab_withContent : function (_lt,_dia,Name,ID,_gt,MxGraphModel,_edia,) {
@@ -25,9 +25,9 @@ enter_rule ("DiagramTab_withContent");
     set_return (`${_lt.rwr ()}${_dia.rwr ()}${Name.rwr ()}${ID.rwr ()}${_gt.rwr ()}${MxGraphModel.rwr ()}${_edia.rwr ()}`);
 return exit_rule ("DiagramTab_withContent");
 },
-DiagramTab_noContent : function (_lt,_dia,stuff,_end,) {
+DiagramTab_noContent : function (_lt,_dia,attr,_end,) {
 enter_rule ("DiagramTab_noContent");
-    set_return (`${_lt.rwr ()}${_dia.rwr ()}${stuff.rwr ()}${_end.rwr ()}`);
+    set_return (`${_lt.rwr ()}${_dia.rwr ()}${attr.rwr ().join ('')}${_end.rwr ()}`);
 return exit_rule ("DiagramTab_noContent");
 },
 MxGraphModel : function (_lt,_gm,Attribute,_gt,Root,_egm,) {
@@ -174,11 +174,6 @@ symFollow : function (c,) {
 enter_rule ("symFollow");
     set_return (`${c.rwr ()}`);
 return exit_rule ("symFollow");
-},
-stuff : function (notGT,) {
-enter_rule ("stuff");
-    set_return (`${notGT.rwr ().join ('')}`);
-return exit_rule ("stuff");
 },
 notGT : function (c,) {
 enter_rule ("notGT");
