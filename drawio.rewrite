@@ -22,16 +22,16 @@
 },
 ’
   Root [_lt _root _gt Cell+ _eroot] = 
-‛\n"root": {
+‛\n"root": [
   «Cell»
-},’
+],’
 
   Cell_cell1 [_lt _mxcell ID Parent _end] = 
-‛\n"cell": {«ID»,«Parent»}’
+‛\n{«ID»«Parent»}’
   Cell_cell0 [_lt _mxcell ID _end] = 
-‛\n"cell": {«ID»}’
+‛\n{«ID»}’
   Cell_other [_lt _mxcell Attribute* _gt CellContents _emxcell] = 
-‛\n"cell": {
+‛\n{
   «Attribute»
   «CellContents»
 },’
@@ -58,7 +58,9 @@
     TargetPoint [_lt _mxpoint Xcoord Ycoord _as _eq dq _targetPoint dq2 _end] =
 ‛\n"point" : {"xy": [«Xcoord»,«Ycoord»], "kind":"targetpoint"},’
     Point [_lt _ x y _e] = ‛"point":[«x»,«y»],’
-    RectangleGeometry [_lt _ attr* _e] = ‛\n"rectangle":{«attr»}’
+    RectangleGeometry [_lt _ attr* _e] = ‛\n"rectangle":{
+«attr»
+}’
     ArrayGeometry [_lt _ attr* _gt GeometryContents _e] = 
 ‛\n"array" : {
   «attr»
@@ -68,17 +70,19 @@
     Xcoord [_x _eq numericString] = ‛«numericString»’
     Ycoord [_y _eq numericString] = ‛«numericString»’
     
-    Name [_ _eq s] = ‛"name" : s, ’
-    ID [_ _eq s] = ‛"id" : s, ’
-    Parent [_ _eq s] = ‛"parent" : s, ’
+    Name [_ _eq s] = ‛"name" : «s», ’
+    ID [_ _eq s] = ‛"id" : «s», ’
+    Parent [_ _eq s] = ‛"parent" : «s», ’
     Attribute_num [sym _eq nstr] = ‛\n"«sym»" : «nstr», ’
+    Attribute_frac [sym _eq fstr] = ‛\n"«sym»" : "«fstr»", ’
     Attribute_other [sym _eq str] = ‛\n"«sym»" : «str», ’
 
       sym [letter symFollow*] = ‛«letter»«symFollow»’
       symFollow [c] = ‛«c»’
       notGT [c] = ‛«c»’
-      numericString [dq ndigit+ dq2] = ‛«ndigit»’
-      ndigit [c] = ‛«c»’
+      numericString [dq digit+ dq2] = ‛«digit»’
+      fractionalString [dq1 fdigit+ dq2] = ‛«fdigit»’
+      fdigit [c] = ‛«c»’
       str [dq char* dq2] = ‛«dq»«char»«dq2»’
       dq [c] = ‛«c»’
       char_escapedDQ [c] = ‛«c»’

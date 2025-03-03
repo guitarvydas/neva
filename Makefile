@@ -16,3 +16,4 @@ drawio2:
 3:
 	./ndsl drawio.ohm drawio.rewrite support.js <sample3.drawio >tmp.json
 	./ndsl clean.ohm clean.rewrite support.js <tmp.json >tmp2.json
+	./ndsl styleexpand.ohm styleexpand.rewrite support.js <tmp2.json >tmp3.json

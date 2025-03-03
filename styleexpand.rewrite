@@ -1,0 +1,18 @@
+% rewrite styleexpand {
+  main [item+] = ‛«item»’
+  item_style [ _style spaces _colon spaces2 stylestr] = ‛«_style»«spaces»«_colon»«spaces2»«stylestr»’
+  item_default [c] = ‛«c»’
+  stylestr [dq styleitem+ dq2] = ‛«dq»«styleitem»«dq2»’
+  styleitem_num [word _eq number _semicolon] = ‛«word»«_eq»«number»«_semicolon»’
+  styleitem_hex [word _eq number _semicolon] = ‛«word»«_eq»«number»«_semicolon»’
+  styleitem_eq [word _eq v _semicolon] = ‛«word»«_eq»«v»«_semicolon»’
+  styleitem_declaration [word _semicolon] = ‛«word»«_semicolon»’
+  word [wchar+] = ‛«wchar»’
+  wchar [c] = ‛«c»’
+  number [fdigit+] = ‛«fdigit»’
+  hex [_octothorpe hexDigit+] = ‛«_octothorpe»«hexDigit»’
+  fdigit [c] = ‛«c»’
+  dq [c] = ‛«c»’
+  str [dq s dq2] = ‛«dq»«s»«dq2»’
+}
+

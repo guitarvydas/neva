@@ -2,10 +2,12 @@ clean {
   main = item+
   item =
     | commaNLClose -- cnc
-    | commaClose -- cc
+    | commaNLCloseSq -- cncsq
+    | commaClose   -- cc
     | blankline    -- blank
     | any          -- default
   commaNLClose = spaces "," spaces nl snl* "}"
+  commaNLCloseSq = spaces "," spaces nl snl* "]"
   commaClose = spaces "," spaces "}"
   blankline = nl space+ nl
   nl = "\n" | "\t"

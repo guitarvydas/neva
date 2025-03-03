@@ -1,0 +1,20 @@
+styleexpand {
+  main = item+
+  item =
+    | str<"style"> spaces ":" spaces stylestr -- style
+    | any                       -- default
+  stylestr = dq styleitem+ dq
+  styleitem=
+    | word "=" number ";" -- num
+    | word "=" hex ";" -- hex
+    | word "=" word   ";" -- eq
+    | word            ";" -- declaration
+  word = wchar+
+  wchar = ~";" ~"=" any
+  number = fdigit+
+  hex = "#" hexDigit+
+  fdigit = digit | "."
+  dq = "\""
+  str<s> = dq s dq
+}
+
