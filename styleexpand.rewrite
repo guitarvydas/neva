@@ -4,14 +4,13 @@
   item_default [c] = ‛«c»’
   stylestr [dq styleitem+ dq2] = ‛«styleitem»’
   styleitem_num [word _eq number _semicolon] = ‛\n"«word»" : «number», ’
-  styleitem_hex [word _eq number _semicolon] = ‛\n"«word»" : «number», ’
   styleitem_eq [word _eq v _semicolon] = ‛\n"«word»": "«v»", ’
   styleitem_declaration [word _semicolon] = ‛\n"«word»" : true, ’
   word [wchar+] = ‛«wchar»’
   wchar [c] = ‛«c»’
-  number [fdigit+] = ‛«fdigit»’
-  hex [_octothorpe hexDigit+] = ‛«_octothorpe»«hexDigit»’
+  number [sign? fdigit+] = ‛«sign»«fdigit»’
   fdigit [c] = ‛«c»’
+  sign [c] = ‛«c»’
   dq [c] = ‛«c»’
   str [dq s dq2] = ‛«dq»«s»«dq2»’
 }

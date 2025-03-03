@@ -9,7 +9,7 @@ clean {
   commaNLClose = spaces "," spaces nl snl* "}"
   commaNLCloseSq = spaces "," spaces nl snl* "]"
   commaClose = spaces "," spaces "}"
-  blankline = nl space+ nl
+  blankline = nl space* nl
   nl = "\n" | "\t"
   snl = space | nl
   space := " "

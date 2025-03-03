@@ -43,13 +43,12 @@ styleexpand {
   stylestr = dq styleitem+ dq
   styleitem=
     | word "=" number ";" -- num
-    | word "=" hex ";" -- hex
     | word "=" word   ";" -- eq
     | word            ";" -- declaration
   word = wchar+
   wchar = ~";" ~"=" any
-  number = fdigit+
-  hex = "#" hexDigit+
+  number = sign? fdigit+
+  sign = "+" | "-"
   fdigit = digit | "."
   dq = "\""
   str<s> = dq s dq
@@ -111,11 +110,6 @@ enter_rule ("styleitem_num");
     set_return (`\n"${word.rwr ()}" : ${number.rwr ()}, `);
 return exit_rule ("styleitem_num");
 },
-styleitem_hex : function (word,_eq,number,_semicolon,) {
-enter_rule ("styleitem_hex");
-    set_return (`\n"${word.rwr ()}" : ${number.rwr ()}, `);
-return exit_rule ("styleitem_hex");
-},
 styleitem_eq : function (word,_eq,v,_semicolon,) {
 enter_rule ("styleitem_eq");
     set_return (`\n"${word.rwr ()}": "${v.rwr ()}", `);
@@ -136,20 +130,20 @@ enter_rule ("wchar");
     set_return (`${c.rwr ()}`);
 return exit_rule ("wchar");
 },
-number : function (fdigit,) {
+number : function (sign,fdigit,) {
 enter_rule ("number");
-    set_return (`${fdigit.rwr ().join ('')}`);
+    set_return (`${sign.rwr ().join ('')}${fdigit.rwr ().join ('')}`);
 return exit_rule ("number");
-},
-hex : function (_octothorpe,hexDigit,) {
-enter_rule ("hex");
-    set_return (`${_octothorpe.rwr ()}${hexDigit.rwr ().join ('')}`);
-return exit_rule ("hex");
 },
 fdigit : function (c,) {
 enter_rule ("fdigit");
     set_return (`${c.rwr ()}`);
 return exit_rule ("fdigit");
+},
+sign : function (c,) {
+enter_rule ("sign");
+    set_return (`${c.rwr ()}`);
+return exit_rule ("sign");
 },
 dq : function (c,) {
 enter_rule ("dq");

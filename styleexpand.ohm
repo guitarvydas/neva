@@ -6,13 +6,12 @@ styleexpand {
   stylestr = dq styleitem+ dq
   styleitem=
     | word "=" number ";" -- num
-    | word "=" hex ";" -- hex
     | word "=" word   ";" -- eq
     | word            ";" -- declaration
   word = wchar+
   wchar = ~";" ~"=" any
-  number = fdigit+
-  hex = "#" hexDigit+
+  number = sign? fdigit+
+  sign = "+" | "-"
   fdigit = digit | "."
   dq = "\""
   str<s> = dq s dq
