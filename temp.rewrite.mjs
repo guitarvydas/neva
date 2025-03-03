@@ -22,7 +22,7 @@ return exit_rule ("main");
 },
 item_style : function (_style,spaces,_colon,spaces2,stylestr,) {
 enter_rule ("item_style");
-    set_return (`${_style.rwr ()}${spaces.rwr ()}${_colon.rwr ()}${spaces2.rwr ()}${stylestr.rwr ()}`);
+    set_return (`${stylestr.rwr ()}`);
 return exit_rule ("item_style");
 },
 item_default : function (c,) {
@@ -32,27 +32,27 @@ return exit_rule ("item_default");
 },
 stylestr : function (dq,styleitem,dq2,) {
 enter_rule ("stylestr");
-    set_return (`${dq.rwr ()}${styleitem.rwr ().join ('')}${dq2.rwr ()}`);
+    set_return (`${styleitem.rwr ().join ('')}`);
 return exit_rule ("stylestr");
 },
 styleitem_num : function (word,_eq,number,_semicolon,) {
 enter_rule ("styleitem_num");
-    set_return (`${word.rwr ()}${_eq.rwr ()}${number.rwr ()}${_semicolon.rwr ()}`);
+    set_return (`\n"${word.rwr ()}" : ${number.rwr ()}, `);
 return exit_rule ("styleitem_num");
 },
 styleitem_hex : function (word,_eq,number,_semicolon,) {
 enter_rule ("styleitem_hex");
-    set_return (`${word.rwr ()}${_eq.rwr ()}${number.rwr ()}${_semicolon.rwr ()}`);
+    set_return (`\n"${word.rwr ()}" : ${number.rwr ()}, `);
 return exit_rule ("styleitem_hex");
 },
 styleitem_eq : function (word,_eq,v,_semicolon,) {
 enter_rule ("styleitem_eq");
-    set_return (`${word.rwr ()}${_eq.rwr ()}${v.rwr ()}${_semicolon.rwr ()}`);
+    set_return (`\n"${word.rwr ()}": "${v.rwr ()}", `);
 return exit_rule ("styleitem_eq");
 },
 styleitem_declaration : function (word,_semicolon,) {
 enter_rule ("styleitem_declaration");
-    set_return (`${word.rwr ()}${_semicolon.rwr ()}`);
+    set_return (`\n"${word.rwr ()}" : true, `);
 return exit_rule ("styleitem_declaration");
 },
 word : function (wchar,) {
