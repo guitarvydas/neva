@@ -9,8 +9,8 @@
   word [wchar+] = ‛«wchar»’
   wchar [c] = ‛«c»’
   number [sign? fdigit+] = ‛«sign»«fdigit»’
-  fdigit [c] = ‛«c»’
   sign [c] = ‛«c»’
+  fdigit [c] = ‛«c»’
   dq [c] = ‛«c»’
   str [dq s dq2] = ‛«dq»«s»«dq2»’
 }

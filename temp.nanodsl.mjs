@@ -46,7 +46,7 @@ styleexpand {
     | word "=" word   ";" -- eq
     | word            ";" -- declaration
   word = wchar+
-  wchar = ~";" ~"=" any
+  wchar = ~";" ~"=" ~dq any
   number = sign? fdigit+
   sign = "+" | "-"
   fdigit = digit | "."
@@ -135,15 +135,15 @@ enter_rule ("number");
     set_return (`${sign.rwr ().join ('')}${fdigit.rwr ().join ('')}`);
 return exit_rule ("number");
 },
-fdigit : function (c,) {
-enter_rule ("fdigit");
-    set_return (`${c.rwr ()}`);
-return exit_rule ("fdigit");
-},
 sign : function (c,) {
 enter_rule ("sign");
     set_return (`${c.rwr ()}`);
 return exit_rule ("sign");
+},
+fdigit : function (c,) {
+enter_rule ("fdigit");
+    set_return (`${c.rwr ()}`);
+return exit_rule ("fdigit");
 },
 dq : function (c,) {
 enter_rule ("dq");
