@@ -1,4 +1,4 @@
-all: drawio
+all: 4
 
 basic:
 	node das2json.mjs <neva-echo.drawio >neva-echo.drawio.json
@@ -12,6 +12,9 @@ drawio:
 
 drawio2:
 	./ndsl drawio.ohm drawio.rewrite support.js <sample2.drawio | sed -e 's/,>/>/g'
+
+4:
+	./ndsl drawio.ohm drawio.rewrite support.js <neva-sample.drawio
 
 3:
 	./ndsl drawio.ohm drawio.rewrite support.js <sample3.drawio >tmp.json

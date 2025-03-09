@@ -1,0 +1,20 @@
+cull {
+  Main = Str<"mxfile"> ":" "{" (Diagram | Attribute)+ "}"
+
+  Attribute =
+    | NumericAttribute -- num
+    | StringAttribute  -- string
+
+???
+
+  KeepAttribute = &(Str<"name"> | Str<"id"> | Str<"parent"> | Str<"value"> | Str<"rounded"> | Str<"geometry"> | Str<"vertex">) Attribute
+
+???
+
+  NumericAttribute = #strng ":" #number
+  StringAttribute = #strng ":" #strng
+  strng = dq (#stringchar)* dq
+  stringchar = ~dq any
+  number = sign? digit+
+  sign = "+" | "-"
+}
