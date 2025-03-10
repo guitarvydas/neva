@@ -1,0 +1,68 @@
+"host":
+"agent":
+"version":
+"dx":
+"dy":
+"grid":
+"gridSize":
+"guides":
+"tooltips":
+"connect":
+"arrows":
+"fold":
+"page":
+"pageScale":
+"pageWidth":
+"pageHeight":
+"math":
+"shadow":
+"whiteSpace":
+"html":
+"fontStyle":
+"glass":
+"sketch":
+"fontSize":
+"points":
+"shadow":
+"fontFamily":
+"fontColor":
+"labelBackgroundColor":
+"container" : 1, 
+"recursiveResize" : 0, 
+"verticalAlign" : "top", 
+"arcSize" : 6, 
+"autosize" : 0, 
+"absoluteArcSize" : 1, 
+"strokeColor" : "#6c8ebf", 
+"fillColor" : "#dae8fc", 
+"gradientColor" : "#0050EF", 
+"arcSize" : 50, 
+"edgeStyle" : "orthogonalEdgeStyle", 
+"shape" : "connector", 
+"curved" : 0, 
+"rounded" : 1, 
+"orthogonalLoop" : 1, 
+"jettySize" : "auto", 
+"exitX" : 1, 
+"exitY" : 0.5, 
+"exitDx" : 0, 
+"exitDy" : 0, 
+"exitPerimeter" : 0, 
+"entryX" : 0, 
+"entryY" : 0.5, 
+"entryDx" : 0, 
+"entryDy" : 0, 
+"entryPerimeter" : 0, 
+"strokeWidth" : 2, 
+"align" : "center", 
+"endArrow" : "classic", , 
+"textOpacity" : 30, 
+"dashed" : 1, 
+"dashPattern" : "1 4", , 
+"backgroundOutline" : 1, 
+"darkOpacity" : 0.05, 
+"fillStyle" : "solid", 
+"direction" : "west", 
+"gradientDirection" : "north", 
+"size" : 20, 
+"pointerEvents" : 1, 

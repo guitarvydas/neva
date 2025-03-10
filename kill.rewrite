@@ -1,0 +1,9 @@
+% rewrite kill {
+  Main [items+] = ‛«items»’
+  item_kill [s cs*] = ‛\n/«s»/d’
+  item_newline [c] = ‛«c»’
+  item_default [c] = ‛«c»’
+  string [dq1 cs* dq2] = ‛«dq1»«cs»«dq2»’
+  dq [c] = ‛«c»’
+  nl [c] = ‛«c»’
+}

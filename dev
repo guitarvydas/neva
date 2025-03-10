@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# can we create the equivalent of the following line?
+#node das2json.mjs <neva-sample.drawio >1.json
+
+# create temporary kill-file, containing only "string"s
+./rewrite kill.ohm kill.rewrite <kill-file >tmp
+
+# brute-force conversion of neva-sample.drawio to 1.json
+./ndsl drawio.ohm drawio.rewrite support.js <neva-sample.drawio >1.json
+
+# expand all style="...;...;" to separate JSON members
+./rewrite styleexpand.ohm styleexpand.rewrite <1.json >2.json
+
+# delete all noise members that pertain only to graphical information
+sed -f tmp <2.json >3.json
+
+# rewrite all geometry members to form "boundingBox" : [x,y,w,h],
+./rewrite geometry.ohm geometry.rewrite <3.json >4.json
+
+
+
+

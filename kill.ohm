@@ -1,0 +1,10 @@
+kill {
+  Main = item+
+  item =
+    | string (~nl any)* -- kill
+    | nl     -- newline
+    | any    -- default
+  string = dq (~dq any)* dq
+  dq = "\""
+  nl = "\n"
+}

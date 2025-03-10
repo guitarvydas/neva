@@ -1,0 +1,21 @@
+geometry {
+  main = item+
+  item =
+    | geometry -- geometry
+    | any      -- default
+  geometry = str<"geometry"> ws "{" ws x y width height as? rectangle? "}" ws "," ws
+  x = str<"x"> ws ":" ws number "," ws
+  y = str<"y"> ws ":" ws number "," ws
+  width = str<"width"> ws ":" ws number "," ws
+  height = str<"height"> ws ":" ws number "," ws
+  as = str<"as"> ws ":" ws string "," ws
+  rectangle = str<"rectangle"> ws ":" ws "{" ws (~"}" any)* "}" ws
+  string = dq (~dq any)* dq ws
+  number = sign? fdigit+ ws
+  sign = "+" | "-"
+  fdigit = digit | "."
+  dq = "\""
+  str<s> = dq s dq
+  ws = spaces
+}
+
