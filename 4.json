@@ -38,17 +38,16 @@
 "vertex" : 1, 
 "parent" : 1, 
   
-
-"geometry" {
-, , ,
-"x" : 280, ,
-"y" : 140, ,
-"width" : 138, ,
-"height" : 100, ,
-"as" : "geometry", ,
-, , ,
+"geometry": {
+  
+"x" : 280, 
+"y" : 140, 
+"width" : 138, 
+"height" : 100, 
+"as" : "geometry", 
+  
 "rectangle":{
-,
+
 "x" : "-98", 
 "y" : "-1230", 
 "width" : 99, 
@@ -113,17 +112,16 @@
 "vertex" : 1, 
 "parent" : 1, 
   
-
-"geometry" {
-, , ,
-"x" : 280, ,
-"y" : 320, ,
-"width" : 138, ,
-"height" : 100, ,
-"as" : "geometry", ,
-, , ,
+"geometry": {
+  
+"x" : 280, 
+"y" : 320, 
+"width" : 138, 
+"height" : 100, 
+"as" : "geometry", 
+  
 "rectangle":{
-,
+
 "x" : "-98", 
 "y" : "-1230", 
 "width" : 99, 
@@ -285,7 +283,7 @@
 "source" : "-5bQla3dnRqBQKIm_dE6-5", 
 "target" : "-5bQla3dnRqBQKIm_dE6-11", 
   
-"geometry" {
+"geometry": {
   
 "relative" : 1, 
 "as" : "geometry", 
@@ -306,7 +304,7 @@
 "source" : "-5bQla3dnRqBQKIm_dE6-9", 
 "target" : "-5bQla3dnRqBQKIm_dE6-11", 
   
-"geometry" {
+"geometry": {
   
 "relative" : 1, 
 "as" : "geometry", 

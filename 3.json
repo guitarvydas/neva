@@ -38,7 +38,7 @@
 "vertex" : 1, 
 "parent" : 1, 
   
-"geometry" {
+"geometry": {
   
 "x" : 280, 
 "y" : 140, 
@@ -112,7 +112,7 @@
 "vertex" : 1, 
 "parent" : 1, 
   
-"geometry" {
+"geometry": {
   
 "x" : 280, 
 "y" : 320, 
@@ -283,7 +283,7 @@
 "source" : "-5bQla3dnRqBQKIm_dE6-5", 
 "target" : "-5bQla3dnRqBQKIm_dE6-11", 
   
-"geometry" {
+"geometry": {
   
 "relative" : 1, 
 "as" : "geometry", 
@@ -304,7 +304,7 @@
 "source" : "-5bQla3dnRqBQKIm_dE6-9", 
 "target" : "-5bQla3dnRqBQKIm_dE6-11", 
   
-"geometry" {
+"geometry": {
   
 "relative" : 1, 
 "as" : "geometry", 

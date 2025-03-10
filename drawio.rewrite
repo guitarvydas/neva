@@ -41,7 +41,7 @@
   «Attribute»
 },’
   CellContents_withContent [_lt _geo Attribute* _gt GeometryContents _egeo] = 
-‛\n"geometry" {
+‛\n"geometry": {
   «Attribute»
   «GeometryContents»
 },’

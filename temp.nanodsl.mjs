@@ -109,32 +109,32 @@ return exit_rule ("geometry");
 },
 x : function (_,ws1,_colon,ws2,n,_comma,ws3,) {
 enter_rule ("x");
-    set_return (`${_.rwr ()}${ws1.rwr ()}${_colon.rwr ()}${ws2.rwr ()}${n.rwr ()}${_comma.rwr ()}${ws3.rwr ()}`);
+    set_return (`${n.rwr ()}`);
 return exit_rule ("x");
 },
 y : function (_,ws1,_colon,ws2,n,_comma,ws3,) {
 enter_rule ("y");
-    set_return (`${_.rwr ()}${ws1.rwr ()}${_colon.rwr ()}${ws2.rwr ()}${n.rwr ()}${_comma.rwr ()}${ws3.rwr ()}`);
+    set_return (`${n.rwr ()}`);
 return exit_rule ("y");
 },
 width : function (_,ws1,_colon,ws2,n,_comma,ws3,) {
 enter_rule ("width");
-    set_return (`${_.rwr ()}${ws1.rwr ()}${_colon.rwr ()}${ws2.rwr ()}${n.rwr ()}${_comma.rwr ()}${ws3.rwr ()}`);
+    set_return (`${n.rwr ()}`);
 return exit_rule ("width");
 },
 height : function (_,ws1,_colon,ws2,n,_comma,ws3,) {
 enter_rule ("height");
-    set_return (`${_.rwr ()}${ws1.rwr ()}${_colon.rwr ()}${ws2.rwr ()}${n.rwr ()}${_comma.rwr ()}${ws3.rwr ()}`);
+    set_return (`${n.rwr ()}`);
 return exit_rule ("height");
 },
 as : function (_,ws1,_colon,ws2,s,_comma,ws3,) {
 enter_rule ("as");
-    set_return (`${_.rwr ()}${ws1.rwr ()}${_colon.rwr ()}${ws2.rwr ()}${s.rwr ()}${_comma.rwr ()}${ws3.rwr ()}`);
+    set_return (``);
 return exit_rule ("as");
 },
 rectangle : function (_,ws1,_colon,ws2,lb,ws3,cs,rb,ws4,) {
 enter_rule ("rectangle");
-    set_return (`${_.rwr ()}${ws1.rwr ()}${_colon.rwr ()}${ws2.rwr ()}${lb.rwr ()}${ws3.rwr ()}${cs.rwr ().join ('')}${rb.rwr ()}${ws4.rwr ()}`);
+    set_return (``);
 return exit_rule ("rectangle");
 },
 string : function (ldq,cs,rdq,ws,) {
@@ -171,6 +171,16 @@ ws : function (x,) {
 enter_rule ("ws");
     set_return (`${x.rwr ()}`);
 return exit_rule ("ws");
+},
+space : function (c,) {
+enter_rule ("space");
+    set_return (`${c.rwr ()}`);
+return exit_rule ("space");
+},
+spaces : function (cs,) {
+enter_rule ("spaces");
+    set_return (`${cs.rwr ().join ('')}`);
+return exit_rule ("spaces");
 },
 _terminal: function () { return this.sourceString; },
 _iter: function (...children) { return children.map(c => c.rwr ()); }
