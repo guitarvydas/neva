@@ -3,7 +3,7 @@ geometry {
   item =
     | geometry -- geometry
     | any      -- default
-  geometry = str<"geometry"> ws "{" ws x y width height as? rectangle? "}" ws "," ws
+  geometry = str<"geometry"> ws ":" ws "{" ws x y width height as? rectangle? "}" ws "," ws
   x = str<"x"> ws ":" ws number "," ws
   y = str<"y"> ws ":" ws number "," ws
   width = str<"width"> ws ":" ws number "," ws

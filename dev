@@ -16,7 +16,7 @@
 sed -f tmp <2.json >3.json
 
 # rewrite all geometry members to form "boundingBox" : [x,y,w,h],
-./rewrite geometry.ohm geometry.rewrite <3.json >4.json
+./rewrite geometry.ohm identity-geometry.rewrite <3.json >4.json
 
 
 

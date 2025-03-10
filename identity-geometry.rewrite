@@ -2,7 +2,7 @@
   main [item+] = ‛«item»’
   item_geometry [g] = ‛«g»’
   item_default [c] = ‛«c»’
-  geometry [_geo ws1 lb ws2 x y w h as? rect? rb ws3  _comma ws4] = ‛\n«_geo»«ws1»«lb»«ws2»«x»«y»«w»«h»«as»«rect»«rb»«ws3»«_comma»«ws4»’
+  geometry [_geo ws1 _colon _ws5 lb ws2 x y w h as? rect? rb ws3  _comma ws4] = ‛\n«_geo»«ws1»«_colon»«_ws5»«lb»«ws2»«x»«y»«w»«h»«as»«rect»«rb»«ws3»«_comma»«ws4»’
   x [_ ws1 _colon ws2 n _comma ws3] = ‛«_»«ws1»«_colon»«ws2»«n»«_comma»«ws3»’
   y [_ ws1 _colon ws2 n _comma ws3] = ‛«_»«ws1»«_colon»«ws2»«n»«_comma»«ws3»’
   width [_ ws1 _colon ws2 n _comma ws3] = ‛«_»«ws1»«_colon»«ws2»«n»«_comma»«ws3»’

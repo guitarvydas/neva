@@ -21,7 +21,8 @@
 "rhombus" : true, 
 "vertex" : 1, 
 "parent" : 1, 
-  "geometry": {
+  
+"geometry": {
   
 "x" : 120, 
 "y" : 260, 
@@ -38,6 +39,7 @@
 "vertex" : 1, 
 "parent" : 1, 
   
+
 "geometry": {
   
 "x" : 280, 
@@ -95,7 +97,8 @@
 
 "vertex" : 1, 
 "parent" : "-5bQla3dnRqBQKIm_dE6-2", 
-  "geometry": {
+  
+"geometry": {
   
 "x" : 120, 
 "y" : 60, 
@@ -112,6 +115,7 @@
 "vertex" : 1, 
 "parent" : 1, 
   
+
 "geometry": {
   
 "x" : 280, 
@@ -169,7 +173,8 @@
 
 "vertex" : 1, 
 "parent" : "-5bQla3dnRqBQKIm_dE6-6", 
-  "geometry": {
+  
+"geometry": {
   
 "x" : 120, 
 "y" : 60, 
@@ -186,7 +191,8 @@
 "rhombus" : true, 
 "vertex" : 1, 
 "parent" : 1, 
-  "geometry": {
+  
+"geometry": {
   
 "x" : 520, 
 "y" : 260, 
@@ -204,7 +210,8 @@
 "opacity" : 30, 
 "vertex" : 1, 
 "parent" : 1, 
-  "geometry": {
+  
+"geometry": {
   
 "x" : 520, 
 "y" : 440, 
@@ -322,7 +329,8 @@
 
 "vertex" : 1, 
 "parent" : 1, 
-  "geometry": {
+  
+"geometry": {
   
 "x" : 296, 
 "y" : 470, 
@@ -338,7 +346,8 @@
 
 "vertex" : 1, 
 "parent" : 1, 
-  "geometry": {
+  
+"geometry": {
   
 "x" : 600, 
 "y" : 250, 
