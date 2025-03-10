@@ -1,72 +1,30 @@
-
 "mxfile" : {
-    
-    
     "diagram" : {
 	"name" : "main", 
 	"id" : "ZAlmdrRH_l2KzV7yHv0Q", 
-	
 	"graphmodel": {
-	    
-	    
 	    "root": [
-		
 		{"id" : "0", }
 		{"id" : "1", "parent" : "0", }
 		{
-		    
 		    "id" : "-5bQla3dnRqBQKIm_dE6-1", 
 		    "value" : "", 
-
 		    "rhombus" : true, 
-		    "vertex" : 1, 
+		    "shape" : "vertex", 
 		    "parent" : 1, 
-		    
-		    "geometry": {
-			
-			"x" : 120, 
-			"y" : 260, 
-			"width" : 40, 
-			"height" : 40, 
-			"as" : "geometry", 
-		    },
-		},
+		    "boundingbox" : [120,260,40,40],},
 		{
-		    
 		    "id" : "-5bQla3dnRqBQKIm_dE6-2", 
 		    "value" : "Hello", 
-
-		    "vertex" : 1, 
+		    "shape" : "vertex", 
 		    "parent" : 1, 
-		    
-
-		    "geometry": {
-			
-			"x" : 280, 
-			"y" : 140, 
-			"width" : 138, 
-			"height" : 100, 
-			"as" : "geometry", 
-			
-			"rectangle":{
-
-			    "x" : "-98", 
-			    "y" : "-1230", 
-			    "width" : 99, 
-			    "height" : 26, 
-			    "as" : "alternateBounds", 
-			}
-		    },
-		},
+		    "boundingbox" : [280,140,138,100],},
 		{
-		    
 		    "id" : "-5bQla3dnRqBQKIm_dE6-3", 
 		    "value" : "", 
-
-		    "vertex" : 1, 
+		    "shape" : "vertex", 
 		    "parent" : "-5bQla3dnRqBQKIm_dE6-2", 
 		    "geometry": {
-			
 			"x" : "-16.75", 
 			"y" : "27.5", 
 			"width" : "36.75", 
@@ -75,14 +33,11 @@
 		    },
 		},
 		{
-		    
 		    "id" : "-5bQla3dnRqBQKIm_dE6-4", 
 		    "value" : "", 
-
-		    "vertex" : 1, 
+		    "shape" : "vertex", 
 		    "parent" : "-5bQla3dnRqBQKIm_dE6-2", 
 		    "geometry": {
-			
 			"x" : 120, 
 			"y" : "27.5", 
 			"width" : 36, 
@@ -91,58 +46,23 @@
 		    },
 		},
 		{
-		    
 		    "id" : "-5bQla3dnRqBQKIm_dE6-5", 
 		    "value" : "✗", 
-
-		    "vertex" : 1, 
+		    "shape" : "vertex", 
 		    "parent" : "-5bQla3dnRqBQKIm_dE6-2", 
-		    
-		    "geometry": {
-			
-			"x" : 120, 
-			"y" : 60, 
-			"width" : 36, 
-			"height" : 25, 
-			"as" : "geometry", 
-		    },
-		},
+		    "boundingbox" : [120,60,36,25],},
 		{
-		    
 		    "id" : "-5bQla3dnRqBQKIm_dE6-6", 
 		    "value" : "World", 
-
-		    "vertex" : 1, 
+		    "shape" : "vertex", 
 		    "parent" : 1, 
-		    
-
-		    "geometry": {
-			
-			"x" : 280, 
-			"y" : 320, 
-			"width" : 138, 
-			"height" : 100, 
-			"as" : "geometry", 
-			
-			"rectangle":{
-
-			    "x" : "-98", 
-			    "y" : "-1230", 
-			    "width" : 99, 
-			    "height" : 26, 
-			    "as" : "alternateBounds", 
-			}
-		    },
-		},
+		    "boundingbox" : [280,320,138,100],},
 		{
-		    
 		    "id" : "-5bQla3dnRqBQKIm_dE6-7", 
 		    "value" : "", 
-
-		    "vertex" : 1, 
+		    "shape" : "vertex", 
 		    "parent" : "-5bQla3dnRqBQKIm_dE6-6", 
 		    "geometry": {
-			
 			"x" : "-16.75", 
 			"y" : "27.5", 
 			"width" : "36.75", 
@@ -151,14 +71,11 @@
 		    },
 		},
 		{
-		    
 		    "id" : "-5bQla3dnRqBQKIm_dE6-8", 
 		    "value" : "", 
-
-		    "vertex" : 1, 
+		    "shape" : "vertex", 
 		    "parent" : "-5bQla3dnRqBQKIm_dE6-6", 
 		    "geometry": {
-			
 			"x" : 120, 
 			"y" : "27.5", 
 			"width" : 36, 
@@ -167,199 +84,125 @@
 		    },
 		},
 		{
-		    
 		    "id" : "-5bQla3dnRqBQKIm_dE6-9", 
 		    "value" : "✗", 
-
-		    "vertex" : 1, 
+		    "shape" : "vertex", 
 		    "parent" : "-5bQla3dnRqBQKIm_dE6-6", 
-		    
-		    "geometry": {
-			
-			"x" : 120, 
-			"y" : 60, 
-			"width" : 36, 
-			"height" : 25, 
-			"as" : "geometry", 
-		    },
-		},
+		    "boundingbox" : [120,60,36,25],},
 		{
-		    
 		    "id" : "-5bQla3dnRqBQKIm_dE6-10", 
 		    "value" : "", 
-
 		    "rhombus" : true, 
-		    "vertex" : 1, 
+		    "shape" : "vertex", 
 		    "parent" : 1, 
-		    
-		    "geometry": {
-			
-			"x" : 520, 
-			"y" : 260, 
-			"width" : 40, 
-			"height" : 40, 
-			"as" : "geometry", 
-		    },
-		},
+		    "boundingbox" : [520,260,40,40],},
 		{
-		    
 		    "id" : "-5bQla3dnRqBQKIm_dE6-11", 
 		    "value" : "✗", 
-
 		    "rhombus" : true, 
 		    "opacity" : 30, 
-		    "vertex" : 1, 
+		    "shape" : "vertex", 
 		    "parent" : 1, 
-		    
-		    "geometry": {
-			
-			"x" : 520, 
-			"y" : 440, 
-			"width" : 40, 
-			"height" : 40, 
-			"as" : "geometry", 
-		    },
-		},
+		    "boundingbox" : [520,440,40,40],},
 		{
-		    
 		    "id" : "-5bQla3dnRqBQKIm_dE6-12", 
 		    "value" : "", 
-
+		    "shape" : "connector", 
 		    "edge" : 1, 
 		    "parent" : 1, 
 		    "source" : "-5bQla3dnRqBQKIm_dE6-1", 
 		    "target" : "-5bQla3dnRqBQKIm_dE6-3", 
 		    "geometry": {
-			
 			"relative" : 1, 
 			"as" : "geometry", 
 		    },
 		},
 		{
-		    
 		    "id" : "-5bQla3dnRqBQKIm_dE6-13", 
 		    "value" : "", 
-
+		    "shape" : "connector", 
 		    "edge" : 1, 
 		    "parent" : 1, 
 		    "source" : "-5bQla3dnRqBQKIm_dE6-1", 
 		    "target" : "-5bQla3dnRqBQKIm_dE6-7", 
 		    "geometry": {
-			
 			"relative" : 1, 
 			"as" : "geometry", 
 		    },
 		},
 		{
-		    
 		    "id" : "-5bQla3dnRqBQKIm_dE6-14", 
 		    "value" : "", 
-
+		    "shape" : "connector", 
 		    "edge" : 1, 
 		    "parent" : 1, 
 		    "source" : "-5bQla3dnRqBQKIm_dE6-4", 
 		    "target" : "-5bQla3dnRqBQKIm_dE6-10", 
 		    "geometry": {
-			
 			"relative" : 1, 
 			"as" : "geometry", 
 		    },
 		},
 		{
-		    
 		    "id" : "-5bQla3dnRqBQKIm_dE6-15", 
 		    "value" : "", 
-
+		    "shape" : "connector", 
 		    "edge" : 1, 
 		    "parent" : 1, 
 		    "source" : "-5bQla3dnRqBQKIm_dE6-8", 
 		    "target" : "-5bQla3dnRqBQKIm_dE6-10", 
 		    "geometry": {
-			
 			"relative" : 1, 
 			"as" : "geometry", 
 		    },
 		},
 		{
-		    
 		    "id" : "-5bQla3dnRqBQKIm_dE6-16", 
 		    "value" : "", 
-
+		    "shape" : "connector", 
 		    "edge" : 1, 
 		    "parent" : 1, 
 		    "source" : "-5bQla3dnRqBQKIm_dE6-5", 
 		    "target" : "-5bQla3dnRqBQKIm_dE6-11", 
-		    
 		    "geometry": {
-			
 			"relative" : 1, 
 			"as" : "geometry", 
-			
 			"array" : {
-			    
 			    "point":[460,213],"point":[460,460],
 			},
 		    },
 		},
 		{
-		    
 		    "id" : "-5bQla3dnRqBQKIm_dE6-17", 
 		    "value" : "", 
-
+		    "shape" : "connector", 
 		    "edge" : 1, 
 		    "parent" : 1, 
 		    "source" : "-5bQla3dnRqBQKIm_dE6-9", 
 		    "target" : "-5bQla3dnRqBQKIm_dE6-11", 
-		    
 		    "geometry": {
-			
 			"relative" : 1, 
 			"as" : "geometry", 
-			
 			"array" : {
-			    
 			    "point":[460,393],"point":[460,460],
 			},
 		    },
 		},
 		{
-		    
 		    "id" : "-5bQla3dnRqBQKIm_dE6-18", 
 		    "value" : "Hello sends the string &quot;Hello&quot; when it receives any input&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Likewise World sends &quot;World&quot;&lt;/div&gt;", 
-
-		    "vertex" : 1, 
+		    "shape" : "note", 
+		    "shape" : "vertex", 
 		    "parent" : 1, 
-		    
-		    "geometry": {
-			
-			"x" : 296, 
-			"y" : 470, 
-			"width" : 122, 
-			"height" : 110, 
-			"as" : "geometry", 
-		    },
-		},
+		    "boundingbox" : [296,470,122,110],},
 		{
-		    
 		    "id" : "-5bQla3dnRqBQKIm_dE6-19", 
 		    "value" : "The output of the system is &quot;Hello World&quot; or &quot;World Hello&quot;", 
-
-		    "vertex" : 1, 
+		    "shape" : "note", 
+		    "shape" : "vertex", 
 		    "parent" : 1, 
-		    
-		    "geometry": {
-			
-			"x" : 600, 
-			"y" : 250, 
-			"width" : 122, 
-			"height" : 70, 
-			"as" : "geometry", 
-		    },
-		},
+		    "boundingbox" : [600,250,122,70],},
 	    ],
 	},
-
     },
 }
-
-

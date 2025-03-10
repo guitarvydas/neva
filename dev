@@ -16,8 +16,10 @@
 sed -f tmp <2.json >3.json
 
 # rewrite all geometry members to form "boundingBox" : [x,y,w,h],
-./rewrite geometry.ohm identity-geometry.rewrite <3.json >4.json
+./rewrite geometry.ohm geometry.rewrite <3.json >4.json
 
+# rewrite "vertex" : 1, to "shape" : "vertex",
+sed -e 's/"vertex"[ ]*:[ ]*1,/"shape" : "vertex",/g' <4.json | sed -e '/^[ \t]*$/d' >5.json
 
 
 
