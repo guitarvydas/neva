@@ -9,6 +9,7 @@ parts {
     | OutputPort
     | InputPort
     | Component
+    | Wire
     | Ignore
     
   OutputGate = "{" ID Label Rhombus OutputGateColor VertexTag Parent1 BoundingBox "}"

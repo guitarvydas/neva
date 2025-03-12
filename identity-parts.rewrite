@@ -19,8 +19,11 @@
   Component [lb ID Label ContainerTag AnyColor VertexTag Parent1 BoundingBox rb] =
   ‛«lb»«ID»«Label»«ContainerTag»«AnyColor»«VertexTag»«Parent1»«BoundingBox»«rb»’
 
+  Wire [lb ID Label ConnectorTag EdgeTag Parent1 Source Target Geometry rb] =
+  ‛«lb»«ID»«Label»«ConnectorTag»«EdgeTag»«Parent1»«Source»«Tarvydas»«Geometry»«rb»’
+
   Ignore_rec [lb Ignore+ rb] = ‛«lb»«Ignore»«rb»’
-  Ignore_default [NotBrace+] = ‛«NotBrace»’
+  Ignore_default [notBrace+] = ‛«notBrace»’
 
   OutputGateColor [_fillcolor v] = ‛«_fillcolor»«v»’
   OutputPortColor [_fillcolor v] = ‛«_fillcolor»«v»’
@@ -30,6 +33,12 @@
   Label [v s] = ‛«v»«s»’
   VertexTag [_shape _vertex] = ‛«_shape»«_color»’
   ContainerTag [_container _1] = ‛«_container»«_1»’
+  ContainerTag [_container _1] = ‛«_container»«_1»’
+  ConnectorTag [_shape _connector] = ‛«_shape»«_connector»’
+  EdgeTag [_edge _1] = ‛«_edge»«_1»’
+  Source [_source s] = ‛«_source»«s»’
+  Target [_target s] = ‛«_target»«s»’
+  Geometry [_geometry Ignore] = ‛«_geometry»«Ignore»’
   Parent [_parent s] = ‛«_parent»«s»’
   Parent1 [_parent _1] = ‛«_parent»«_1»’
   Rhombus [_rhombus _true] = ‛«_rhombus»«_true»’
@@ -38,8 +47,8 @@
   Key [dq1 s dq2 _colon] = ‛«dq1»«s»«dq2»«_colon»’
   value [dq1 s dq2] = ‛«dq1»«s»«dq2»’
 
-  NotBrace_rec [lb NotBrace* rb] = ‛«lb»«NotBrace»«rb»’
-  NotBrace_default [c] = ‛«c»’
+  notBrace_rec [lb notBrace* rb] = ‛«lb»«notBrace»«rb»’
+  notBrace_default [c] = ‛«c»’
   x [number] = ‛«number»’
   y [number] = ‛«number»’
   width [number] = ‛«number»’

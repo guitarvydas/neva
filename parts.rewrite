@@ -20,6 +20,8 @@
   Component [lb ID Label ContainerTag AnyColor VertexTag Parent1 BoundingBox rb] =
   ‛\n«lb»\n"kind":"part",«ID»«Label»«ContainerTag»«AnyColor»«VertexTag»«Parent1»«BoundingBox»\n«rb»,’
 
+  
+
   Ignore_rec [lb Ignore+ rb] = ‛«lb»«Ignore»«rb»,’
   Ignore_default [notBrace+] = ‛«notBrace»’
 
@@ -31,6 +33,11 @@
   Label [v s] = ‛\n"label":«s»,’
   VertexTag [_shape _vertex] = ‛’
   ContainerTag [_container _1] = ‛’
+  ConnectorTag [_shape _connector] = ‛«_shape»«_connector»’
+  EdgeTag [_edge _1] = ‛«_edge»«_1»’
+  Source [_source s] = ‛«_source»«s»’
+  Target [_target s] = ‛«_target»«s»’
+  Geometry [_geometry Ignore] = ‛«_geometry»«Ignore»’
   Parent [_parent s] = ‛\n«_parent»«s»,’
   Parent1 [_parent _1] = ‛\n«_parent»«_1»,’
   Rhombus [_rhombus _true] = ‛’
