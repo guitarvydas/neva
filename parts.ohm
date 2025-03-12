@@ -18,7 +18,7 @@ parts {
   Component = "{" ID Label ContainerTag AnyColor VertexTag Parent1 BoundingBox "}"
   Ignore =
     | "{" Ignore+ "}" -- rec
-    | NotBrace+       -- default
+    | #notBrace+       -- default
 
   OutputGateColor = Key<"fillColor"> value<"#0050ef">
   OutputPortColor = Key<"fillColor"> value<"#1ba1e2">
@@ -36,8 +36,8 @@ parts {
   Key<s> = dq s dq ":"
   value<s> = dq s dq
 
-  NotBrace = 
-    | "[" NotBrace* "]"        -- rec
+  notBrace = 
+    | "[" notBrace* "]"        -- rec
     | ~"{" ~"}" ~"[" ~"]" any  -- default
   x = number
   y = number

@@ -1,45 +1,46 @@
 % rewrite parts {
   Main [_mxfile lb Diagram+ rb] = ‛«_mxfile»«lb»«Diagram»«rb»’
-  Diagram [_diagram lb Name ID Graphmodel rb] = ‛«_diagram»«lb»«Name»«ID»«Graphmodel»«rb»’
-  Graphmodel [_graphmodel lb Root rb] = ‛«_graphmodel»«lb»«Root»«rb»’
-  Root [_root lb Part+ rb] = ‛«_root»«lb»«Part»«rb»’
+  Diagram [_diagram lb Name ID Graphmodel rb] = ‛\n«_diagram»«lb»«Name»«ID»«Graphmodel»«rb»’
+  Graphmodel [_graphmodel lb Root rb] = ‛\n«_graphmodel»«lb»«Root»«rb»’
+  Root [_root lb Part+ rb] = ‛\n«_root»«lb»«Part»«rb»’
+  Part [p] = ‛\n«p»’
     
   OutputGate [lb ID Label Rhombus OutputGateColor VertexTag Parent1 BoundingBox rb] =
-  ‛«lb»«ID»«Label»«Rhombus»«OutputGateColor»«VertexTag»«Parent1»«BoundingBox»«rb»’
+  ‛\n«lb»\n"kind":"outputgate",«ID»«Label»«Rhombus»«OutputGateColor»«VertexTag»«Parent1»«BoundingBox»\n«rb»,’
 
   InputGate [lb ID Label Rhombus VertexTag Parent1 BoundingBox rb] =
-  ‛«lb»«ID»«Label»«Rhombus»«VertexTag»«Parent1»«BoundingBox»«rb»’
+  ‛\n«lb»\n"kind":"inputgate",«ID»«Label»«Rhombus»«VertexTag»«Parent1»«BoundingBox»\n«rb»,’
 
   OutputPort [lb ID Label OutputPortColor VertexTag Parent BoundingBox rb] =
-  ‛«lb»«ID»«Label»«OutputPortColor»«VertexTag»«Parent1»«BoundingBox»«rb»’
+  ‛\n«lb»\n"kind":"outputport",«ID»«Label»«OutputPortColor»«VertexTag»«Parent»«BoundingBox»\n«rb»,’
 
   InputPort [lb ID Label VertexTag Parent BoundingBox rb] =
-  ‛«lb»«ID»«Label»«VertexTag»«Parent1»«BoundingBox»«rb»’
+  ‛\n«lb»\n"kind":"inputport",«ID»«Label»«VertexTag»«Parent»«BoundingBox»\n«rb»,’
 
   Component [lb ID Label ContainerTag AnyColor VertexTag Parent1 BoundingBox rb] =
-  ‛«lb»«ID»«Label»«ContainerTag»«AnyColor»«VertexTag»«Parent1»«BoundingBox»«rb»’
+  ‛\n«lb»\n"kind":"part",«ID»«Label»«ContainerTag»«AnyColor»«VertexTag»«Parent1»«BoundingBox»\n«rb»,’
 
-  Ignore_rec [lb Ignore+ rb] = ‛«lb»«Ignore»«rb»’
-  Ignore_default [NotBrace+] = ‛«NotBrace»’
+  Ignore_rec [lb Ignore+ rb] = ‛«lb»«Ignore»«rb»,’
+  Ignore_default [notBrace+] = ‛«notBrace»’
 
-  OutputGateColor [_fillcolor v] = ‛«_fillcolor»«v»’
-  OutputPortColor [_fillcolor v] = ‛«_fillcolor»«v»’
-  AnyColor  [_fillcolor s] = ‛«_fillcolor»«s»’
-  ID [id s] = ‛«id»«s»’
-  Name [name s] = ‛«name»«s»’
-  Label [v s] = ‛«v»«s»’
-  VertexTag [_shape _vertex] = ‛«_shape»«_color»’
-  ContainerTag [_container _1] = ‛«_container»«_1»’
-  Parent [_parent s] = ‛«_parent»«s»’
-  Parent1 [_parent _1] = ‛«_parent»«_1»’
-  Rhombus [_rhombus _true] = ‛«_rhombus»«_true»’
-  BoundingBox [_boundingbox lb x y width height rb] = ‛«_boundingbox»«lb»«x»«y»«width»«height»«rb»’
+  OutputGateColor [_fillcolor v] = ‛’
+  OutputPortColor [_fillcolor v] = ‛’
+  AnyColor  [_fillcolor s] = ‛’
+  ID [id s] = ‛\n«id»«s»,’
+  Name [name s] = ‛\n«name»«s»,’
+  Label [v s] = ‛\n"label":«s»,’
+  VertexTag [_shape _vertex] = ‛’
+  ContainerTag [_container _1] = ‛’
+  Parent [_parent s] = ‛\n«_parent»«s»,’
+  Parent1 [_parent _1] = ‛\n«_parent»«_1»,’
+  Rhombus [_rhombus _true] = ‛’
+  BoundingBox [_boundingbox lb x y width height rb] = ‛«_boundingbox»«lb»«x»,«y»,«width»,«height»«rb»’
 
-  Key [dq1 s dq2 _colon] = ‛«dq1»«s»«dq2»«_colon»’
+  Key [dq1 s dq2 _colon] = ‛\n«dq1»«s»«dq2»«_colon»’
   value [dq1 s dq2] = ‛«dq1»«s»«dq2»’
 
-  NotBrace_rec [lb NotBrace* rb] = ‛«lb»«NotBrace»«rb»’
-  NotBrace_default [c] = ‛«c»’
+  notBrace_rec [lb notBrace* rb] = ‛«lb»«notBrace»«rb»’
+  notBrace_default [c] = ‛«c»’
   x [number] = ‛«number»’
   y [number] = ‛«number»’
   width [number] = ‛«number»’
