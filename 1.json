@@ -3,7 +3,7 @@
   
 "host" : "Electron", 
 "agent" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.16 Chrome/132.0.6834.196 Electron/34.2.0 Safari/537.36", 
-"version" : "26.0.16", 
+"version" : 26.0.16, 
   
 "diagram" : {
   "name" : "main", 
@@ -34,7 +34,7 @@
 {
   
 "id" : "-5bQla3dnRqBQKIm_dE6-1", 
-"value" : "", 
+"value" : "gin", 
 "style" : "rhombus;rounded=1;fontStyle=1;glass=0;sketch=0;fontSize=12;points=[[0,0.5,0,0,0],[0.5,0,0,0,0],[0.5,1,0,0,0],[1,0.5,0,0,0]];shadow=1;fontFamily=Helvetica;fontColor=default;labelBackgroundColor=none;", 
 "vertex" : 1, 
 "parent" : 1, 
@@ -65,8 +65,8 @@
   
 "rectangle":{
 
-"x" : "-98", 
-"y" : "-1230", 
+"x" : -98, 
+"y" : -1230, 
 "width" : 99, 
 "height" : 26, 
 "as" : "alternateBounds", 
@@ -76,15 +76,15 @@
 {
   
 "id" : "-5bQla3dnRqBQKIm_dE6-3", 
-"value" : "", 
+"value" : "pin", 
 "style" : "rounded=1;sketch=0;points=[[0,0.5,0,0,0],[1,0.5,0,0,0]];arcSize=50;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=none;", 
 "vertex" : 1, 
 "parent" : "-5bQla3dnRqBQKIm_dE6-2", 
   "geometry": {
   
-"x" : "-16.75", 
-"y" : "27.5", 
-"width" : "36.75", 
+"x" : -16.75, 
+"y" : 27.5, 
+"width" : 36.75, 
 "height" : 25, 
 "as" : "geometry", 
 },
@@ -92,14 +92,14 @@
 {
   
 "id" : "-5bQla3dnRqBQKIm_dE6-4", 
-"value" : "", 
+"value" : "pout", 
 "style" : "rounded=1;sketch=0;points=[[0,0.5,0,0,0],[1,0.5,0,0,0]];fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;arcSize=50;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=none;", 
 "vertex" : 1, 
 "parent" : "-5bQla3dnRqBQKIm_dE6-2", 
   "geometry": {
   
 "x" : 120, 
-"y" : "27.5", 
+"y" : 27.5, 
 "width" : 36, 
 "height" : 25, 
 "as" : "geometry", 
@@ -139,8 +139,8 @@
   
 "rectangle":{
 
-"x" : "-98", 
-"y" : "-1230", 
+"x" : -98, 
+"y" : -1230, 
 "width" : 99, 
 "height" : 26, 
 "as" : "alternateBounds", 
@@ -156,9 +156,9 @@
 "parent" : "-5bQla3dnRqBQKIm_dE6-6", 
   "geometry": {
   
-"x" : "-16.75", 
-"y" : "27.5", 
-"width" : "36.75", 
+"x" : -16.75, 
+"y" : 27.5, 
+"width" : 36.75, 
 "height" : 25, 
 "as" : "geometry", 
 },
@@ -173,7 +173,7 @@
   "geometry": {
   
 "x" : 120, 
-"y" : "27.5", 
+"y" : 27.5, 
 "width" : 36, 
 "height" : 25, 
 "as" : "geometry", 
@@ -198,7 +198,7 @@
 {
   
 "id" : "-5bQla3dnRqBQKIm_dE6-10", 
-"value" : "", 
+"value" : "gout", 
 "style" : "rhombus;rounded=1;fontStyle=1;glass=0;sketch=0;fontSize=12;points=[[0,0.5,0,0,0],[0.5,0,0,0,0],[0.5,1,0,0,0],[1,0.5,0,0,0]];shadow=1;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;fontFamily=Helvetica;labelBackgroundColor=none;", 
 "vertex" : 1, 
 "parent" : 1, 

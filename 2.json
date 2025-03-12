@@ -3,7 +3,7 @@
   
 "host" : "Electron", 
 "agent" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.16 Chrome/132.0.6834.196 Electron/34.2.0 Safari/537.36", 
-"version" : "26.0.16", 
+"version" : 26.0.16, 
   
 "diagram" : {
   "name" : "main", 
@@ -34,7 +34,7 @@
 {
   
 "id" : "-5bQla3dnRqBQKIm_dE6-1", 
-"value" : "", 
+"value" : "gin", 
 
 "rhombus" : true, 
 "rounded" : 1, 
@@ -93,8 +93,8 @@
   
 "rectangle":{
 
-"x" : "-98", 
-"y" : "-1230", 
+"x" : -98, 
+"y" : -1230, 
 "width" : 99, 
 "height" : 26, 
 "as" : "alternateBounds", 
@@ -104,7 +104,7 @@
 {
   
 "id" : "-5bQla3dnRqBQKIm_dE6-3", 
-"value" : "", 
+"value" : "pin", 
 
 "rounded" : 1, 
 "sketch" : 0, 
@@ -118,9 +118,9 @@
 "parent" : "-5bQla3dnRqBQKIm_dE6-2", 
   "geometry": {
   
-"x" : "-16.75", 
-"y" : "27.5", 
-"width" : "36.75", 
+"x" : -16.75, 
+"y" : 27.5, 
+"width" : 36.75, 
 "height" : 25, 
 "as" : "geometry", 
 },
@@ -128,7 +128,7 @@
 {
   
 "id" : "-5bQla3dnRqBQKIm_dE6-4", 
-"value" : "", 
+"value" : "pout", 
 
 "rounded" : 1, 
 "sketch" : 0, 
@@ -145,7 +145,7 @@
   "geometry": {
   
 "x" : 120, 
-"y" : "27.5", 
+"y" : 27.5, 
 "width" : 36, 
 "height" : 25, 
 "as" : "geometry", 
@@ -213,8 +213,8 @@
   
 "rectangle":{
 
-"x" : "-98", 
-"y" : "-1230", 
+"x" : -98, 
+"y" : -1230, 
 "width" : 99, 
 "height" : 26, 
 "as" : "alternateBounds", 
@@ -238,9 +238,9 @@
 "parent" : "-5bQla3dnRqBQKIm_dE6-6", 
   "geometry": {
   
-"x" : "-16.75", 
-"y" : "27.5", 
-"width" : "36.75", 
+"x" : -16.75, 
+"y" : 27.5, 
+"width" : 36.75, 
 "height" : 25, 
 "as" : "geometry", 
 },
@@ -265,7 +265,7 @@
   "geometry": {
   
 "x" : 120, 
-"y" : "27.5", 
+"y" : 27.5, 
 "width" : 36, 
 "height" : 25, 
 "as" : "geometry", 
@@ -301,7 +301,7 @@
 {
   
 "id" : "-5bQla3dnRqBQKIm_dE6-10", 
-"value" : "", 
+"value" : "gout", 
 
 "rhombus" : true, 
 "rounded" : 1, 

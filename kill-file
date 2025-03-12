@@ -27,14 +27,12 @@
 "fontFamily":
 "fontColor":
 "labelBackgroundColor":
-"container" : 1, 
 "recursiveResize" : 0, 
 "verticalAlign" : "top", 
 "arcSize" : 6, 
 "autosize" : 0, 
 "absoluteArcSize" : 1, 
 "strokeColor" : "#6c8ebf", 
-"fillColor" : "#dae8fc", 
 "gradientColor" : "#0050EF", 
 "arcSize" : 50, 
 "edgeStyle" : "orthogonalEdgeStyle", 
@@ -65,3 +63,4 @@
 "gradientDirection" : "north", 
 "size" : 20, 
 "pointerEvents" : 1, 
+"opacity"

@@ -74,14 +74,12 @@
     ID [_ _eq s] = ‛"id" : «s», ’
     Parent [_ _eq s] = ‛"parent" : «s», ’
     Attribute_num [sym _eq nstr] = ‛\n"«sym»" : «nstr», ’
-    Attribute_frac [sym _eq fstr] = ‛\n"«sym»" : "«fstr»", ’
     Attribute_other [sym _eq str] = ‛\n"«sym»" : «str», ’
 
       sym [letter symFollow*] = ‛«letter»«symFollow»’
       symFollow [c] = ‛«c»’
       notGT [c] = ‛«c»’
       numericString [dq digit+ dq2] = ‛«digit»’
-      fractionalString [dq1 fdigit+ dq2] = ‛«fdigit»’
       fdigit [c] = ‛«c»’
       str [dq char* dq2] = ‛«dq»«char»«dq2»’
       dq [c] = ‛«c»’

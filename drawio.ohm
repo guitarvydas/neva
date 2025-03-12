@@ -36,15 +36,13 @@ drawio {
     Parent = "parent" "=" str
     Attribute =
       | sym "=" numericString -- num
-      | sym "=" fractionalString -- frac
       | sym "=" str -- other
 
       sym = letter symFollow*
       symFollow = alnum | "_"
       notGT = ~">" any
-      numericString = dq digit+ dq
-      fractionalString = dq fdigit+ dq
-      fdigit = digit | "."
+      numericString = dq fdigit+ dq
+      fdigit = digit | "." | "+" | "-"
       str = dq char* dq
       dq = "\""
       char =

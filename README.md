@@ -37,3 +37,16 @@ Text to Text transpilation
 - I created a nano-DSL for the back end of t2t to allow rewriting text more easily than writing raw Javascript
   - t2t front end == OhmJS
   - t2t back end == .rewrite files ; custom nano-DSL for rewriting text
+
+# patterns for various elements
+  in gate = rhombus, parent=1, no fillColor
+  out gate = rhombus, parent=1, fillColor=#0050ef
+  in port = rect, rounded, not container, no fillColor // parent is a drawio "container"
+  out port = rect, rounded, not container, fillColor=#1ba1e2 // parent is a drawio "container"
+  components = rect, container (parent=1)
+  down arrow = edge, source is a rhombus, target is not a rhombus
+  up arrow = edge, source is not a rhombus, target is a rhombus
+  across arrow = edge, source is not a rhombus, target is not a rhombus
+  through arrow = edge, source is a rhombus, target is a rhombus
+  
+  

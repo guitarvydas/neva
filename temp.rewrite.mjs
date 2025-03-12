@@ -15,90 +15,190 @@ function getParameter (name) {
 
 let _rewrite = {
 
-main : function (item,) {
-enter_rule ("main");
-    set_return (`${item.rwr ().join ('')}`);
-return exit_rule ("main");
+Main : function (_mxfile,lb,Diagram,rb,) {
+enter_rule ("Main");
+    set_return (`${_mxfile.rwr ()}${lb.rwr ()}${Diagram.rwr ().join ('')}${rb.rwr ()}`);
+return exit_rule ("Main");
 },
-item_geometry : function (g,) {
-enter_rule ("item_geometry");
-    set_return (`${g.rwr ()}`);
-return exit_rule ("item_geometry");
+Diagram : function (_diagram,lb,Name,ID,Graphmodel,rb,) {
+enter_rule ("Diagram");
+    set_return (`${_diagram.rwr ()}${lb.rwr ()}${Name.rwr ()}${ID.rwr ()}${Graphmodel.rwr ()}${rb.rwr ()}`);
+return exit_rule ("Diagram");
 },
-item_default : function (c,) {
-enter_rule ("item_default");
+Graphmodel : function (_graphmodel,lb,Root,rb,) {
+enter_rule ("Graphmodel");
+    set_return (`${_graphmodel.rwr ()}${lb.rwr ()}${Root.rwr ()}${rb.rwr ()}`);
+return exit_rule ("Graphmodel");
+},
+Root : function (_root,lb,Part,rb,) {
+enter_rule ("Root");
+    set_return (`${_root.rwr ()}${lb.rwr ()}${Part.rwr ().join ('')}${rb.rwr ()}`);
+return exit_rule ("Root");
+},
+OutputGate : function (lb,ID,Label,Rhombus,OutputGateColor,VertexTag,Parent1,BoundingBox,rb,) {
+enter_rule ("OutputGate");
+    set_return (`${lb.rwr ()}${ID.rwr ()}${Label.rwr ()}${Rhombus.rwr ()}${OutputGateColor.rwr ()}${VertexTag.rwr ()}${Parent1.rwr ()}${BoundingBox.rwr ()}${rb.rwr ()}`);
+return exit_rule ("OutputGate");
+},
+InputGate : function (lb,ID,Label,Rhombus,VertexTag,Parent1,BoundingBox,rb,) {
+enter_rule ("InputGate");
+    set_return (`${lb.rwr ()}${ID.rwr ()}${Label.rwr ()}${Rhombus.rwr ()}${VertexTag.rwr ()}${Parent1.rwr ()}${BoundingBox.rwr ()}${rb.rwr ()}`);
+return exit_rule ("InputGate");
+},
+OutputPort : function (lb,ID,Label,OutputPortColor,VertexTag,Parent,BoundingBox,rb,) {
+enter_rule ("OutputPort");
+    set_return (`${lb.rwr ()}${ID.rwr ()}${Label.rwr ()}${OutputPortColor.rwr ()}${VertexTag.rwr ()}undefined${BoundingBox.rwr ()}${rb.rwr ()}`);
+return exit_rule ("OutputPort");
+},
+InputPort : function (lb,ID,Label,VertexTag,Parent,BoundingBox,rb,) {
+enter_rule ("InputPort");
+    set_return (`${lb.rwr ()}${ID.rwr ()}${Label.rwr ()}${VertexTag.rwr ()}undefined${BoundingBox.rwr ()}${rb.rwr ()}`);
+return exit_rule ("InputPort");
+},
+Component : function (lb,ID,Label,ContainerTag,AnyColor,VertexTag,Parent1,BoundingBox,rb,) {
+enter_rule ("Component");
+    set_return (`${lb.rwr ()}${ID.rwr ()}${Label.rwr ()}${ContainerTag.rwr ()}${AnyColor.rwr ()}${VertexTag.rwr ()}${Parent1.rwr ()}${BoundingBox.rwr ()}${rb.rwr ()}`);
+return exit_rule ("Component");
+},
+Ignore_rec : function (lb,Ignore,rb,) {
+enter_rule ("Ignore_rec");
+    set_return (`${lb.rwr ()}${Ignore.rwr ().join ('')}${rb.rwr ()}`);
+return exit_rule ("Ignore_rec");
+},
+Ignore_default : function (NotBrace,) {
+enter_rule ("Ignore_default");
+    set_return (`${NotBrace.rwr ().join ('')}`);
+return exit_rule ("Ignore_default");
+},
+OutputGateColor : function (_fillcolor,v,) {
+enter_rule ("OutputGateColor");
+    set_return (`${_fillcolor.rwr ()}${v.rwr ()}`);
+return exit_rule ("OutputGateColor");
+},
+OutputPortColor : function (_fillcolor,v,) {
+enter_rule ("OutputPortColor");
+    set_return (`${_fillcolor.rwr ()}${v.rwr ()}`);
+return exit_rule ("OutputPortColor");
+},
+AnyColor : function (_fillcolor,s,) {
+enter_rule ("AnyColor");
+    set_return (`${_fillcolor.rwr ()}${s.rwr ()}`);
+return exit_rule ("AnyColor");
+},
+ID : function (id,s,) {
+enter_rule ("ID");
+    set_return (`${id.rwr ()}${s.rwr ()}`);
+return exit_rule ("ID");
+},
+Name : function (name,s,) {
+enter_rule ("Name");
+    set_return (`${name.rwr ()}${s.rwr ()}`);
+return exit_rule ("Name");
+},
+Label : function (v,s,) {
+enter_rule ("Label");
+    set_return (`${v.rwr ()}${s.rwr ()}`);
+return exit_rule ("Label");
+},
+VertexTag : function (_shape,_vertex,) {
+enter_rule ("VertexTag");
+    set_return (`${_shape.rwr ()}undefined`);
+return exit_rule ("VertexTag");
+},
+ContainerTag : function (_container,_1,) {
+enter_rule ("ContainerTag");
+    set_return (`${_container.rwr ()}${_1.rwr ()}`);
+return exit_rule ("ContainerTag");
+},
+Parent : function (_parent,s,) {
+enter_rule ("Parent");
+    set_return (`${_parent.rwr ()}${s.rwr ()}`);
+return exit_rule ("Parent");
+},
+Parent1 : function (_parent,_1,) {
+enter_rule ("Parent1");
+    set_return (`${_parent.rwr ()}${_1.rwr ()}`);
+return exit_rule ("Parent1");
+},
+Rhombus : function (_rhombus,_true,) {
+enter_rule ("Rhombus");
+    set_return (`${_rhombus.rwr ()}${_true.rwr ()}`);
+return exit_rule ("Rhombus");
+},
+BoundingBox : function (_boundingbox,lb,x,y,width,height,rb,) {
+enter_rule ("BoundingBox");
+    set_return (`${_boundingbox.rwr ()}${lb.rwr ()}${x.rwr ()}${y.rwr ()}${width.rwr ()}${height.rwr ()}${rb.rwr ()}`);
+return exit_rule ("BoundingBox");
+},
+Key : function (dq1,s,dq2,_colon,) {
+enter_rule ("Key");
+    set_return (`${dq1.rwr ()}${s.rwr ()}${dq2.rwr ()}${_colon.rwr ()}`);
+return exit_rule ("Key");
+},
+value : function (dq1,s,dq2,) {
+enter_rule ("value");
+    set_return (`${dq1.rwr ()}${s.rwr ()}${dq2.rwr ()}`);
+return exit_rule ("value");
+},
+NotBrace_rec : function (lb,NotBrace,rb,) {
+enter_rule ("NotBrace_rec");
+    set_return (`${lb.rwr ()}${NotBrace.rwr ().join ('')}${rb.rwr ()}`);
+return exit_rule ("NotBrace_rec");
+},
+NotBrace_default : function (c,) {
+enter_rule ("NotBrace_default");
     set_return (`${c.rwr ()}`);
-return exit_rule ("item_default");
+return exit_rule ("NotBrace_default");
 },
-geometry : function (_geo,ws1,_colon,ws5,lb,ws2,x,y,w,h,as,rect,rb,ws3,_comma,ws4,) {
-enter_rule ("geometry");
-    set_return (`\n"boundingbox" : [${x.rwr ()},${y.rwr ()},${w.rwr ()},${h.rwr ()}],`);
-return exit_rule ("geometry");
-},
-x : function (_,ws1,_colon,ws2,n,_comma,ws3,) {
+x : function (number,) {
 enter_rule ("x");
-    set_return (`${n.rwr ()}`);
+    set_return (`${number.rwr ()}`);
 return exit_rule ("x");
 },
-y : function (_,ws1,_colon,ws2,n,_comma,ws3,) {
+y : function (number,) {
 enter_rule ("y");
-    set_return (`${n.rwr ()}`);
+    set_return (`${number.rwr ()}`);
 return exit_rule ("y");
 },
-width : function (_,ws1,_colon,ws2,n,_comma,ws3,) {
+width : function (number,) {
 enter_rule ("width");
-    set_return (`${n.rwr ()}`);
+    set_return (`${number.rwr ()}`);
 return exit_rule ("width");
 },
-height : function (_,ws1,_colon,ws2,n,_comma,ws3,) {
+height : function (number,) {
 enter_rule ("height");
-    set_return (`${n.rwr ()}`);
+    set_return (`${number.rwr ()}`);
 return exit_rule ("height");
 },
-as : function (_,ws1,_colon,ws2,s,_comma,ws3,) {
-enter_rule ("as");
-    set_return (``);
-return exit_rule ("as");
-},
-rectangle : function (_,ws1,_colon,ws2,lb,ws3,cs,rb,ws4,) {
-enter_rule ("rectangle");
-    set_return (``);
-return exit_rule ("rectangle");
-},
-string : function (ldq,cs,rdq,ws,) {
-enter_rule ("string");
-    set_return (`${ldq.rwr ()}${cs.rwr ().join ('')}${rdq.rwr ()}${ws.rwr ()}`);
-return exit_rule ("string");
-},
-number : function (sign,fdigit,ws,) {
+number : function (sign,int,frac,) {
 enter_rule ("number");
-    set_return (`${sign.rwr ().join ('')}${fdigit.rwr ().join ('')}${ws.rwr ()}`);
+    set_return (`${sign.rwr ().join ('')}${int.rwr ()}${frac.rwr ().join ('')}`);
 return exit_rule ("number");
+},
+int : function (digit,) {
+enter_rule ("int");
+    set_return (`${digit.rwr ().join ('')}`);
+return exit_rule ("int");
 },
 sign : function (c,) {
 enter_rule ("sign");
     set_return (`${c.rwr ()}`);
 return exit_rule ("sign");
 },
-fdigit : function (c,) {
-enter_rule ("fdigit");
-    set_return (`${c.rwr ()}`);
-return exit_rule ("fdigit");
+frac : function (_dot,digit,) {
+enter_rule ("frac");
+    set_return (`${_dot.rwr ()}${digit.rwr ().join ('')}`);
+return exit_rule ("frac");
+},
+string : function (dq1,cs,dq2,) {
+enter_rule ("string");
+    set_return (`${dq1.rwr ()}${cs.rwr ().join ('')}${dq2.rwr ()}`);
+return exit_rule ("string");
 },
 dq : function (c,) {
 enter_rule ("dq");
     set_return (`${c.rwr ()}`);
 return exit_rule ("dq");
-},
-str : function (dq,s,dq2,) {
-enter_rule ("str");
-    set_return (`${dq.rwr ()}${s.rwr ()}${dq2.rwr ()}`);
-return exit_rule ("str");
-},
-ws : function (x,) {
-enter_rule ("ws");
-    set_return (`${x.rwr ()}`);
-return exit_rule ("ws");
 },
 space : function (c,) {
 enter_rule ("space");

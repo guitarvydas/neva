@@ -21,5 +21,8 @@ sed -f tmp <2.json >3.json
 # rewrite "vertex" : 1, to "shape" : "vertex",
 sed -e 's/"vertex"[ ]*:[ ]*1,/"shape" : "vertex",/g' <4.json | sed -e '/^[ \t]*$/d' >5.json
 
+# figure out parts and ports, leave connections for next pass
+./rewrite parts.ohm parts.rewrite <5.json >6.json
+
 
 
