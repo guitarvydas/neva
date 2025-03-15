@@ -1,0 +1,38 @@
+gather {
+  main = item+
+  item =
+    | applySyntactic<SymbolTable>
+    | applySyntactic<Wire>
+    | "{" item+ "}" -- rec
+    | "[" item+ "]" -- recsq
+    | ~"}" ~"]" any
+
+  SymbolTable = Key<"symbolTable"> "{" KVpair+ "}"
+  Wire = "{" ID Label Key<"kind"> value<"wire"> Parent Source Target "}"
+
+  KVpair = string ":" string
+
+  ID = Key<"id"> string
+  Label = Key<"label"> string
+  Parent = Key<"parent"> (string | int)
+  Source = Key<"source"> string
+  Target = Key<"target"> string
+
+  Key<s> = dq s dq ":"
+  value<s> = dq s dq
+
+  notBrace = 
+    | "[" notBrace* "]"        -- rec
+    | ~"{" ~"}" ~"[" ~"]" any  -- default
+  x = number
+  y = number
+  width = number
+  height = number
+  number = sign? int frac?
+  int = digit+
+  sign = "+" | "-"
+  frac = "." digit+
+  string = dq (~dq any)* dq
+  dq = "\""
+  space += ","
+}
