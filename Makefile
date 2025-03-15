@@ -1,4 +1,7 @@
-all: 4
+all: 
+	./dev
+
+5: 4
 
 	node das2json.mjs <cull.drawio >cull.json
 

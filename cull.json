@@ -1,0 +1,461 @@
+[
+  {
+    "name": "main",
+    "children": [
+      {
+        "name": "$ node das2json.mjs",
+        "id": 6
+      },
+      {
+        "name": "$ sed -f tmp",
+        "id": 10
+      },
+      {
+        "name": "Wait",
+        "id": 14
+      },
+      {
+        "name": "$ ./rewrite styleexpand.ohm styleexpand.rewrite",
+        "id": 18
+      },
+      {
+        "name": "Write Temp Kill-File",
+        "id": 22
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "src",
+        "target_port": "",
+        "target": {
+          "name": "Wait",
+          "id": 14
+        }
+      },
+      {
+        "dir": 0,
+        "source_port": "kill",
+        "target_port": "kill",
+        "target": {
+          "name": "Write Temp Kill-File",
+          "id": 22
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "$ node das2json.mjs",
+          "id": 6
+        },
+        "target": {
+          "name": "$ ./rewrite styleexpand.ohm styleexpand.rewrite",
+          "id": 18
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "$ ./rewrite styleexpand.ohm styleexpand.rewrite",
+          "id": 18
+        },
+        "target": {
+          "name": "$ sed -f tmp",
+          "id": 10
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Wait",
+          "id": 14
+        },
+        "target": {
+          "name": "$ node das2json.mjs",
+          "id": 6
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "done",
+        "target_port": "go",
+        "source": {
+          "name": "Write Temp Kill-File",
+          "id": 22
+        },
+        "target": {
+          "name": "Wait",
+          "id": 14
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "$ sed -f tmp",
+          "id": 10
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "$ sed -f tmp",
+          "id": 10
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "$ ./rewrite styleexpand.ohm styleexpand.rewrite",
+          "id": 18
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Write Temp Kill-File",
+          "id": 22
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "$ node das2json.mjs",
+          "id": 6
+        }
+      }
+    ]
+  },
+  {
+    "name": "Copy of main",
+    "children": [
+      {
+        "name": "$ node das2json.mjs",
+        "id": 6
+      },
+      {
+        "name": "$ sed -f tmp",
+        "id": 10
+      },
+      {
+        "name": "Wait",
+        "id": 14
+      },
+      {
+        "name": "$ ./rewrite styleexpand.ohm styleexpand.rewrite",
+        "id": 18
+      },
+      {
+        "name": "Write Temp Kill-File",
+        "id": 22
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "src",
+        "target_port": "",
+        "target": {
+          "name": "Wait",
+          "id": 14
+        }
+      },
+      {
+        "dir": 0,
+        "source_port": "kill",
+        "target_port": "kill",
+        "target": {
+          "name": "Write Temp Kill-File",
+          "id": 22
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "$ node das2json.mjs",
+          "id": 6
+        },
+        "target": {
+          "name": "$ ./rewrite styleexpand.ohm styleexpand.rewrite",
+          "id": 18
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "$ ./rewrite styleexpand.ohm styleexpand.rewrite",
+          "id": 18
+        },
+        "target": {
+          "name": "$ sed -f tmp",
+          "id": 10
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Wait",
+          "id": 14
+        },
+        "target": {
+          "name": "$ node das2json.mjs",
+          "id": 6
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "done",
+        "target_port": "go",
+        "source": {
+          "name": "Write Temp Kill-File",
+          "id": 22
+        },
+        "target": {
+          "name": "Wait",
+          "id": 14
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "$ sed -f tmp",
+          "id": 10
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "$ sed -f tmp",
+          "id": 10
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "$ ./rewrite styleexpand.ohm styleexpand.rewrite",
+          "id": 18
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "$ node das2json.mjs",
+          "id": 6
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Write Temp Kill-File",
+          "id": 22
+        }
+      }
+    ]
+  },
+  {
+    "name": "Write Temp Kill-File",
+    "children": [
+      {
+        "name": "1then2",
+        "id": 5
+      },
+      {
+        "name": "'tmp",
+        "id": 10
+      },
+      {
+        "name": "syncfilewrite",
+        "id": 13
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "kill",
+        "target_port": "",
+        "target": {
+          "name": "'tmp",
+          "id": 10
+        }
+      },
+      {
+        "dir": 0,
+        "source_port": "kill",
+        "target_port": "2",
+        "target": {
+          "name": "1then2",
+          "id": 5
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "1",
+        "source": {
+          "name": "'tmp",
+          "id": 10
+        },
+        "target": {
+          "name": "1then2",
+          "id": 5
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "1",
+        "target_port": "filename",
+        "source": {
+          "name": "1then2",
+          "id": 5
+        },
+        "target": {
+          "name": "syncfilewrite",
+          "id": 13
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "2",
+        "target_port": "input",
+        "source": {
+          "name": "1then2",
+          "id": 5
+        },
+        "target": {
+          "name": "syncfilewrite",
+          "id": 13
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "done",
+        "target_port": "done",
+        "source": {
+          "name": "syncfilewrite",
+          "id": 13
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "syncfilewrite",
+          "id": 13
+        }
+      }
+    ]
+  },
+  {
+    "name": "Wait",
+    "children": [
+      {
+        "name": "1then2",
+        "id": 5
+      },
+      {
+        "name": "trash",
+        "id": 10
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "go",
+        "target_port": "1",
+        "target": {
+          "name": "1then2",
+          "id": 5
+        }
+      },
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "2",
+        "target": {
+          "name": "1then2",
+          "id": 5
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "1",
+        "target_port": "",
+        "source": {
+          "name": "1then2",
+          "id": 5
+        },
+        "target": {
+          "name": "trash",
+          "id": 10
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "2",
+        "target_port": "",
+        "source": {
+          "name": "1then2",
+          "id": 5
+        }
+      }
+    ]
+  },
+  {
+    "name": "Page-5",
+    "children": [
+      {
+        "name": "'tmp",
+        "id": 2
+      },
+      {
+        "name": "./rewrite kill.ohm kill.rewrite",
+        "id": 6
+      },
+      {
+        "name": "./rewrite kill.ohm kill.rewrite",
+        "id": 7
+      },
+      {
+        "name": "./rewrite styleexpand.ohm styleexpand.rewrite",
+        "id": 8
+      },
+      {
+        "name": "sed -f -",
+        "id": 9
+      }
+    ],
+    "connections": []
+  }
+]

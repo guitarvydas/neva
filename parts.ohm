@@ -9,6 +9,7 @@ parts {
     | OutputPort
     | InputPort
     | Component
+    | Wire
     | Ignore
     
   OutputGate = "{" ID Label Rhombus OutputGateColor VertexTag Parent1 BoundingBox "}"
@@ -29,10 +30,10 @@ parts {
   Label = Key<"value"> string
   VertexTag = Key<"shape"> value<"vertex">
   ContainerTag = Key<"container"> "1"
-  ConnectorTag = Key<"shape"> "connector"
+  ConnectorTag = Key<"shape"> value<"connector">
   EdgeTag = Key<"edge"> "1"
   Source = Key<"source"> string
-  Target = Key<"source"> string
+  Target = Key<"target"> string
   Geometry = Key<"geometry"> Ignore
   Parent = Key<"parent"> string
   Parent1 = Key<"parent"> "1"

@@ -1,0 +1,53 @@
+% parameter dict
+
+% rewrite gather {
+  main [item+] = ‛«item»’
+  item [x] = ‛«x»’
+
+  diagram [_diagram _colon lb diagramItem+ rb] = 
+    ⎡ ⎨resetDict⎬
+       ‛⎨ treeWalk ‛«diagramItem»’⎬
+       "xyz diagram" : {
+         "symbolTable" : { ⎨ fmtDict ⎬ },
+         «diagramItem»
+       }
+       ’
+    ⎦
+  diagramItem [item] = ‛«item»’
+
+  item [x] = ‛«x»’
+
+    OutputGate [lb _kind _outputgate ID Label Parent BoundingBox rb] = 
+      ‛\n⎨ gather ‛«ID»’ ‛outputgate’ ⎬ { "kind": "outputgate",«ID»,«Label»«Parent»«BoundingBox»«rb»’
+    InputGate [lb _kind _inputgate ID Label Parent BoundingBox rb] = 
+      ‛\n⎨ gather ‛«ID»’ ‛inputgate’ ⎬ { "kind": "inputgate",«ID»,«Label»«Parent»«BoundingBox»«rb»’
+    OutputPort [lb _kind _outputport ID Label Parent BoundingBox rb] = 
+      ‛\n⎨ gather ‛«ID»’ ‛outputport’ ⎬ { "kind": "outputport",«ID»,«Label»«Parent»«BoundingBox»«rb»’
+    InputPort [lb _kind _inputport ID Label Parent BoundingBox rb] = 
+      ‛\n⎨ gather ‛«ID»’ ‛inputport’ ⎬ { "kind": "inputport",«ID»,«Label»«Parent»«BoundingBox»«rb»’
+    Part [lb _kind _part ID Label Parent BoundingBox rb] = 
+      ‛\n⎨ gather ‛«ID»’ ‛part’ ⎬ { "kind": "part",«ID»,«Label»«Parent»«BoundingBox»«rb»’
+
+  ID [id s] = ‛\n«id»«s»,’
+  Label [v s] = ‛\n"label":«s»,’
+  Parent [_parent s] = ‛\n«_parent»«s»,’
+  BoundingBox [_boundingbox lb x y width height rb] = ‛«_boundingbox»«lb»«x»,«y»,«width»,«height»«rb»’
+
+  Key [dq1 s dq2 _colon] = ‛\n«dq1»«s»«dq2»«_colon»’
+  value [dq1 s dq2] = ‛«dq1»«s»«dq2»’
+
+  notBrace_rec [lb notBrace* rb] = ‛«lb»«notBrace»«rb»’
+  notBrace_default [c] = ‛«c»’
+  x [number] = ‛«number»’
+  y [number] = ‛«number»’
+  width [number] = ‛«number»’
+  height [number] = ‛«number»’
+  number [sign? int frac?] = ‛«sign»«int»«frac»’
+  int [digit+] = ‛«digit»’
+  sign [c] = ‛«c»’
+  frac [_dot digit+] = ‛«_dot»«digit»’
+  string [dq1 cs* dq2] = ‛«dq1»«cs»«dq2»’
+  dq [c] = ‛«c»’
+  space [c] = ‛«c»’
+  spaces [cs*] = ‛«cs»’
+}

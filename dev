@@ -22,7 +22,11 @@ sed -f tmp <2.json >3.json
 sed -e 's/"vertex"[ ]*:[ ]*1,/"shape" : "vertex",/g' <4.json | sed -e '/^[ \t]*$/d' >5.json
 
 # figure out parts and ports, leave connections for next pass
-./rewrite parts.ohm identity-parts.rewrite <5.json | sed -e '/^[ \t]*$/d' >6.json
+#./rewrite parts.ohm identity-parts.rewrite <5.json | sed -e '/^[ \t]*$/d' >6.json
+./rewrite parts.ohm parts.rewrite <5.json | sed -e '/^[ \t]*$/d' >6.json
+
+# gather symbol table that maps ID to KIND, then emit everything as-is, preceded by the symbol table itself
+./rewrite gather.ohm gather.rewrite <6.json | sed -e '/^[ \t]*$/d' #>7.json
 
 
 

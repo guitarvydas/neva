@@ -1,0 +1,46 @@
+gather {
+  main = item+
+  item =
+    | diagram
+    | any
+
+  diagram = dq spaces "diagram" spaces dq spaces ":" spaces "{" spaces diagramItem+ "}"
+  diagramItem =
+    | applySyntactic<OutputGate>
+    | applySyntactic<InputGate>
+    | applySyntactic<OutputPort>
+    | applySyntactic<InputPort>
+    | applySyntactic<Part>
+    | "{" diagramItem+ "}" -- rec
+    | "[" diagramItem+ "]" -- recsq
+    | ~"}" ~"]" any
+
+    OutputGate = "{" Key<"kind"> value <"outputgate"> ID Label Parent BoundingBox "}"
+    InputGate = "{" Key<"kind"> value <"inputgate"> ID Label Parent BoundingBox "}"
+    OutputPort = "{" Key<"kind"> value <"outputport"> ID Label Parent BoundingBox "}"
+    InputPort = "{" Key<"kind"> value <"inputport"> ID Label Parent BoundingBox "}"
+    Part = "{" Key<"kind"> value <"part"> ID Label Parent BoundingBox "}"
+
+  ID = Key<"id"> string
+  Label = Key<"label"> string
+  Parent = Key<"parent"> (string | int)
+  BoundingBox = Key<"boundingbox"> "[" x y width height "]"
+
+  Key<s> = dq s dq ":"
+  value<s> = dq s dq
+
+  notBrace = 
+    | "[" notBrace* "]"        -- rec
+    | ~"{" ~"}" ~"[" ~"]" any  -- default
+  x = number
+  y = number
+  width = number
+  height = number
+  number = sign? int frac?
+  int = digit+
+  sign = "+" | "-"
+  frac = "." digit+
+  string = dq (~dq any)* dq
+  dq = "\""
+  space += ","
+}

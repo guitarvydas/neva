@@ -12,162 +12,91 @@ function getParameter (name) {
     return parameters [name];
 }
 
+parameters ["dict"] = [];
 
 let _rewrite = {
 
-Main : function (_mxfile,lb,Diagram,rb,) {
-enter_rule ("Main");
-    set_return (`${_mxfile.rwr ()}${lb.rwr ()}${Diagram.rwr ().join ('')}${rb.rwr ()}`);
-return exit_rule ("Main");
+main : function (item,) {
+enter_rule ("main");
+    set_return (`${item.rwr ().join ('')}`);
+return exit_rule ("main");
 },
-Diagram : function (_diagram,lb,Name,ID,Graphmodel,rb,) {
-enter_rule ("Diagram");
-    set_return (`${_diagram.rwr ()}${lb.rwr ()}${Name.rwr ()}${ID.rwr ()}${Graphmodel.rwr ()}${rb.rwr ()}`);
-return exit_rule ("Diagram");
+item : function (x,) {
+enter_rule ("item");
+    set_return (`${x.rwr ()}`);
+return exit_rule ("item");
 },
-Graphmodel : function (_graphmodel,lb,Root,rb,) {
-enter_rule ("Graphmodel");
-    set_return (`${_graphmodel.rwr ()}${lb.rwr ()}${Root.rwr ()}${rb.rwr ()}`);
-return exit_rule ("Graphmodel");
+diagram : function (_diagram,_colon,lb,diagramItem,rb,) {
+enter_rule ("diagram");
+    resetDict ();
+    
+    set_return (`${treeWalk (`${diagramItem.rwr ().join ('')}`,)}
+       "xyz diagram" : {
+         "symbolTable" : { ${fmtDict ()} },
+         ${diagramItem.rwr ().join ('')}
+       }
+       `);
+
+return exit_rule ("diagram");
 },
-Root : function (_root,lb,Part,rb,) {
-enter_rule ("Root");
-    set_return (`${_root.rwr ()}${lb.rwr ()}${Part.rwr ().join ('')}${rb.rwr ()}`);
-return exit_rule ("Root");
+diagramItem : function (item,) {
+enter_rule ("diagramItem");
+    set_return (`${item.rwr ()}`);
+return exit_rule ("diagramItem");
 },
-OutputGate : function (lb,ID,Label,Rhombus,OutputGateColor,VertexTag,Parent1,BoundingBox,rb,) {
+item : function (x,) {
+enter_rule ("item");
+    set_return (`${x.rwr ()}`);
+return exit_rule ("item");
+},
+OutputGate : function (lb,_kind,_outputgate,ID,Label,Parent,BoundingBox,rb,) {
 enter_rule ("OutputGate");
-    set_return (`${lb.rwr ()}${ID.rwr ()}${Label.rwr ()}${Rhombus.rwr ()}${OutputGateColor.rwr ()}${VertexTag.rwr ()}${Parent1.rwr ()}${BoundingBox.rwr ()}${rb.rwr ()}`);
+    set_return (`\n${gather (`${ID.rwr ()}`,`outputgate`,)} { "kind": "outputgate",${ID.rwr ()},${Label.rwr ()}${Parent.rwr ()}${BoundingBox.rwr ()}${rb.rwr ()}`);
 return exit_rule ("OutputGate");
 },
-InputGate : function (lb,ID,Label,Rhombus,VertexTag,Parent1,BoundingBox,rb,) {
+InputGate : function (lb,_kind,_inputgate,ID,Label,Parent,BoundingBox,rb,) {
 enter_rule ("InputGate");
-    set_return (`${lb.rwr ()}${ID.rwr ()}${Label.rwr ()}${Rhombus.rwr ()}${VertexTag.rwr ()}${Parent1.rwr ()}${BoundingBox.rwr ()}${rb.rwr ()}`);
+    set_return (`\n${gather (`${ID.rwr ()}`,`inputgate`,)} { "kind": "inputgate",${ID.rwr ()},${Label.rwr ()}${Parent.rwr ()}${BoundingBox.rwr ()}${rb.rwr ()}`);
 return exit_rule ("InputGate");
 },
-OutputPort : function (lb,ID,Label,OutputPortColor,VertexTag,Parent,BoundingBox,rb,) {
+OutputPort : function (lb,_kind,_outputport,ID,Label,Parent,BoundingBox,rb,) {
 enter_rule ("OutputPort");
-    set_return (`${lb.rwr ()}${ID.rwr ()}${Label.rwr ()}${OutputPortColor.rwr ()}${VertexTag.rwr ()}undefined${BoundingBox.rwr ()}${rb.rwr ()}`);
+    set_return (`\n${gather (`${ID.rwr ()}`,`outputport`,)} { "kind": "outputport",${ID.rwr ()},${Label.rwr ()}${Parent.rwr ()}${BoundingBox.rwr ()}${rb.rwr ()}`);
 return exit_rule ("OutputPort");
 },
-InputPort : function (lb,ID,Label,VertexTag,Parent,BoundingBox,rb,) {
+InputPort : function (lb,_kind,_inputport,ID,Label,Parent,BoundingBox,rb,) {
 enter_rule ("InputPort");
-    set_return (`${lb.rwr ()}${ID.rwr ()}${Label.rwr ()}${VertexTag.rwr ()}undefined${BoundingBox.rwr ()}${rb.rwr ()}`);
+    set_return (`\n${gather (`${ID.rwr ()}`,`inputport`,)} { "kind": "inputport",${ID.rwr ()},${Label.rwr ()}${Parent.rwr ()}${BoundingBox.rwr ()}${rb.rwr ()}`);
 return exit_rule ("InputPort");
 },
-Component : function (lb,ID,Label,ContainerTag,AnyColor,VertexTag,Parent1,BoundingBox,rb,) {
-enter_rule ("Component");
-    set_return (`${lb.rwr ()}${ID.rwr ()}${Label.rwr ()}${ContainerTag.rwr ()}${AnyColor.rwr ()}${VertexTag.rwr ()}${Parent1.rwr ()}${BoundingBox.rwr ()}${rb.rwr ()}`);
-return exit_rule ("Component");
-},
-Wire : function (lb,ID,Label,ConnectorTag,EdgeTag,Parent1,Source,Target,Geometry,rb,) {
-enter_rule ("Wire");
-    set_return (`${lb.rwr ()}${ID.rwr ()}${Label.rwr ()}${ConnectorTag.rwr ()}${EdgeTag.rwr ()}${Parent1.rwr ()}${Source.rwr ()}undefined${Geometry.rwr ()}${rb.rwr ()}`);
-return exit_rule ("Wire");
-},
-Ignore_rec : function (lb,Ignore,rb,) {
-enter_rule ("Ignore_rec");
-    set_return (`${lb.rwr ()}${Ignore.rwr ().join ('')}${rb.rwr ()}`);
-return exit_rule ("Ignore_rec");
-},
-Ignore_default : function (notBrace,) {
-enter_rule ("Ignore_default");
-    set_return (`${notBrace.rwr ().join ('')}`);
-return exit_rule ("Ignore_default");
-},
-OutputGateColor : function (_fillcolor,v,) {
-enter_rule ("OutputGateColor");
-    set_return (`${_fillcolor.rwr ()}${v.rwr ()}`);
-return exit_rule ("OutputGateColor");
-},
-OutputPortColor : function (_fillcolor,v,) {
-enter_rule ("OutputPortColor");
-    set_return (`${_fillcolor.rwr ()}${v.rwr ()}`);
-return exit_rule ("OutputPortColor");
-},
-AnyColor : function (_fillcolor,s,) {
-enter_rule ("AnyColor");
-    set_return (`${_fillcolor.rwr ()}${s.rwr ()}`);
-return exit_rule ("AnyColor");
+Part : function (lb,_kind,_part,ID,Label,Parent,BoundingBox,rb,) {
+enter_rule ("Part");
+    set_return (`\n${gather (`${ID.rwr ()}`,`part`,)} { "kind": "part",${ID.rwr ()},${Label.rwr ()}${Parent.rwr ()}${BoundingBox.rwr ()}${rb.rwr ()}`);
+return exit_rule ("Part");
 },
 ID : function (id,s,) {
 enter_rule ("ID");
-    set_return (`${id.rwr ()}${s.rwr ()}`);
+    set_return (`\n${id.rwr ()}${s.rwr ()},`);
 return exit_rule ("ID");
-},
-Name : function (name,s,) {
-enter_rule ("Name");
-    set_return (`${name.rwr ()}${s.rwr ()}`);
-return exit_rule ("Name");
 },
 Label : function (v,s,) {
 enter_rule ("Label");
-    set_return (`${v.rwr ()}${s.rwr ()}`);
+    set_return (`\n"label":${s.rwr ()},`);
 return exit_rule ("Label");
-},
-VertexTag : function (_shape,_vertex,) {
-enter_rule ("VertexTag");
-    set_return (`${_shape.rwr ()}undefined`);
-return exit_rule ("VertexTag");
-},
-ContainerTag : function (_container,_1,) {
-enter_rule ("ContainerTag");
-    set_return (`${_container.rwr ()}${_1.rwr ()}`);
-return exit_rule ("ContainerTag");
-},
-ContainerTag : function (_container,_1,) {
-enter_rule ("ContainerTag");
-    set_return (`${_container.rwr ()}${_1.rwr ()}`);
-return exit_rule ("ContainerTag");
-},
-ConnectorTag : function (_shape,_connector,) {
-enter_rule ("ConnectorTag");
-    set_return (`${_shape.rwr ()}${_connector.rwr ()}`);
-return exit_rule ("ConnectorTag");
-},
-EdgeTag : function (_edge,_1,) {
-enter_rule ("EdgeTag");
-    set_return (`${_edge.rwr ()}${_1.rwr ()}`);
-return exit_rule ("EdgeTag");
-},
-Source : function (_source,s,) {
-enter_rule ("Source");
-    set_return (`${_source.rwr ()}${s.rwr ()}`);
-return exit_rule ("Source");
-},
-Target : function (_target,s,) {
-enter_rule ("Target");
-    set_return (`${_target.rwr ()}${s.rwr ()}`);
-return exit_rule ("Target");
-},
-Geometry : function (_geometry,Ignore,) {
-enter_rule ("Geometry");
-    set_return (`${_geometry.rwr ()}${Ignore.rwr ()}`);
-return exit_rule ("Geometry");
 },
 Parent : function (_parent,s,) {
 enter_rule ("Parent");
-    set_return (`${_parent.rwr ()}${s.rwr ()}`);
+    set_return (`\n${_parent.rwr ()}${s.rwr ()},`);
 return exit_rule ("Parent");
-},
-Parent1 : function (_parent,_1,) {
-enter_rule ("Parent1");
-    set_return (`${_parent.rwr ()}${_1.rwr ()}`);
-return exit_rule ("Parent1");
-},
-Rhombus : function (_rhombus,_true,) {
-enter_rule ("Rhombus");
-    set_return (`${_rhombus.rwr ()}${_true.rwr ()}`);
-return exit_rule ("Rhombus");
 },
 BoundingBox : function (_boundingbox,lb,x,y,width,height,rb,) {
 enter_rule ("BoundingBox");
-    set_return (`${_boundingbox.rwr ()}${lb.rwr ()}${x.rwr ()}${y.rwr ()}${width.rwr ()}${height.rwr ()}${rb.rwr ()}`);
+    set_return (`${_boundingbox.rwr ()}${lb.rwr ()}${x.rwr ()},${y.rwr ()},${width.rwr ()},${height.rwr ()}${rb.rwr ()}`);
 return exit_rule ("BoundingBox");
 },
 Key : function (dq1,s,dq2,_colon,) {
 enter_rule ("Key");
-    set_return (`${dq1.rwr ()}${s.rwr ()}${dq2.rwr ()}${_colon.rwr ()}`);
+    set_return (`\n${dq1.rwr ()}${s.rwr ()}${dq2.rwr ()}${_colon.rwr ()}`);
 return exit_rule ("Key");
 },
 value : function (dq1,s,dq2,) {

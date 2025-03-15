@@ -20,7 +20,7 @@
   ‛«lb»«ID»«Label»«ContainerTag»«AnyColor»«VertexTag»«Parent1»«BoundingBox»«rb»’
 
   Wire [lb ID Label ConnectorTag EdgeTag Parent1 Source Target Geometry rb] =
-  ‛«lb»«ID»«Label»«ConnectorTag»«EdgeTag»«Parent1»«Source»«Tarvydas»«Geometry»«rb»’
+  ‛«lb»«ID»«Label»«ConnectorTag»«EdgeTag»«Parent1»«Source»«Target»«Geometry»«rb»’
 
   Ignore_rec [lb Ignore+ rb] = ‛«lb»«Ignore»«rb»’
   Ignore_default [notBrace+] = ‛«notBrace»’
@@ -32,7 +32,6 @@
   Name [name s] = ‛«name»«s»’
   Label [v s] = ‛«v»«s»’
   VertexTag [_shape _vertex] = ‛«_shape»«_color»’
-  ContainerTag [_container _1] = ‛«_container»«_1»’
   ContainerTag [_container _1] = ‛«_container»«_1»’
   ConnectorTag [_shape _connector] = ‛«_shape»«_connector»’
   EdgeTag [_edge _1] = ‛«_edge»«_1»’
