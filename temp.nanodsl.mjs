@@ -41,14 +41,16 @@ gather {
     | diagram
     | any
 
-  diagram = "diagram" ":" "{" diagramItem+ "}"
+  diagram = dq spaces "diagram" spaces dq spaces ":" spaces "{" spaces diagramItem+ "}"
   diagramItem =
     | applySyntactic<OutputGate>
     | applySyntactic<InputGate>
     | applySyntactic<OutputPort>
     | applySyntactic<InputPort>
     | applySyntactic<Part>
-    | any
+    | "{" diagramItem+ "}" -- rec
+    | "[" diagramItem+ "]" -- recsq
+    | ~"}" ~"]" any
 
     OutputGate = "{" Key<"kind"> value <"outputgate"> ID Label Parent BoundingBox "}"
     InputGate = "{" Key<"kind"> value <"inputgate"> ID Label Parent BoundingBox "}"
@@ -140,13 +142,13 @@ enter_rule ("item");
     set_return (`${x.rwr ()}`);
 return exit_rule ("item");
 },
-diagram : function (_diagram,_colon,lb,diagramItem,rb,) {
+diagram : function (dq1,ws1,_diagram,ws2,dq2,ws3,_colon,ws4,lb,ws5,diagramItem,rb,) {
 enter_rule ("diagram");
     resetDict ();
     
     set_return (`${treeWalk (`${diagramItem.rwr ().join ('')}`,)}
        "xyz diagram" : {
-         "symbolTable" : { ${fmtDict ()} },
+         "symbolTable" : ${fmtDict ()},
          ${diagramItem.rwr ().join ('')}
        }
        `);
@@ -158,34 +160,39 @@ enter_rule ("diagramItem");
     set_return (`${item.rwr ()}`);
 return exit_rule ("diagramItem");
 },
-item : function (x,) {
-enter_rule ("item");
-    set_return (`${x.rwr ()}`);
-return exit_rule ("item");
+diagramItem_rec : function (lb,item,rb,) {
+enter_rule ("diagramItem_rec");
+    set_return (`${lb.rwr ()}${item.rwr ().join ('')}${rb.rwr ()}`);
+return exit_rule ("diagramItem_rec");
+},
+diagramItem_recsq : function (lb,item,rb,) {
+enter_rule ("diagramItem_recsq");
+    set_return (`${lb.rwr ()}${item.rwr ().join ('')}${rb.rwr ()}`);
+return exit_rule ("diagramItem_recsq");
 },
 OutputGate : function (lb,_kind,_outputgate,ID,Label,Parent,BoundingBox,rb,) {
 enter_rule ("OutputGate");
-    set_return (`\n${gather (`${ID.rwr ()}`,`outputgate`,)} { "kind": "outputgate",${ID.rwr ()},${Label.rwr ()}${Parent.rwr ()}${BoundingBox.rwr ()}${rb.rwr ()}`);
+    set_return (`\n${gather (`${ID.rwr ()}`,`outputgate`,)} {"kind": "outputgate",${ID.rwr ()},${Label.rwr ()}${Parent.rwr ()}${BoundingBox.rwr ()}},`);
 return exit_rule ("OutputGate");
 },
 InputGate : function (lb,_kind,_inputgate,ID,Label,Parent,BoundingBox,rb,) {
 enter_rule ("InputGate");
-    set_return (`\n${gather (`${ID.rwr ()}`,`inputgate`,)} { "kind": "inputgate",${ID.rwr ()},${Label.rwr ()}${Parent.rwr ()}${BoundingBox.rwr ()}${rb.rwr ()}`);
+    set_return (`\n${gather (`${ID.rwr ()}`,`inputgate`,)} {"kind": "inputgate",${ID.rwr ()},${Label.rwr ()}${Parent.rwr ()}${BoundingBox.rwr ()}},`);
 return exit_rule ("InputGate");
 },
 OutputPort : function (lb,_kind,_outputport,ID,Label,Parent,BoundingBox,rb,) {
 enter_rule ("OutputPort");
-    set_return (`\n${gather (`${ID.rwr ()}`,`outputport`,)} { "kind": "outputport",${ID.rwr ()},${Label.rwr ()}${Parent.rwr ()}${BoundingBox.rwr ()}${rb.rwr ()}`);
+    set_return (`\n${gather (`${ID.rwr ()}`,`outputport`,)} {"kind": "outputport",${ID.rwr ()},${Label.rwr ()}${Parent.rwr ()}${BoundingBox.rwr ()}},`);
 return exit_rule ("OutputPort");
 },
 InputPort : function (lb,_kind,_inputport,ID,Label,Parent,BoundingBox,rb,) {
 enter_rule ("InputPort");
-    set_return (`\n${gather (`${ID.rwr ()}`,`inputport`,)} { "kind": "inputport",${ID.rwr ()},${Label.rwr ()}${Parent.rwr ()}${BoundingBox.rwr ()}${rb.rwr ()}`);
+    set_return (`\n${gather (`${ID.rwr ()}`,`inputport`,)} {"kind": "inputport",${ID.rwr ()},${Label.rwr ()}${Parent.rwr ()}${BoundingBox.rwr ()}},`);
 return exit_rule ("InputPort");
 },
 Part : function (lb,_kind,_part,ID,Label,Parent,BoundingBox,rb,) {
 enter_rule ("Part");
-    set_return (`\n${gather (`${ID.rwr ()}`,`part`,)} { "kind": "part",${ID.rwr ()},${Label.rwr ()}${Parent.rwr ()}${BoundingBox.rwr ()}${rb.rwr ()}`);
+    set_return (`\n${gather (`${ID.rwr ()}`,`part`,)} {"kind": "part",${ID.rwr ()},${Label.rwr ()}${Parent.rwr ()}${BoundingBox.rwr ()}},`);
 return exit_rule ("Part");
 },
 ID : function (id,s,) {
