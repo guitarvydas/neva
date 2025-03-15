@@ -35,33 +35,25 @@ function exit_rule (name) {
 }
 
 const grammar = String.raw`
-gather {
+direction {
   main = item+
   item =
-    | diagram
-    | any
-
-  diagram = dq spaces "diagram" spaces dq spaces ":" spaces "{" spaces diagramItem+ "}"
-  diagramItem =
-    | applySyntactic<OutputGate>
-    | applySyntactic<InputGate>
-    | applySyntactic<OutputPort>
-    | applySyntactic<InputPort>
-    | applySyntactic<Part>
-    | "{" diagramItem+ "}" -- rec
-    | "[" diagramItem+ "]" -- recsq
+    | applySyntactic<SymbolTable>
+    | applySyntactic<Wire>
+    | "{" item+ "}" -- rec
+    | "[" item+ "]" -- recsq
     | ~"}" ~"]" any
 
-    OutputGate = "{" Key<"kind"> value <"outputgate"> ID Label Parent BoundingBox "}"
-    InputGate = "{" Key<"kind"> value <"inputgate"> ID Label Parent BoundingBox "}"
-    OutputPort = "{" Key<"kind"> value <"outputport"> ID Label Parent BoundingBox "}"
-    InputPort = "{" Key<"kind"> value <"inputport"> ID Label Parent BoundingBox "}"
-    Part = "{" Key<"kind"> value <"part"> ID Label Parent BoundingBox "}"
+  SymbolTable = Key<"symbolTable"> "{" KVpair+ "}"
+  Wire = "{" ID Label Key<"kind"> value<"wire"> Parent Source Target "}"
+
+  KVpair = string ":" string
 
   ID = Key<"id"> string
   Label = Key<"label"> string
   Parent = Key<"parent"> (string | int)
-  BoundingBox = Key<"boundingbox"> "[" x y width height "]"
+  Source = Key<"source"> string
+  Target = Key<"target"> string
 
   Key<s> = dq s dq ":"
   value<s> = dq s dq
@@ -128,7 +120,6 @@ function getParameter (name) {
     return parameters [name];
 }
 
-parameters ["dict"] = [];
 
 let _rewrite = {
 
@@ -142,58 +133,35 @@ enter_rule ("item");
     set_return (`${x.rwr ()}`);
 return exit_rule ("item");
 },
-diagram : function (dq1,ws1,_diagram,ws2,dq2,ws3,_colon,ws4,lb,ws5,diagramItem,rb,) {
-enter_rule ("diagram");
-    resetDict ();
-    
-    set_return (`${treeWalk (`${diagramItem.rwr ().join ('')}`,)}
-       "xyz diagram" : {
-         "symbolTable" : ${fmtDict ()},
-         ${diagramItem.rwr ().join ('')}
-       }
-       `);
-
-return exit_rule ("diagram");
-},
-diagramItem : function (item,) {
-enter_rule ("diagramItem");
-    set_return (`${item.rwr ()}`);
-return exit_rule ("diagramItem");
-},
-diagramItem_rec : function (lb,item,rb,) {
-enter_rule ("diagramItem_rec");
+item_rec : function (lb,item,rb,) {
+enter_rule ("item_rec");
     set_return (`${lb.rwr ()}${item.rwr ().join ('')}${rb.rwr ()}`);
-return exit_rule ("diagramItem_rec");
+return exit_rule ("item_rec");
 },
-diagramItem_recsq : function (lb,item,rb,) {
-enter_rule ("diagramItem_recsq");
+item_recsq : function (lb,item,rb,) {
+enter_rule ("item_recsq");
     set_return (`${lb.rwr ()}${item.rwr ().join ('')}${rb.rwr ()}`);
-return exit_rule ("diagramItem_recsq");
+return exit_rule ("item_recsq");
 },
-OutputGate : function (lb,_kind,_outputgate,ID,Label,Parent,BoundingBox,rb,) {
-enter_rule ("OutputGate");
-    set_return (`\n${gather (`${ID.rwr ()}`,`outputgate`,)} {"kind": "outputgate",${ID.rwr ()},${Label.rwr ()}${Parent.rwr ()}${BoundingBox.rwr ()}},`);
-return exit_rule ("OutputGate");
+SymbolTable : function (_symbolTable,lb,KVpairs,rb,) {
+enter_rule ("SymbolTable");
+    set_return (`${_symbolTable.rwr ()}${lb.rwr ()}undefined${rb.rwr ()}`);
+return exit_rule ("SymbolTable");
 },
-InputGate : function (lb,_kind,_inputgate,ID,Label,Parent,BoundingBox,rb,) {
-enter_rule ("InputGate");
-    set_return (`\n${gather (`${ID.rwr ()}`,`inputgate`,)} {"kind": "inputgate",${ID.rwr ()},${Label.rwr ()}${Parent.rwr ()}${BoundingBox.rwr ()}},`);
-return exit_rule ("InputGate");
+Wire : function (lb,ID,Label,_kind,_wire,Parent,Source,Target,rb,) {
+enter_rule ("Wire");
+    set_return (`${lb.rwr ()}${ID.rwr ()}${Label.rwr ()}${_kind.rwr ()}${_wire.rwr ()}${Parent.rwr ()}${Source.rwr ()}${Target.rwr ()}${rb.rwr ()}`);
+return exit_rule ("Wire");
 },
-OutputPort : function (lb,_kind,_outputport,ID,Label,Parent,BoundingBox,rb,) {
-enter_rule ("OutputPort");
-    set_return (`\n${gather (`${ID.rwr ()}`,`outputport`,)} {"kind": "outputport",${ID.rwr ()},${Label.rwr ()}${Parent.rwr ()}${BoundingBox.rwr ()}},`);
-return exit_rule ("OutputPort");
+Source : function (k,v,) {
+enter_rule ("Source");
+    set_return (`${k.rwr ()}undefined${v.rwr ()}`);
+return exit_rule ("Source");
 },
-InputPort : function (lb,_kind,_inputport,ID,Label,Parent,BoundingBox,rb,) {
-enter_rule ("InputPort");
-    set_return (`\n${gather (`${ID.rwr ()}`,`inputport`,)} {"kind": "inputport",${ID.rwr ()},${Label.rwr ()}${Parent.rwr ()}${BoundingBox.rwr ()}},`);
-return exit_rule ("InputPort");
-},
-Part : function (lb,_kind,_part,ID,Label,Parent,BoundingBox,rb,) {
-enter_rule ("Part");
-    set_return (`\n${gather (`${ID.rwr ()}`,`part`,)} {"kind": "part",${ID.rwr ()},${Label.rwr ()}${Parent.rwr ()}${BoundingBox.rwr ()}},`);
-return exit_rule ("Part");
+Target : function (k,v,) {
+enter_rule ("Target");
+    set_return (`${k.rwr ()}undefined${v.rwr ()}`);
+return exit_rule ("Target");
 },
 ID : function (id,s,) {
 enter_rule ("ID");
@@ -209,11 +177,6 @@ Parent : function (_parent,s,) {
 enter_rule ("Parent");
     set_return (`\n${_parent.rwr ()}${s.rwr ()},`);
 return exit_rule ("Parent");
-},
-BoundingBox : function (_boundingbox,lb,x,y,width,height,rb,) {
-enter_rule ("BoundingBox");
-    set_return (`${_boundingbox.rwr ()}${lb.rwr ()}${x.rwr ()},${y.rwr ()},${width.rwr ()},${height.rwr ()}${rb.rwr ()}`);
-return exit_rule ("BoundingBox");
 },
 Key : function (dq1,s,dq2,_colon,) {
 enter_rule ("Key");

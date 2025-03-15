@@ -1,4 +1,4 @@
-gather {
+direction {
   main = item+
   item =
     | applySyntactic<SymbolTable>

@@ -1,0 +1,34 @@
+% rewrite direction {
+  main [item+] = ‛«item»’
+  item [x] = ‛«x»’
+  item_rec [lb item+ rb] = ‛«lb»«item»«rb»’
+  item_recsq [lb item+ rb] = ‛«lb»«item»«rb»’
+
+  SymbolTable [_symbolTable lb KVpairs+ rb] = ‛«_symbolTable»«lb»«KBpairs»«rb»’
+  Wire [lb ID Label _kind _wire Parent Source Target rb] = ‛«lb»«ID»«Label»«_kind»«_wire»«Parent»«Source»«Target»«rb»’
+
+  Source [k v] = ‛«k»«_colon»«v»’
+  Target [k v] = ‛«k»«_colon»«v»’
+
+  ID [id s] = ‛\n«id»«s»,’
+  Label [v s] = ‛\n"label":«s»,’
+  Parent [_parent s] = ‛\n«_parent»«s»,’
+
+  Key [dq1 s dq2 _colon] = ‛\n«dq1»«s»«dq2»«_colon»’
+  value [dq1 s dq2] = ‛«dq1»«s»«dq2»’
+
+  notBrace_rec [lb notBrace* rb] = ‛«lb»«notBrace»«rb»’
+  notBrace_default [c] = ‛«c»’
+  x [number] = ‛«number»’
+  y [number] = ‛«number»’
+  width [number] = ‛«number»’
+  height [number] = ‛«number»’
+  number [sign? int frac?] = ‛«sign»«int»«frac»’
+  int [digit+] = ‛«digit»’
+  sign [c] = ‛«c»’
+  frac [_dot digit+] = ‛«_dot»«digit»’
+  string [dq1 cs* dq2] = ‛«dq1»«cs»«dq2»’
+  dq [c] = ‛«c»’
+  space [c] = ‛«c»’
+  spaces [cs*] = ‛«cs»’
+}

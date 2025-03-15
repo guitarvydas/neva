@@ -1,5 +1,3 @@
-% parameter dict
-
 % rewrite gather {
   main [item+] = ‛«item»’
   item [x] = ‛«x»’
