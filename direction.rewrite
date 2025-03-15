@@ -4,15 +4,24 @@
   item_rec [lb item+ rb] = ‛«lb»«item»«rb»’
   item_recsq [lb item+ rb] = ‛«lb»«item»«rb»’
 
-  SymbolTable [_symbolTable lb KVpairs+ rb] = ‛«_symbolTable»«lb»«KBpairs»«rb»’
-  Wire [lb ID Label _kind _wire Parent Source Target rb] = ‛«lb»«ID»«Label»«_kind»«_wire»«Parent»«Source»«Target»«rb»’
+  SymbolTable [_symbolTable lb KVpairs+ rb] =
+    ⎡ ⎨resetDict⎬
+      ⎡ ⎨ treeWalk ‛«KVpairs»’⎬
+        ‛«_symbolTable»«lb»«KVpairs»«rb»’
+      ⎦
+    ⎦
 
-  Source [k v] = ‛«k»«_colon»«v»’
-  Target [k v] = ‛«k»«_colon»«v»’
+  Wire [lb ID Label _kind _wire Parent Source Target rb] = ‛\n«lb»«ID»,«Label»,\n"kind":"wire",⎨ makeDirection ‛«Source»’ ‛«Target»’⎬,"source":«Source»,"target":«Target»\n«rb»,’
 
-  ID [id s] = ‛\n«id»«s»,’
-  Label [v s] = ‛\n"label":«s»,’
-  Parent [_parent s] = ‛\n«_parent»«s»,’
+  KVpair [k _colon v] = ‛⎨appendDict ‛«k»’ ‛«v»’⎬’
+
+  Source [k v] = ‛«v»’
+  Target [k v] = ‛«v»’
+
+
+  ID [id s] = ‛\n«id»«s»’
+  Label [v s] = ‛\n"label":«s»’
+  Parent [_parent s] = ‛\n«_parent»«s»’
 
   Key [dq1 s dq2 _colon] = ‛\n«dq1»«s»«dq2»«_colon»’
   value [dq1 s dq2] = ‛«dq1»«s»«dq2»’

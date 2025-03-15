@@ -103,9 +103,45 @@ function gather (key, val) {
     return '';
 }
 
+function noQuotes (s) {
+    return s.replaceAll ('"', '');
+}
+
+function appendDict (key, val) {
+    let k = noQuotes (key);
+    let v = noQuotes (val);
+    dict [k] = v;
+    return '';
+}
+
 function fmtDict () {
     return JSON.stringify (dict);
 }
+
+function makeDirection (source, target) {
+    let sender = dict [noQuotes (source)];
+    let receiver = dict [noQuotes (target)];
+    if (sender === "outputport") {
+	if (receiver === "inputport") {
+	    return '"direction":"across"';
+	} else if (receiver === "outputgate") {
+	    return '"direction":"up"';
+	    } else {
+		return '"direction":"??? (A)"';
+	    }
+    } else if (sender === "inputgate") {
+	if (receiver === "inputport") {
+	    return '"direction":"down"';
+	} else if (receiver === "outputgate") {
+	    return '"direction":"through"';
+	} else {
+	    return '"direction":"??? (B)"';
+	}
+    } else {
+	return '"direction":"??? (C)"';
+    }
+}
+
 let parameters = {};
 function pushParameter (name, v) {
     if (!parameters [name]) {
@@ -145,37 +181,48 @@ return exit_rule ("item_recsq");
 },
 SymbolTable : function (_symbolTable,lb,KVpairs,rb,) {
 enter_rule ("SymbolTable");
-    set_return (`${_symbolTable.rwr ()}${lb.rwr ()}undefined${rb.rwr ()}`);
+    resetDict ();
+    
+    treeWalk (`${KVpairs.rwr ().join ('')}`,);
+    
+    set_return (`${_symbolTable.rwr ()}${lb.rwr ()}${KVpairs.rwr ().join ('')}${rb.rwr ()}`);
+
+
 return exit_rule ("SymbolTable");
 },
 Wire : function (lb,ID,Label,_kind,_wire,Parent,Source,Target,rb,) {
 enter_rule ("Wire");
-    set_return (`${lb.rwr ()}${ID.rwr ()}${Label.rwr ()}${_kind.rwr ()}${_wire.rwr ()}${Parent.rwr ()}${Source.rwr ()}${Target.rwr ()}${rb.rwr ()}`);
+    set_return (`\n${lb.rwr ()}${ID.rwr ()},${Label.rwr ()},\n"kind":"wire",${makeDirection (`${Source.rwr ()}`,`${Target.rwr ()}`,)},"source":${Source.rwr ()},"target":${Target.rwr ()}\n${rb.rwr ()},`);
 return exit_rule ("Wire");
+},
+KVpair : function (k,_colon,v,) {
+enter_rule ("KVpair");
+    set_return (`${appendDict (`${k.rwr ()}`,`${v.rwr ()}`,)}`);
+return exit_rule ("KVpair");
 },
 Source : function (k,v,) {
 enter_rule ("Source");
-    set_return (`${k.rwr ()}undefined${v.rwr ()}`);
+    set_return (`${v.rwr ()}`);
 return exit_rule ("Source");
 },
 Target : function (k,v,) {
 enter_rule ("Target");
-    set_return (`${k.rwr ()}undefined${v.rwr ()}`);
+    set_return (`${v.rwr ()}`);
 return exit_rule ("Target");
 },
 ID : function (id,s,) {
 enter_rule ("ID");
-    set_return (`\n${id.rwr ()}${s.rwr ()},`);
+    set_return (`\n${id.rwr ()}${s.rwr ()}`);
 return exit_rule ("ID");
 },
 Label : function (v,s,) {
 enter_rule ("Label");
-    set_return (`\n"label":${s.rwr ()},`);
+    set_return (`\n"label":${s.rwr ()}`);
 return exit_rule ("Label");
 },
 Parent : function (_parent,s,) {
 enter_rule ("Parent");
-    set_return (`\n${_parent.rwr ()}${s.rwr ()},`);
+    set_return (`\n${_parent.rwr ()}${s.rwr ()}`);
 return exit_rule ("Parent");
 },
 Key : function (dq1,s,dq2,_colon,) {
