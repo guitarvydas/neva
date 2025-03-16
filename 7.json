@@ -2,7 +2,7 @@
 "mxfile":{
 
 
-       "xyz diagram" : {
+       "diagram" : {
          "symbolTable" : {"-5bQla3dnRqBQKIm_dE6-1":"inputgate","-5bQla3dnRqBQKIm_dE6-2":"part","-5bQla3dnRqBQKIm_dE6-3":"inputport","-5bQla3dnRqBQKIm_dE6-4":"outputport","-5bQla3dnRqBQKIm_dE6-5":"outputport","-5bQla3dnRqBQKIm_dE6-6":"part","-5bQla3dnRqBQKIm_dE6-7":"inputport","-5bQla3dnRqBQKIm_dE6-8":"outputport","-5bQla3dnRqBQKIm_dE6-9":"outputport","-5bQla3dnRqBQKIm_dE6-10":"outputgate","-5bQla3dnRqBQKIm_dE6-11":"outputgate"},
          "name":"main",
 
@@ -16,79 +16,79 @@
  {"kind": "inputgate",
 
 "id":"-5bQla3dnRqBQKIm_dE6-1",
-"label":"gin"
+"label":"gin",
 
-"parent":1
+"parent":1,
 "boundingbox":[120,260,40,40]},
  {"kind": "part",
 
 "id":"-5bQla3dnRqBQKIm_dE6-2",
-"label":"Hello"
+"label":"Hello",
 
-"parent":1
+"parent":1,
 "boundingbox":[280,140,138,100]},
  {"kind": "inputport",
 
 "id":"-5bQla3dnRqBQKIm_dE6-3",
-"label":"pin"
+"label":"pin",
 
-"parent":"-5bQla3dnRqBQKIm_dE6-2"
+"parent":"-5bQla3dnRqBQKIm_dE6-2",
 "boundingbox":[-16.75,27.5,36.75,25]},
  {"kind": "outputport",
 
 "id":"-5bQla3dnRqBQKIm_dE6-4",
-"label":"pout"
+"label":"pout",
 
-"parent":"-5bQla3dnRqBQKIm_dE6-2"
+"parent":"-5bQla3dnRqBQKIm_dE6-2",
 "boundingbox":[120,27.5,36,25]},
  {"kind": "outputport",
 
 "id":"-5bQla3dnRqBQKIm_dE6-5",
-"label":"✗"
+"label":"✗",
 
-"parent":"-5bQla3dnRqBQKIm_dE6-2"
+"parent":"-5bQla3dnRqBQKIm_dE6-2",
 "boundingbox":[120,60,36,25]},
  {"kind": "part",
 
 "id":"-5bQla3dnRqBQKIm_dE6-6",
-"label":"World"
+"label":"World",
 
-"parent":1
+"parent":1,
 "boundingbox":[280,320,138,100]},
  {"kind": "inputport",
 
 "id":"-5bQla3dnRqBQKIm_dE6-7",
-"label":""
+"label":"",
 
-"parent":"-5bQla3dnRqBQKIm_dE6-6"
+"parent":"-5bQla3dnRqBQKIm_dE6-6",
 "boundingbox":[-16.75,27.5,36.75,25]},
  {"kind": "outputport",
 
 "id":"-5bQla3dnRqBQKIm_dE6-8",
-"label":""
+"label":"",
 
-"parent":"-5bQla3dnRqBQKIm_dE6-6"
+"parent":"-5bQla3dnRqBQKIm_dE6-6",
 "boundingbox":[120,27.5,36,25]},
  {"kind": "outputport",
 
 "id":"-5bQla3dnRqBQKIm_dE6-9",
-"label":"✗"
+"label":"✗",
 
-"parent":"-5bQla3dnRqBQKIm_dE6-6"
+"parent":"-5bQla3dnRqBQKIm_dE6-6",
 "boundingbox":[120,60,36,25]},
  {"kind": "outputgate",
 
 "id":"-5bQla3dnRqBQKIm_dE6-10",
-"label":"gout"
+"label":"gout",
 
-"parent":1
+"parent":1,
 "boundingbox":[520,260,40,40]},
  {"kind": "outputgate",
 
 "id":"-5bQla3dnRqBQKIm_dE6-11",
-"label":"✗"
+"label":"✗",
 
-"parent":1
+"parent":1,
 "boundingbox":[520,440,40,40]},{
 
 "id":"-5bQla3dnRqBQKIm_dE6-12",

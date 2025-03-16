@@ -5,7 +5,7 @@
   diagram [dq1 ws1 _diagram ws2 dq2 ws3 _colon ws4 lb ws5 diagramItem+ rb] = 
     ⎡ ⎨resetDict⎬
        ‛⎨ treeWalk ‛«diagramItem»’⎬
-       "xyz diagram" : {
+       "diagram" : {
          "symbolTable" : ⎨ fmtDict ⎬,
          «diagramItem»
        }
@@ -17,15 +17,15 @@
 
 
     OutputGate [lb _kind _outputgate ID Label Parent BoundingBox rb] = 
-      ‛\n⎨ gather ‛«ID»’ ‛outputgate’ ⎬ {"kind": "outputgate",«ID»,«Label»«Parent»«BoundingBox»},’
+      ‛\n⎨ gather ‛«ID»’ ‛outputgate’ ⎬ {"kind": "outputgate",«ID»,«Label»,«Parent»,«BoundingBox»},’
     InputGate [lb _kind _inputgate ID Label Parent BoundingBox rb] = 
-      ‛\n⎨ gather ‛«ID»’ ‛inputgate’ ⎬ {"kind": "inputgate",«ID»,«Label»«Parent»«BoundingBox»},’
+      ‛\n⎨ gather ‛«ID»’ ‛inputgate’ ⎬ {"kind": "inputgate",«ID»,«Label»,«Parent»,«BoundingBox»},’
     OutputPort [lb _kind _outputport ID Label Parent BoundingBox rb] = 
-      ‛\n⎨ gather ‛«ID»’ ‛outputport’ ⎬ {"kind": "outputport",«ID»,«Label»«Parent»«BoundingBox»},’
+      ‛\n⎨ gather ‛«ID»’ ‛outputport’ ⎬ {"kind": "outputport",«ID»,«Label»,«Parent»,«BoundingBox»},’
     InputPort [lb _kind _inputport ID Label Parent BoundingBox rb] = 
-      ‛\n⎨ gather ‛«ID»’ ‛inputport’ ⎬ {"kind": "inputport",«ID»,«Label»«Parent»«BoundingBox»},’
+      ‛\n⎨ gather ‛«ID»’ ‛inputport’ ⎬ {"kind": "inputport",«ID»,«Label»,«Parent»,«BoundingBox»},’
     Part [lb _kind _part ID Label Parent BoundingBox rb] = 
-      ‛\n⎨ gather ‛«ID»’ ‛part’ ⎬ {"kind": "part",«ID»,«Label»«Parent»«BoundingBox»},’
+      ‛\n⎨ gather ‛«ID»’ ‛part’ ⎬ {"kind": "part",«ID»,«Label»,«Parent»,«BoundingBox»},’
 
   ID [id s] = ‛\n«id»«s»’
   Label [v s] = ‛\n"label":«s»’

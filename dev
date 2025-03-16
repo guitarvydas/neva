@@ -32,5 +32,6 @@ sed -e 's/"vertex"[ ]*:[ ]*1,/"shape" : "vertex",/g' <4.json  >5.json
 ./rewrite direction.ohm direction.rewrite <7.json >8.json
 
 # examine the array 'root', keep only items that match { "kind" : ("inputgate" | "inputport" | "outputgate" | "outputport" | "part" | "wire") ... }
-./rewrite keep.ohm keep.rewrite <8.json | ./make-readable
+./rewrite keep.ohm keep.rewrite <8.json | ./make-readable >9.json
+
 

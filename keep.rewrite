@@ -4,7 +4,7 @@
   item_braces [lb ws item+ rb] = ‛«lb»«ws»«item»«rb»’
   item_square [lb ws item+ rb] = ‛«lb»«ws»«item»«rb»’
   RootArray [lb Object+ rb] = ‛«lb»«Object»«rb»’
-  Object_inputgate [lb _kind _ c Other+ rb c2] = ‛\n«lb»«_kind»«_»,«Other»«rb»,’
+  Object_inputgate [lb _kind _ c Other+ rb c2] = ‛\n«lb»«_kind»«_»«Other»«rb»,’
   Object_inputport [lb _kind _ c Other+ rb c2] = ‛\n«lb»«_kind»«_»,«Other»«rb»,’
   Object_outputgate [lb _kind _ c Other+ rb c2] = ‛\n«lb»«_kind»«_»,«Other»«rb»,’
   Object_outputport [lb _kind _ c Other+ rb c2] = ‛\n«lb»«_kind»«_»,«Other»«rb»,’
@@ -16,7 +16,7 @@
   Other_square [lb Other+ rb] = ‛«lb»«Other»«rb»,’
   Other_default [c] = ‛«c»’
 
-  Key [dq1 s dq2 _colon] = ‛\n«dq1»«s»«dq2»«_colon»’
+  Key [dq1 s dq2 _colon] = ‛«dq1»«s»«dq2»«_colon»’
   value [dq1 s dq2] = ‛«dq1»«s»«dq2»’
   dq [c] = ‛«c»’
   space [c] = ‛«c»’

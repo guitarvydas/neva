@@ -42,7 +42,7 @@ return exit_rule ("RootArray");
 },
 Object_inputgate : function (lb,_kind,_,c,Other,rb,c2,) {
 enter_rule ("Object_inputgate");
-    set_return (`\n${lb.rwr ()}${_kind.rwr ()}${_.rwr ()},${Other.rwr ().join ('')}${rb.rwr ()},`);
+    set_return (`\n${lb.rwr ()}${_kind.rwr ()}${_.rwr ()}${Other.rwr ().join ('')}${rb.rwr ()},`);
 return exit_rule ("Object_inputgate");
 },
 Object_inputport : function (lb,_kind,_,c,Other,rb,c2,) {
@@ -92,7 +92,7 @@ return exit_rule ("Other_default");
 },
 Key : function (dq1,s,dq2,_colon,) {
 enter_rule ("Key");
-    set_return (`\n${dq1.rwr ()}${s.rwr ()}${dq2.rwr ()}${_colon.rwr ()}`);
+    set_return (`${dq1.rwr ()}${s.rwr ()}${dq2.rwr ()}${_colon.rwr ()}`);
 return exit_rule ("Key");
 },
 value : function (dq1,s,dq2,) {
