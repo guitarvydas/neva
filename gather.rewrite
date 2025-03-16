@@ -27,9 +27,9 @@
     Part [lb _kind _part ID Label Parent BoundingBox rb] = 
       ‛\n⎨ gather ‛«ID»’ ‛part’ ⎬ {"kind": "part",«ID»,«Label»«Parent»«BoundingBox»},’
 
-  ID [id s] = ‛\n«id»«s»,’
-  Label [v s] = ‛\n"label":«s»,’
-  Parent [_parent s] = ‛\n«_parent»«s»,’
+  ID [id s] = ‛\n«id»«s»’
+  Label [v s] = ‛\n"label":«s»’
+  Parent [_parent s] = ‛\n«_parent»«s»’
   BoundingBox [_boundingbox lb x y width height rb] = ‛«_boundingbox»«lb»«x»,«y»,«width»,«height»«rb»’
 
   Key [dq1 s dq2 _colon] = ‛\n«dq1»«s»«dq2»«_colon»’

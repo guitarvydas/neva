@@ -13,80 +13,80 @@
 {"id" : "1", "parent" : "0", }
  {"kind": "inputgate",
 
-"id":"-5bQla3dnRqBQKIm_dE6-1",,
-"label":"gin",
+"id":"-5bQla3dnRqBQKIm_dE6-1",
+"label":"gin"
 
-"parent":1,
+"parent":1
 "boundingbox":[120,260,40,40]},
  {"kind": "part",
 
-"id":"-5bQla3dnRqBQKIm_dE6-2",,
-"label":"Hello",
+"id":"-5bQla3dnRqBQKIm_dE6-2",
+"label":"Hello"
 
-"parent":1,
+"parent":1
 "boundingbox":[280,140,138,100]},
  {"kind": "inputport",
 
-"id":"-5bQla3dnRqBQKIm_dE6-3",,
-"label":"pin",
+"id":"-5bQla3dnRqBQKIm_dE6-3",
+"label":"pin"
 
-"parent":"-5bQla3dnRqBQKIm_dE6-2",
+"parent":"-5bQla3dnRqBQKIm_dE6-2"
 "boundingbox":[-16.75,27.5,36.75,25]},
  {"kind": "outputport",
 
-"id":"-5bQla3dnRqBQKIm_dE6-4",,
-"label":"pout",
+"id":"-5bQla3dnRqBQKIm_dE6-4",
+"label":"pout"
 
-"parent":"-5bQla3dnRqBQKIm_dE6-2",
+"parent":"-5bQla3dnRqBQKIm_dE6-2"
 "boundingbox":[120,27.5,36,25]},
  {"kind": "outputport",
 
-"id":"-5bQla3dnRqBQKIm_dE6-5",,
-"label":"✗",
+"id":"-5bQla3dnRqBQKIm_dE6-5",
+"label":"✗"
 
-"parent":"-5bQla3dnRqBQKIm_dE6-2",
+"parent":"-5bQla3dnRqBQKIm_dE6-2"
 "boundingbox":[120,60,36,25]},
  {"kind": "part",
 
-"id":"-5bQla3dnRqBQKIm_dE6-6",,
-"label":"World",
+"id":"-5bQla3dnRqBQKIm_dE6-6",
+"label":"World"
 
-"parent":1,
+"parent":1
 "boundingbox":[280,320,138,100]},
  {"kind": "inputport",
 
-"id":"-5bQla3dnRqBQKIm_dE6-7",,
-"label":"",
+"id":"-5bQla3dnRqBQKIm_dE6-7",
+"label":""
 
-"parent":"-5bQla3dnRqBQKIm_dE6-6",
+"parent":"-5bQla3dnRqBQKIm_dE6-6"
 "boundingbox":[-16.75,27.5,36.75,25]},
  {"kind": "outputport",
 
-"id":"-5bQla3dnRqBQKIm_dE6-8",,
-"label":"",
+"id":"-5bQla3dnRqBQKIm_dE6-8",
+"label":""
 
-"parent":"-5bQla3dnRqBQKIm_dE6-6",
+"parent":"-5bQla3dnRqBQKIm_dE6-6"
 "boundingbox":[120,27.5,36,25]},
  {"kind": "outputport",
 
-"id":"-5bQla3dnRqBQKIm_dE6-9",,
-"label":"✗",
+"id":"-5bQla3dnRqBQKIm_dE6-9",
+"label":"✗"
 
-"parent":"-5bQla3dnRqBQKIm_dE6-6",
+"parent":"-5bQla3dnRqBQKIm_dE6-6"
 "boundingbox":[120,60,36,25]},
  {"kind": "outputgate",
 
-"id":"-5bQla3dnRqBQKIm_dE6-10",,
-"label":"gout",
+"id":"-5bQla3dnRqBQKIm_dE6-10",
+"label":"gout"
 
-"parent":1,
+"parent":1
 "boundingbox":[520,260,40,40]},
  {"kind": "outputgate",
 
-"id":"-5bQla3dnRqBQKIm_dE6-11",,
-"label":"✗",
+"id":"-5bQla3dnRqBQKIm_dE6-11",
+"label":"✗"
 
-"parent":1,
+"parent":1
 "boundingbox":[520,440,40,40]}
 {
 "kind":"wire",

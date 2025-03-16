@@ -40,39 +40,39 @@ enter_rule ("RootArray");
     set_return (`${lb.rwr ()}${Object.rwr ().join ('')}${rb.rwr ()}`);
 return exit_rule ("RootArray");
 },
-Object_inputgate : function (lb,_kind,_,Other,rb,) {
+Object_inputgate : function (lb,_kind,_,c,Other,rb,c2,) {
 enter_rule ("Object_inputgate");
-    set_return (`\n${lb.rwr ()}${_kind.rwr ()}${_.rwr ()}${Other.rwr ().join ('')}${rb.rwr ()},`);
+    set_return (`\n${lb.rwr ()}${_kind.rwr ()}${_.rwr ()},${Other.rwr ().join ('')}${rb.rwr ()},`);
 return exit_rule ("Object_inputgate");
 },
-Object_inputport : function (lb,_kind,_,Other,rb,) {
+Object_inputport : function (lb,_kind,_,c,Other,rb,c2,) {
 enter_rule ("Object_inputport");
-    set_return (`\n${lb.rwr ()}${_kind.rwr ()}${_.rwr ()}${Other.rwr ().join ('')}${rb.rwr ()},`);
+    set_return (`\n${lb.rwr ()}${_kind.rwr ()}${_.rwr ()},${Other.rwr ().join ('')}${rb.rwr ()},`);
 return exit_rule ("Object_inputport");
 },
-Object_outputgate : function (lb,_kind,_,Other,rb,) {
+Object_outputgate : function (lb,_kind,_,c,Other,rb,c2,) {
 enter_rule ("Object_outputgate");
-    set_return (`\n${lb.rwr ()}${_kind.rwr ()}${_.rwr ()}${Other.rwr ().join ('')}${rb.rwr ()},`);
+    set_return (`\n${lb.rwr ()}${_kind.rwr ()}${_.rwr ()},${Other.rwr ().join ('')}${rb.rwr ()},`);
 return exit_rule ("Object_outputgate");
 },
-Object_outputport : function (lb,_kind,_,Other,rb,) {
+Object_outputport : function (lb,_kind,_,c,Other,rb,c2,) {
 enter_rule ("Object_outputport");
-    set_return (`\n${lb.rwr ()}${_kind.rwr ()}${_.rwr ()}${Other.rwr ().join ('')}${rb.rwr ()},`);
+    set_return (`\n${lb.rwr ()}${_kind.rwr ()}${_.rwr ()},${Other.rwr ().join ('')}${rb.rwr ()},`);
 return exit_rule ("Object_outputport");
 },
-Object_part : function (lb,_kind,_,Other,rb,) {
+Object_part : function (lb,_kind,_,c,Other,rb,c2,) {
 enter_rule ("Object_part");
-    set_return (`\n${lb.rwr ()}${_kind.rwr ()}${_.rwr ()}${Other.rwr ().join ('')}${rb.rwr ()},`);
+    set_return (`\n${lb.rwr ()}${_kind.rwr ()}${_.rwr ()},${Other.rwr ().join ('')}${rb.rwr ()},`);
 return exit_rule ("Object_part");
 },
-Object_wire : function (lb,_kind,_,Other,rb,) {
+Object_wire : function (lb,_kind,_,c,Other,rb,c2,) {
 enter_rule ("Object_wire");
-    set_return (`\n${lb.rwr ()}${_kind.rwr ()}${_.rwr ()}${Other.rwr ().join ('')}${rb.rwr ()},`);
+    set_return (`\n${lb.rwr ()}${_kind.rwr ()}${_.rwr ()},${Other.rwr ().join ('')}${rb.rwr ()},`);
 return exit_rule ("Object_wire");
 },
-Object_ignore : function (lb,c,rb,) {
+Object_ignore : function (lb,c,rb,_comma,) {
 enter_rule ("Object_ignore");
-    set_return (`${lb.rwr ()}${c.rwr ().join ('')}${rb.rwr ()},`);
+    set_return (``);
 return exit_rule ("Object_ignore");
 },
 Other_braces : function (lb,Other,rb,) {
