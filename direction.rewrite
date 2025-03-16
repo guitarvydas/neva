@@ -7,11 +7,11 @@
   SymbolTable [_symbolTable lb KVpairs+ rb] =
     ⎡ ⎨resetDict⎬
       ⎡ ⎨ treeWalk ‛«KVpairs»’⎬
-        ‛«_symbolTable»«lb»«KVpairs»«rb»’
+        ‛’
       ⎦
     ⎦
 
-  Wire [lb ID Label _kind _wire Parent Source Target rb] = ‛\n«lb»«ID»,«Label»,\n"kind":"wire",⎨ makeDirection ‛«Source»’ ‛«Target»’⎬,"source":«Source»,"target":«Target»\n«rb»,’
+  Wire [lb ID Label _kind _wire Parent Source Target rb] = ‛\n«lb»\n"kind":"wire",«ID»,«Label»,⎨ makeDirection ‛«Source»’ ‛«Target»’⎬,"source":«Source»,"target":«Target»\n«rb»,’
 
   KVpair [k _colon v] = ‛⎨appendDict ‛«k»’ ‛«v»’⎬’
 

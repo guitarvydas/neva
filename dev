@@ -29,5 +29,8 @@ sed -e 's/"vertex"[ ]*:[ ]*1,/"shape" : "vertex",/g' <4.json  >5.json
 ./rewrite gather.ohm gather.rewrite <6.json >7.json
 
 # rewrite every connection adding directions, based on info in symbol table
-./rewrite direction.ohm direction.rewrite <7.json | ./make-readable >8.json
+./rewrite direction.ohm direction.rewrite <7.json >8.json
+
+# examine the array 'root', keep only items that match { "kind" : ("inputgate" | "inputport" | "outputgate" | "outputport" | "part" | "wire") ... }
+./rewrite keep.ohm keep.rewrite <8.json | ./make-readable
 

@@ -1,0 +1,27 @@
+keep {
+  main = item+
+  item =
+    | applySyntactic<RootArray>
+    | "{" spaces item+ "}" -- braces
+    | "[" spaces item+ "]" -- square
+    | ~"{" ~"}" ~"[" ~"]" any
+  RootArray = "[" Object+ "]"
+  Object =
+    | "{" Key<"kind"> value<"inputgate"> Other+ "}" -- inputgate
+    | "{" Key<"kind"> value<"inputport"> Other+ "}" -- inputport
+    | "{" Key<"kind"> value<"outputgate"> Other+ "}" -- outputgate
+    | "{" Key<"kind"> value<"outputport"> Other+ "}" -- outputport
+    | "{" Key<"kind"> value<"part"> Other+ "}" -- part
+    | "{" Key<"kind"> value<"wire"> Other+ "}" -- wire
+    | "{" Other+ "}" -- ignore
+
+  Other =
+    | "{" Other+ "}" -- braces
+    | "[" Other+ "]" -- square
+    | ~"{" ~"}" ~"[" ~"]" any -- default
+
+  Key<s> = dq s dq ":"
+  value<s> = dq s dq
+  dq = "\""
+  space += ","
+}

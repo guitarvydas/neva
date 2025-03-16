@@ -1,0 +1,24 @@
+"mxfile":{
+       "xyz diagram" : {"name":"main",
+"id":"ZAlmdrRH_l2KzV7yHv0Q",
+"graphmodel":{
+"root":[{",i,d,",:,",0,"}{",i,d,",:,",1,",",p,a,r,e,n,t,",:,",0,"}{
+"kind":"inputgate""id":"-5bQla3dnRqBQKIm_dE6-1""label":"gin""parent":1"boundingbox":[1202604040]}{
+"kind":"part""id":"-5bQla3dnRqBQKIm_dE6-2""label":"Hello""parent":1"boundingbox":[280140138100]}{
+"kind":"inputport""id":"-5bQla3dnRqBQKIm_dE6-3""label":"pin""parent":"-5bQla3dnRqBQKIm_dE6-2""boundingbox":[-16.7527.536.7525]}{
+"kind":"outputport""id":"-5bQla3dnRqBQKIm_dE6-4""label":"pout""parent":"-5bQla3dnRqBQKIm_dE6-2""boundingbox":[12027.53625]}{
+"kind":"outputport""id":"-5bQla3dnRqBQKIm_dE6-5""label":"✗""parent":"-5bQla3dnRqBQKIm_dE6-2""boundingbox":[120603625]}{
+"kind":"part""id":"-5bQla3dnRqBQKIm_dE6-6""label":"World""parent":1"boundingbox":[280320138100]}{
+"kind":"inputport""id":"-5bQla3dnRqBQKIm_dE6-7""label":"""parent":"-5bQla3dnRqBQKIm_dE6-6""boundingbox":[-16.7527.536.7525]}{
+"kind":"outputport""id":"-5bQla3dnRqBQKIm_dE6-8""label":"""parent":"-5bQla3dnRqBQKIm_dE6-6""boundingbox":[12027.53625]}{
+"kind":"outputport""id":"-5bQla3dnRqBQKIm_dE6-9""label":"✗""parent":"-5bQla3dnRqBQKIm_dE6-6""boundingbox":[120603625]}{
+"kind":"outputgate""id":"-5bQla3dnRqBQKIm_dE6-10""label":"gout""parent":1"boundingbox":[5202604040]}{
+"kind":"outputgate""id":"-5bQla3dnRqBQKIm_dE6-11""label":"✗""parent":1"boundingbox":[5204404040]}{
+"kind":"wire""id":"-5bQla3dnRqBQKIm_dE6-12""label":"""direction":"down""source":"-5bQla3dnRqBQKIm_dE6-1""target":"-5bQla3dnRqBQKIm_dE6-3"}{
+"kind":"wire""id":"-5bQla3dnRqBQKIm_dE6-13""label":"""direction":"down""source":"-5bQla3dnRqBQKIm_dE6-1""target":"-5bQla3dnRqBQKIm_dE6-7"}{
+"kind":"wire""id":"-5bQla3dnRqBQKIm_dE6-14""label":"""direction":"up""source":"-5bQla3dnRqBQKIm_dE6-4""target":"-5bQla3dnRqBQKIm_dE6-10"}{
+"kind":"wire""id":"-5bQla3dnRqBQKIm_dE6-15""label":"""direction":"up""source":"-5bQla3dnRqBQKIm_dE6-8""target":"-5bQla3dnRqBQKIm_dE6-10"}{
+"kind":"wire""id":"-5bQla3dnRqBQKIm_dE6-16""label":"""direction":"up""source":"-5bQla3dnRqBQKIm_dE6-5""target":"-5bQla3dnRqBQKIm_dE6-11"}{
+"kind":"wire""id":"-5bQla3dnRqBQKIm_dE6-17""label":"""direction":"up""source":"-5bQla3dnRqBQKIm_dE6-9""target":"-5bQla3dnRqBQKIm_dE6-11"}{",i,d,",:,",-,5,b,Q,l,a,3,d,n,R,q,B,Q,K,I,m,_,d,E,6,-,1,8,",",v,a,l,u,e,",:,",H,e,l,l,o,s,e,n,d,s,t,h,e,s,t,r,i,n,g,&,q,u,o,t,;,H,e,l,l,o,&,q,u,o,t,;,w,h,e,n,i,t,r,e,c,e,i,v,e,s,a,n,y,i,n,p,u,t,&,l,t,;,d,i,v,&,g,t,;,&,l,t,;,b,r,&,g,t,;,&,l,t,;,/,d,i,v,&,g,t,;,&,l,t,;,d,i,v,&,g,t,;,L,i,k,e,w,i,s,e,W,o,r,l,d,s,e,n,d,s,&,q,u,o,t,;,W,o,r,l,d,&,q,u,o,t,;,&,l,t,;,/,d,i,v,&,g,t,;,",",s,h,a,p,e,",:,",n,o,t,e,",",f,i,l,l,C,o,l,o,r,",:,",#,F,F,F,9,B,2,",",s,h,a,p,e,",:,",v,e,r,t,e,x,",",p,a,r,e,n,t,",:,1,",b,o,u,n,d,i,n,g,b,o,x,",:,[296470122110]}{",i,d,",:,",-,5,b,Q,l,a,3,d,n,R,q,B,Q,K,I,m,_,d,E,6,-,1,9,",",v,a,l,u,e,",:,",T,h,e,o,u,t,p,u,t,o,f,t,h,e,s,y,s,t,e,m,i,s,&,q,u,o,t,;,H,e,l,l,o,W,o,r,l,d,&,q,u,o,t,;,o,r,&,q,u,o,t,;,W,o,r,l,d,H,e,l,l,o,&,q,u,o,t,;,",",s,h,a,p,e,",:,",n,o,t,e,",",f,i,l,l,C,o,l,o,r,",:,",#,F,F,F,9,B,2,",",s,h,a,p,e,",:,",v,e,r,t,e,x,",",p,a,r,e,n,t,",:,1,",b,o,u,n,d,i,n,g,b,o,x,",:,[60025012270]}]}
+       }
+       }

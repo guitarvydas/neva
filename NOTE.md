@@ -1,0 +1,6 @@
+"kind": "inputgate"
+"kind": "inputport"
+"kind": "outputgate"
+"kind": "outputport"
+"kind": "part"
+"kind": "wire"
